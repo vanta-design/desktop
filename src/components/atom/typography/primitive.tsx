@@ -9,7 +9,7 @@ export interface _PrimitiveProps extends TypographyPropsBase {
   color?: string;
 }
 
-export function _Primitive(props: _PrimitiveProps) {
+export function _PrimitiveTypography(props: _PrimitiveProps) {
   const {
     as = 'span',
     weight = 'regular',

@@ -1,3 +1,4 @@
+import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import '@/styles/reset.css';
 import '@/styles/token.css';
 import '@/styles/theme.css';

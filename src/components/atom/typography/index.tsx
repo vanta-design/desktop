@@ -1,30 +1,24 @@
-import { cn } from '@/utils/common';
-import { _Primitive, type _PrimitiveProps } from './primitive';
+import { withDefaultClassNames } from '@/utils/component';
+import { _PrimitiveTypography } from './primitive';
 import paragraph from './styles/paragraph.css';
 import typography from './styles/typography.css';
 
-function typographyBuilder(...classNames: Array<string>) {
-  return (props: _PrimitiveProps) => (
-    <_Primitive {...props} className={cn(classNames, props.className)} />
-  );
-}
-
 const Typography = {
-  Display: typographyBuilder(typography.display),
-  Headline: typographyBuilder(typography.headline),
-  Title: typographyBuilder(typography.title),
-  Lead: typographyBuilder(typography.lead),
-  Body: typographyBuilder(typography.body),
-  Caption: typographyBuilder(typography.caption),
-  Footnote: typographyBuilder(typography.footnote),
-  Fine: typographyBuilder(typography.fine),
+  Display: withDefaultClassNames(_PrimitiveTypography, typography.display),
+  Headline: withDefaultClassNames(_PrimitiveTypography, typography.headline),
+  Title: withDefaultClassNames(_PrimitiveTypography, typography.title),
+  Lead: withDefaultClassNames(_PrimitiveTypography, typography.lead),
+  Body: withDefaultClassNames(_PrimitiveTypography, typography.body),
+  Caption: withDefaultClassNames(_PrimitiveTypography, typography.caption),
+  Footnote: withDefaultClassNames(_PrimitiveTypography, typography.footnote),
+  Fine: withDefaultClassNames(_PrimitiveTypography, typography.fine),
 };
 
 const Paragraph = {
-  Body: typographyBuilder(paragraph.body),
-  Caption: typographyBuilder(paragraph.caption),
-  Footnote: typographyBuilder(paragraph.footnote),
-  Fine: typographyBuilder(paragraph.fine),
+  Body: withDefaultClassNames(_PrimitiveTypography, paragraph.body),
+  Caption: withDefaultClassNames(_PrimitiveTypography, paragraph.caption),
+  Footnote: withDefaultClassNames(_PrimitiveTypography, paragraph.footnote),
+  Fine: withDefaultClassNames(_PrimitiveTypography, paragraph.fine),
 };
 
 export { Typography, Typography as Typo, Paragraph };

@@ -3,6 +3,7 @@ import { Typo } from '@/components/atom/typography';
 import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
 import { text } from '@/tokens/color.css';
+import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 
 const meta: Meta = {
   title: 'Atom/Typography',
