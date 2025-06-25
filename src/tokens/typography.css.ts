@@ -32,8 +32,18 @@ export const typography = createGlobalThemeContract(
       fine: 'line-height-fine',
       fineParagraph: 'line-height-fine-paragraph',
     },
+    letterSpacing: {
+      display: 'letter-spacing-display',
+      headline: 'letter-spacing-headline',
+      title: 'letter-spacing-title',
+      lead: 'letter-spacing-lead',
+      body: 'letter-spacing-body',
+      caption: 'letter-spacing-caption',
+      footnote: 'letter-spacing-footnote',
+      fine: 'letter-spacing-fine',
+    },
   },
   (value) => `typography-${value}`,
 );
 
-export const { weight, size, lineHeight } = typography;
+export const { weight, size, lineHeight, letterSpacing } = typography;
