@@ -1,4 +1,4 @@
-import { fill, text } from '@/tokens/color.css';
+import { fill, line, text } from '@/tokens/color.css';
 import { resetGlobalStyle } from './layer.css';
 import { wantedSansVariable } from './typography.css';
 
@@ -23,7 +23,12 @@ resetGlobalStyle('*', {
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 });
 
-resetGlobalStyle('*:focus', { outline: 'none' });
+resetGlobalStyle('*:focus', {
+  outlineColor: line.outline,
+  outlineStyle: 'solid',
+  outlineOffset: 2,
+  outlineWidth: 2,
+});
 
 resetGlobalStyle('a', {
   width: '100%',
