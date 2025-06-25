@@ -3,7 +3,7 @@ import { padding } from '@/tokens/layout.css';
 import { cn } from '@/utils/common';
 import { container } from './styles.css';
 
-type Padding = 'wide' | 'regular' | 'narrow';
+type Padding = 'wide' | 'regular' | 'narrow' | 'none';
 
 interface ContainerProps extends HTMLAttributes<HTMLElement> {
   as?: keyof JSX.IntrinsicElements;
@@ -27,7 +27,7 @@ export function Container(props: ContainerProps) {
     ...restProps,
     className: cn(classNames),
     style: {
-      padding: `${padding[vertical]} ${padding[horizontal]}`,
+      padding: `${vertical !== 'none' ? padding[vertical] : 0} ${horizontal !== 'none' ? padding[horizontal] : 0}`,
       ...style,
     },
   });

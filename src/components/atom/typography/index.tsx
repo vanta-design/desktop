@@ -11,8 +11,9 @@ function typographyBuilder(...classNames: Array<string>) {
 
 const Typography = {
   Display: typographyBuilder(typography.display),
-  Title: typographyBuilder(typography.title),
   Headline: typographyBuilder(typography.headline),
+  Title: typographyBuilder(typography.title),
+  Lead: typographyBuilder(typography.lead),
   Body: typographyBuilder(typography.body),
   Caption: typographyBuilder(typography.caption),
   Footnote: typographyBuilder(typography.footnote),
