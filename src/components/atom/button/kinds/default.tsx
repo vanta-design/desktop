@@ -14,8 +14,14 @@ const iconSizeMap = {
 
 const typoMap = {
   large: Typo.Body,
-  medium: Typo.Body,
-  small: Typo.Body,
+  medium: Typo.Caption,
+  small: Typo.Footnote,
+};
+
+const gapMap = {
+  large: spacing[8],
+  medium: spacing[6],
+  small: spacing[4],
 };
 
 export interface _DefaultButtonProps extends ButtonPropsBase, PropsWithIcons {}
@@ -34,7 +40,7 @@ export function _DefaultButton(props: _DefaultButtonProps) {
 
   return (
     <_PrimitiveButton size={size} {...restProps}>
-      <Row className={content} as='span' align='center' gap={spacing[8]}>
+      <Row className={content} as='span' align='center' gap={gapMap[size]}>
         {LeadingIcon && <LeadingIcon size={iconSizeMap[size]} />}
         <Typo weight={weight}>{children}</Typo>
         {TrailingIcon && <TrailingIcon size={iconSizeMap[size]} />}
