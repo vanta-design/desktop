@@ -6,22 +6,38 @@ import { _PrimitiveButton } from '../primitive';
 import type { ButtonPropsBase } from '../shared';
 import { content } from '../styles/button.css';
 
+const iconSizeMap = {
+  large: 18,
+  medium: 16,
+  small: 14,
+};
+
+const typoMap = {
+  large: Typo.Body,
+  medium: Typo.Body,
+  small: Typo.Body,
+};
+
 export interface _DefaultButtonProps extends ButtonPropsBase, PropsWithIcons {}
 
 export function _DefaultButton(props: _DefaultButtonProps) {
   const {
+    size = 'large',
     leadingIcon: LeadingIcon,
     trailingIcon: TrailingIcon,
     children,
     ...restProps
   } = props;
 
+  const Typo = typoMap[size];
+  const weight = size === 'large' ? 'strong' : 'regular';
+
   return (
-    <_PrimitiveButton {...restProps}>
+    <_PrimitiveButton size={size} {...restProps}>
       <Row className={content} as='span' align='center' gap={spacing[8]}>
-        {LeadingIcon && <LeadingIcon size={18} />}
-        <Typo.Body weight='strong'>{children}</Typo.Body>
-        {TrailingIcon && <TrailingIcon size={18} />}
+        {LeadingIcon && <LeadingIcon size={iconSizeMap[size]} />}
+        <Typo weight={weight}>{children}</Typo>
+        {TrailingIcon && <TrailingIcon size={iconSizeMap[size]} />}
       </Row>
     </_PrimitiveButton>
   );

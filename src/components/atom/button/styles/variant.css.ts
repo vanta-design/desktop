@@ -11,7 +11,7 @@ export default {
     backgroundColor: fill.secondary,
     color: text.accent,
   }),
-  text: style({
+  bare: style({
     backgroundColor: primitive.transparent,
     color: text.accent,
   }),
