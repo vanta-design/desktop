@@ -13,10 +13,11 @@ export function _DefaultButton(props: _DefaultButtonProps) {
     leadingIcon: LeadingIcon,
     trailingIcon: TrailingIcon,
     children,
+    ...restProps
   } = props;
 
   return (
-    <_PrimitiveButton>
+    <_PrimitiveButton {...restProps}>
       <Row className={content} as='span' align='center' gap={spacing[8]}>
         {LeadingIcon && <LeadingIcon size={18} />}
         <Typo.Body weight='strong'>{children}</Typo.Body>

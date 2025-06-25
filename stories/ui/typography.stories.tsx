@@ -81,7 +81,9 @@ function Section(props: { label: string } & BaseProps<HAS_CHILDREN>) {
           {label}
         </Typo.Title>
       </Container>
-      <Column gap={12}>{children}</Column>
+      <Column gap={12} align='center'>
+        {children}
+      </Column>
     </Container>
   );
 }
