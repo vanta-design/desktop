@@ -1,4 +1,5 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
+import { typography } from '@/tokens/typography.css';
 import { attribute } from '../tokens/attribute.css';
 import { layout } from '../tokens/layout.css';
 import { primitive } from '../tokens/primitive.css';
@@ -128,5 +129,48 @@ createGlobalTheme(':root', layout, {
     wide: attribute.spacing[20],
     regular: attribute.spacing[12],
     narrow: attribute.spacing[6],
+  },
+});
+
+createGlobalTheme(':root', typography, {
+  weight: {
+    bold: '700',
+    strong: '600',
+    regular: '450',
+    light: '370',
+  },
+  size: {
+    display: '36px',
+    headline: '24px',
+    title: '20px',
+    lead: '18px',
+    body: '16px',
+    caption: '14px',
+    footnote: '12px',
+    fine: '10px',
+  },
+  lineHeight: {
+    display: '45px',
+    headline: '31px',
+    title: '28px',
+    lead: '27px',
+    body: '24px',
+    bodyParagraph: '28px',
+    caption: '21px',
+    captionParagraph: '26px',
+    footnote: '18px',
+    footnoteParagraph: '22px',
+    fine: '14px',
+    fineParagraph: '18px',
+  },
+  letterSpacing: {
+    display: '-1.35px',
+    headline: '-0.9px',
+    title: '-0.75px',
+    lead: '-0.675px',
+    body: '-0.6px',
+    caption: '-0.525px',
+    footnote: '-0.45px',
+    fine: '-0.375px',
   },
 });

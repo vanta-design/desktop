@@ -28,6 +28,7 @@ export function _Primitive(props: _PrimitiveProps) {
 
   return createElement(as, {
     ...restProps,
+    children,
     className: cn(classNames),
     style: { color, ...style },
   });

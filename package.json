@@ -40,6 +40,7 @@
     "@storybook/react-vite": "^9.0.13",
     "@types/bun": "latest",
     "@types/react": "^19.1.8",
+    "@vanilla-extract/vite-plugin": "^5.0.7",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0"
   },
