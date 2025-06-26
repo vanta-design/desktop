@@ -10,6 +10,7 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
     "commit": "bun run check && bun run format && git add . && cz",
     "format": "biome check --fix",
     "check": "tsc --noEmit"
