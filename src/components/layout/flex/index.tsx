@@ -3,7 +3,7 @@ import { cn } from '@/utils/common';
 import type { FlexProps } from './shared';
 import alignMap from './styles/align.css';
 import directionMap from './styles/direction.css';
-import { flex, noGrow, noShrink } from './styles/flex.css';
+import { flex, inlineFlex, noGrow, noShrink } from './styles/flex.css';
 import justifyMap from './styles/justify.css';
 import wrapMap from './styles/wrap.css';
 
@@ -16,6 +16,7 @@ export function Flex(props: FlexProps) {
     justify = 'center',
     grow = true,
     shrink = true,
+    inline = false,
     gap,
     className,
     style,
@@ -23,7 +24,7 @@ export function Flex(props: FlexProps) {
   } = props;
 
   const classNames = [
-    flex,
+    inline ? inlineFlex : flex,
     directionMap[direction],
     alignMap[align],
     justifyMap[justify],

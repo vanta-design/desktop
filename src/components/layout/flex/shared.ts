@@ -19,6 +19,7 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
   justify?: JustifyContent;
   grow?: boolean;
   shrink?: boolean;
+  inline?: boolean;
   gap?: string | number;
   ref?: Ref<HTMLElement>;
 }
