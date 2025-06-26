@@ -11,8 +11,6 @@ const meta: Meta = {
 
 export default meta;
 
-type ButtonStory = StoryObj;
-
 const defaultButtonArgs = {
   children: '버튼',
   leadingIcon: SquareDashed,
@@ -23,7 +21,7 @@ const defaultIconButtonArgs = {
   icon: SquareDashed,
 };
 
-export const Showcase: ButtonStory = {
+export const Showcase: StoryObj = {
   render: () => (
     <>
       <Section>

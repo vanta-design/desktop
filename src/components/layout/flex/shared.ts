@@ -1,4 +1,4 @@
-import type { HTMLAttributes, JSX } from 'react';
+import type { HTMLAttributes, JSX, Ref } from 'react';
 
 type AlignItems = 'start' | 'center' | 'end' | 'stretch';
 type JustifyContent =
@@ -20,4 +20,5 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
   grow?: boolean;
   shrink?: boolean;
   gap?: string | number;
+  ref?: Ref<HTMLElement>;
 }

@@ -23,7 +23,7 @@ resetGlobalStyle('*', {
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 });
 
-resetGlobalStyle('*:focus', {
+resetGlobalStyle('*:focus-visible', {
   outlineColor: line.outline,
   outlineStyle: 'solid',
   outlineOffset: 2,
