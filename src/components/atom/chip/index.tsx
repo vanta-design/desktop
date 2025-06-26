@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 import { Row } from '@/components/layout/row';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
+import { Icon } from '../icon';
 import { Typo } from '../typography';
 import { useChipGroupContext } from './context';
 import { _ChipGroup } from './group';
@@ -14,7 +15,7 @@ interface ChipProps extends BaseProps<HAS_CHILDREN> {
 }
 
 export function Chip(props: ChipProps) {
-  const { value, leadingIcon: LeadingIcon, className, children } = props;
+  const { value, leadingIcon, className, children } = props;
 
   const { currentValue, setCurrentValue, onActive } = useChipGroupContext();
 
@@ -33,7 +34,7 @@ export function Chip(props: ChipProps) {
 
   return (
     <Row as='button' className={cn(classNames)} onClick={onClick}>
-      {LeadingIcon && <LeadingIcon size={14} />}
+      <Icon icon={leadingIcon} size={14} />
       <Typo.Caption>{children}</Typo.Caption>
     </Row>
   );

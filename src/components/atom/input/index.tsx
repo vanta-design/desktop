@@ -11,6 +11,7 @@ import { Row } from '@/components/layout/row';
 import { spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
 import { cn } from '@/utils/common';
+import { Icon } from '../icon';
 import {
   content,
   disabledStyle,
@@ -30,7 +31,7 @@ export function Input(props: InputProps) {
   const {
     type,
     disabled,
-    icon: Icon,
+    icon,
     secure = type === 'password',
     style,
     value: propValue,
@@ -96,12 +97,11 @@ export function Input(props: InputProps) {
       onBlur={() => setIsFocused(false)}
     >
       <Row className={content} gap={spacing[8]} align='center' justify='start'>
-        {Icon && (
-          <Icon
-            size={18}
-            color={isFocused || value.length > 0 ? text.primary : text.tertiary}
-          />
-        )}
+        <Icon
+          icon={icon}
+          size={18}
+          color={isFocused || value.length > 0 ? text.primary : text.tertiary}
+        />
         <input
           {...restProps}
           ref={inputRef}

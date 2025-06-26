@@ -4,6 +4,7 @@ import { spacing } from '@/tokens/attribute.css';
 import type { Semantic } from '@/types/color';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
+import { Icon } from '../icon';
 import { Typo } from '../typography';
 import semanticMap from './styles/semantic.css';
 import sizeMap from './styles/size.css';
@@ -32,7 +33,7 @@ interface _PrimitiveBadgeProps extends BaseProps<HAS_CHILDREN> {
 }
 
 export function _PrimitiveBadge(props: _PrimitiveBadgeProps) {
-  const { size, semantic = 'neutral', icon: Icon, className, children } = props;
+  const { size, semantic = 'neutral', icon, className, children } = props;
   const Typo = TypoMap[size];
 
   const classNames = [sizeMap[size], semanticMap[semantic], className];
@@ -45,7 +46,7 @@ export function _PrimitiveBadge(props: _PrimitiveBadgeProps) {
       gap={gapMap[size]}
       align='center'
     >
-      {Icon && <Icon size={iconSizeMap[size]} />}
+      <Icon icon={icon} size={iconSizeMap[size]} />
       <Typo>{children}</Typo>
     </Row>
   );

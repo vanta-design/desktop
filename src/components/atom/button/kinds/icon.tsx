@@ -1,5 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/utils/common';
+import { Icon } from '../../icon';
 import { _PrimitiveButton } from '../primitive';
 import type { ButtonPropsBase } from '../shared';
 import { iconButton } from '../styles/button.css';
@@ -10,7 +11,7 @@ export interface _IconButtonProps extends ButtonPropsBase {
 }
 
 export function _IconButton(props: _IconButtonProps) {
-  const { size = 'large', icon: Icon, className, ...restProps } = props;
+  const { size = 'large', icon, className, ...restProps } = props;
 
   return (
     <_PrimitiveButton
@@ -18,7 +19,7 @@ export function _IconButton(props: _IconButtonProps) {
       className={cn(iconButton, className)}
       {...restProps}
     >
-      <Icon className={iconSizeMap[size]} />
+      <Icon className={iconSizeMap[size]} icon={icon} />
     </_PrimitiveButton>
   );
 }
