@@ -30,8 +30,6 @@ export function _Checkbox(props: _CheckboxProps) {
     status === 'checked' ? Check : status === 'indeterminate' ? Minus : null;
 
   const onClick = useCallback(() => {
-    if (!inputRef.current) return;
-
     if (status === 'checked') {
       setStatus('none');
     } else {

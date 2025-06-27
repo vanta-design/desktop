@@ -10,3 +10,7 @@ export default meta;
 export const Checkbox: StoryObj = {
   render: () => <Control.Checkbox />,
 };
+
+export const Switch: StoryObj = {
+  render: () => <Control.Switch />,
+};
