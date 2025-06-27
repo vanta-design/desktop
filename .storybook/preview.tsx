@@ -3,7 +3,7 @@ import { VantaProvider } from '../src/providers/vanta-root';
 
 export const decorators: Array<Decorator> = [
   (Story, context) => {
-    const theme = context.globals.theme || 'light';
+    const theme = context.globals.theme || 'dark';
 
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.setAttribute('data-accent', 'monochrome');
