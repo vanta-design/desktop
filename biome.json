@@ -18,6 +18,10 @@
       "recommended": true,
       "correctness": {
         "noUnusedImports": "error"
+      },
+      "a11y": {
+        "noStaticElementInteractions": "off",
+        "useSemanticElements": "off"
       }
     }
   },
