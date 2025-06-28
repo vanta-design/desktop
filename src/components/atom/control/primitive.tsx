@@ -5,12 +5,14 @@ import {
   type ReactNode,
   type RefObject,
   useCallback,
+  useContext,
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react';
 import { Row } from '@/components/layout/row';
+import { ControlGroupContext } from '@/components/molecule/control-group/context';
 import { spacing } from '@/tokens/attribute.css';
 import { Label } from '../label';
 import { type ControlStatus, getAriaChecked } from './shared';
@@ -24,34 +26,36 @@ type ChildrenArgs = {
 
 interface _PrimitiveControlProps {
   role: 'checkbox' | 'radio';
+  value?: string;
   status?: ControlStatus;
   defaultStatus?: ControlStatus;
   label?: ReactNode;
   children: (args: ChildrenArgs) => ReactNode;
-  onClick?: (status: ControlStatus) => ControlStatus;
 }
 
 export function _PrimitiveControl(props: _PrimitiveControlProps) {
   const {
     role,
+    value,
     status: propStatus,
     defaultStatus,
     label,
     children,
-    onClick: propOnClick,
   } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
   const controlId = useId();
   const [status, setStatus] = useState(propStatus || defaultStatus || 'none');
+  const { name } = useContext(ControlGroupContext);
+
+  const updateStatus = useCallback(() => {
+    setStatus(inputRef.current?.checked ? 'checked' : 'none');
+  }, []);
 
   const onClick = useCallback(() => {
-    if (propOnClick) {
-      setStatus(propOnClick(status));
-    } else {
-      setStatus(status === 'checked' ? 'none' : 'checked');
-    }
-  }, [status, propOnClick]);
+    inputRef.current?.click();
+    updateStatus();
+  }, [updateStatus]);
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -64,10 +68,8 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
   );
 
   useEffect(() => {
-    if (propStatus !== undefined) {
-      setStatus(propStatus);
-    }
-  }, [propStatus]);
+    updateStatus();
+  }, [updateStatus]);
 
   return (
     <Row gap={spacing[6]} align='center' justify='start'>
@@ -84,11 +86,12 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
           id={controlId}
           ref={inputRef}
           type={role}
-          checked={status === 'checked'}
+          name={name}
+          value={value}
           aria-hidden
           hidden
           tabIndex={-1}
-          onChange={() => {}}
+          onChange={updateStatus}
         />
       </div>
       {label && <Label htmlFor={controlId}>{label}</Label>}

@@ -1,30 +1,47 @@
-import type { PropsWithChildren } from 'react';
-import { cn } from '@/utils/common';
-import { _PrimitiveControl } from '../primitive';
-import type { ControlStatus } from '../shared';
-import { activeStyle, box } from '../styles/radio.css';
+import {
+  type PropsWithChildren,
+  useCallback,
+  useContext,
+  useId,
+  useRef,
+} from 'react';
+import { Row } from '@/components/layout/row';
+import { ControlGroupContext } from '@/components/molecule/control-group/context';
+import { spacing } from '@/tokens/attribute.css';
+import { Label } from '../../label';
+import { boundingBox } from '../styles/primitive.css';
+import { radio } from '../styles/radio.css';
 
 interface _RadioProps extends PropsWithChildren {
-  active?: boolean;
+  value?: string;
   defaultActive?: boolean;
 }
 
 export function _Radio(props: _RadioProps) {
-  const { active, defaultActive, children } = props;
+  const { value, defaultActive, children } = props;
 
-  const status: ControlStatus = active ? 'checked' : 'none';
-  const defaultStatus: ControlStatus = defaultActive ? 'checked' : 'none';
+  const inputRef = useRef<HTMLInputElement>(null);
+  const controlId = useId();
+  const { name } = useContext(ControlGroupContext);
+
+  const onClick = useCallback(() => {
+    inputRef.current?.click();
+  }, []);
 
   return (
-    <_PrimitiveControl
-      role='radio'
-      label={children}
-      status={status}
-      defaultStatus={defaultStatus}
-    >
-      {({ status }) => (
-        <span className={cn(box, status === 'checked' && activeStyle)} />
-      )}
-    </_PrimitiveControl>
+    <Row gap={spacing[6]} align='center' justify='start' onClick={onClick}>
+      <div className={boundingBox}>
+        <input
+          type='radio'
+          id={controlId}
+          className={radio}
+          ref={inputRef}
+          name={name}
+          value={value}
+          defaultChecked={defaultActive}
+        />
+      </div>
+      {children && <Label htmlFor={controlId}>{children}</Label>}
+    </Row>
   );
 }
