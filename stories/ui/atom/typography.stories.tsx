@@ -6,7 +6,7 @@ import { text } from '@/tokens/color.css';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 
 const meta: Meta = {
-  title: 'Atom/Typography',
+  title: 'UI/Atom/Typography',
   args: {
     children: '백합꽃이 피어도 밤이 오면 지는구나',
   },

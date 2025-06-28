@@ -6,7 +6,7 @@ import { Container } from '@/components/layout/container';
 import { Row } from '@/components/layout/row';
 
 const meta: Meta = {
-  title: 'Atom/Button',
+  title: 'UI/Atom/Button',
 };
 
 export default meta;

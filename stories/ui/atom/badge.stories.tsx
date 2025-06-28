@@ -7,7 +7,7 @@ import { semanticColors } from '@/lib/color';
 import { spacing } from '@/tokens/attribute.css';
 
 const meta: Meta = {
-  title: 'Atom/Badge',
+  title: 'UI/Atom/Badge',
   args: {
     children: '뱃지',
     icon: SquareDashed,

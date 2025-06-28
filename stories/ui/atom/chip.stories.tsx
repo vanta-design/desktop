@@ -3,7 +3,7 @@ import { Chip } from '@/components/atom/chip';
 import { Row } from '@/components/layout/row';
 
 const meta: Meta = {
-  title: 'Atom/Chip',
+  title: 'UI/Atom/Chip',
 };
 
 export default meta;

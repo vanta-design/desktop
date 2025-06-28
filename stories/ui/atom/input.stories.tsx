@@ -5,7 +5,7 @@ import { Container } from '@/components/layout/container';
 import { Row } from '@/components/layout/row';
 
 const meta: Meta = {
-  title: 'Atom/Input',
+  title: 'UI/Atom/Input',
 };
 
 export default meta;
