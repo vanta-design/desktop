@@ -8,9 +8,13 @@ const meta: Meta = {
 export default meta;
 
 export const Checkbox: StoryObj = {
-  render: () => <Control.Checkbox>Checkbox</Control.Checkbox>,
+  render: () => <Control.Checkbox>체크박스</Control.Checkbox>,
+};
+
+export const Radio: StoryObj = {
+  render: () => <Control.Radio>라디오</Control.Radio>,
 };
 
 export const Switch: StoryObj = {
-  render: () => <Control.Switch>Switch</Control.Switch>,
+  render: () => <Control.Switch>스위치</Control.Switch>,
 };
