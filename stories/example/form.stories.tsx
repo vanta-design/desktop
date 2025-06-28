@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from '@/components/atom/button';
 import { Control } from '@/components/atom/control';
+import { Divider } from '@/components/atom/divider';
 import { Input } from '@/components/atom/input';
 import { Typo } from '@/components/atom/typography';
+import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
 import { Row } from '@/components/layout/row';
 import { ControlGroup } from '@/components/molecule/control-group';
 import { InputField } from '@/components/molecule/input-field';
+import { spacing } from '@/tokens/attribute.css';
 
 const meta: Meta = {
   title: 'Example/Form',
@@ -18,7 +22,7 @@ export const UserRegistrationForm: StoryObj = {
   render: () => (
     <Row>
       <form style={{ width: 600 }}>
-        <Container>
+        <Container vertical='wide'>
           <Typo.Headline weight='strong'>회원가입</Typo.Headline>
         </Container>
         <InputField label='이름' essential>
@@ -42,6 +46,18 @@ export const UserRegistrationForm: StoryObj = {
             <Control.Checkbox>데브옵스</Control.Checkbox>
           </ControlGroup>
         </InputField>
+        <Divider />
+        <Container vertical='wide'>
+          <Column gap={spacing[8]}>
+            <Control.Checkbox>이용약관에 동의합니다</Control.Checkbox>
+            <Control.Checkbox defaultStatus='checked'>
+              홍보성 메일를 구독합니다
+            </Control.Checkbox>
+          </Column>
+        </Container>
+        <Container>
+          <Button.Large>가입</Button.Large>
+        </Container>
       </form>
     </Row>
   ),

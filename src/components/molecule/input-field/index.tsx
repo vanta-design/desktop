@@ -16,7 +16,7 @@ export function InputField(props: InputFieldProps) {
   const { label, description, essential, children, ...restProps } = props;
 
   return (
-    <Container {...restProps}>
+    <Container {...restProps} vertical='wide'>
       <Column gap={spacing[8]}>
         <Label essential={essential}>{label}</Label>
         {children}
