@@ -56,7 +56,9 @@ export const UserRegistrationForm: StoryObj = {
           </Column>
         </Container>
         <Container>
-          <Button.Large>가입</Button.Large>
+          <Button.Large type='submit' fill>
+            가입
+          </Button.Large>
         </Container>
       </form>
     </Row>

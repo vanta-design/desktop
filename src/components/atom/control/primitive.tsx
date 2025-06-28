@@ -88,6 +88,7 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
           type={role}
           name={name}
           value={value}
+          checked={status === 'checked'}
           aria-hidden
           hidden
           tabIndex={-1}

@@ -1,6 +1,8 @@
 import { Row } from '@/components/layout/row';
+import { fullWidth } from '@/styles/utils.css';
 import { spacing } from '@/tokens/attribute.css';
 import type { PropsWithIcons } from '@/types/props';
+import { cn } from '@/utils/common';
 import { Icon } from '../../icon';
 import { Typo } from '../../typography';
 import { _PrimitiveButton } from '../primitive';
@@ -25,13 +27,16 @@ const gapMap = {
   small: spacing[4],
 };
 
-export interface _DefaultButtonProps extends ButtonPropsBase, PropsWithIcons {}
+export interface _DefaultButtonProps extends ButtonPropsBase, PropsWithIcons {
+  fill?: boolean;
+}
 
 export function _DefaultButton(props: _DefaultButtonProps) {
   const {
     size = 'large',
     leadingIcon,
     trailingIcon,
+    fill,
     children,
     ...restProps
   } = props;
@@ -40,7 +45,11 @@ export function _DefaultButton(props: _DefaultButtonProps) {
   const weight = size === 'large' ? 'strong' : 'regular';
 
   return (
-    <_PrimitiveButton size={size} {...restProps}>
+    <_PrimitiveButton
+      size={size}
+      className={cn(fill && fullWidth)}
+      {...restProps}
+    >
       <Row className={content} as='span' align='center' gap={gapMap[size]}>
         <Icon icon={leadingIcon} size={iconSizeMap[size]} />
         <Typo weight={weight}>{children}</Typo>
