@@ -5,6 +5,10 @@ import { fill, line } from '@/tokens/color.css';
 import { primitive } from '@/tokens/primitive.css';
 
 export const box = style({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexShrink: 0,
   width: 22,
   height: 22,
   aspectRatio: '1/1',

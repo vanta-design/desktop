@@ -1,68 +1,32 @@
-import {
-  type KeyboardEvent,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import type { PropsWithChildren } from 'react';
 import { cn } from '@/utils/common';
-import type { ControlPropsBase } from '../shared';
-import { wrapper } from '../styles/control.css';
+import { _PrimitiveControl } from '../primitive';
+import type { ControlStatus } from '../shared';
 import { activeStyle, box, thumb } from '../styles/switch.css';
 
-interface _SwitchProps extends ControlPropsBase {
+interface _SwitchProps extends PropsWithChildren {
   active?: boolean;
-  defaultStatus?: boolean;
+  defaultActive?: boolean;
 }
 
 export function _Switch(props: _SwitchProps) {
-  const { active: propActive, defaultStatus, ...restProps } = props;
+  const { active, defaultActive, children } = props;
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [active, setActive] = useState(propActive || defaultStatus || false);
-
-  const onClick = useCallback(() => {
-    setActive((prev) => !prev);
-  }, []);
-
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault();
-        onClick();
-      }
-    },
-    [onClick],
-  );
-
-  useEffect(() => {
-    if (propActive !== undefined) {
-      setActive(propActive);
-    }
-  }, [propActive]);
+  const status: ControlStatus = active ? 'checked' : 'none';
+  const defaultStatus: ControlStatus = defaultActive ? 'checked' : 'none';
 
   return (
-    <div
-      className={wrapper}
-      role='switch'
-      tabIndex={0}
-      aria-checked={active}
-      onClick={onClick}
-      onKeyDown={onKeyDown}
+    <_PrimitiveControl
+      role='checkbox'
+      label={children}
+      status={status}
+      defaultStatus={defaultStatus}
     >
-      <span className={cn(box, active && activeStyle)}>
-        <span className={thumb} />
-      </span>
-      <input
-        {...restProps}
-        ref={inputRef}
-        type='checkbox'
-        checked={active}
-        aria-hidden
-        hidden
-        tabIndex={-1}
-        onChange={() => {}}
-      />
-    </div>
+      {({ status }) => (
+        <span className={cn(box, status === 'checked' && activeStyle)}>
+          <span className={thumb} />
+        </span>
+      )}
+    </_PrimitiveControl>
   );
 }
