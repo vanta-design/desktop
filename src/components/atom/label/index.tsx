@@ -9,19 +9,18 @@ import { Typo } from '../typography';
 interface LabelProps
   extends PropsWithChildren,
     LabelHTMLAttributes<HTMLLabelElement> {
-  emphasized?: boolean;
   essential?: boolean;
 }
 
 export function Label(props: LabelProps) {
-  const { emphasized, essential, children, ...restProps } = props;
+  const { essential, children, ...restProps } = props;
 
   return (
     <label {...restProps}>
-      <Row as='span' gap={spacing[2]} align='center'>
+      <Row as='span' gap={spacing[2]} align='center' justify='start'>
         <Typo.Body
-          weight={emphasized ? 'strong' : 'regular'}
-          color={emphasized ? text.primary : text.secondary}
+          weight={essential ? 'strong' : 'regular'}
+          color={essential ? text.primary : text.secondary}
         >
           {children}
         </Typo.Body>
