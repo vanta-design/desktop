@@ -26,7 +26,7 @@ const iconSizeMap = {
 
 type BadgeSize = 'large' | 'small';
 
-interface _PrimitiveBadgeProps extends BaseProps<HAS_CHILDREN> {
+export interface _PrimitiveBadgeProps extends BaseProps<HAS_CHILDREN> {
   size: BadgeSize;
   semantic?: Semantic;
   icon?: LucideIcon;

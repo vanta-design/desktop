@@ -1,8 +1,8 @@
-import { style } from '@/styles/layer.css';
 import { accent } from '@/tokens/accent.css';
 import { radius, spacing } from '@/tokens/attribute.css';
 import { fill, line } from '@/tokens/color.css';
 import { primitive } from '@/tokens/primitive.css';
+import { style } from '@/utils/style';
 
 export const box = style({
   display: 'inline-flex',

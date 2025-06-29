@@ -1,7 +1,7 @@
-import { style } from '@/styles/layer.css';
 import { accent } from '@/tokens/accent.css';
 import { radius, spacing } from '@/tokens/attribute.css';
 import { fill, line, semantic } from '@/tokens/color.css';
+import { style } from '@/utils/style';
 
 export const wrapper = style({
   width: '100%',

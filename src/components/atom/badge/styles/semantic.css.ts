@@ -1,7 +1,7 @@
 import { semanticColors } from '@/lib/color';
-import { style } from '@/styles/layer.css';
 import { semantic } from '@/tokens/color.css';
 import type { Semantic } from '@/types/color';
+import { style } from '@/utils/style';
 
 export default semanticColors.reduce(
   (acc, current) => {

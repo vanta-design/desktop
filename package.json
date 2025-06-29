@@ -4,6 +4,9 @@
   "description": "Design system for torln",
   "license": "MIT",
   "type": "module",
+  "sideEffects": [
+    "**/*.css.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/vanta-design/desktop.git"
@@ -11,8 +14,8 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "commit": "bun run check && bun run format && git add . && cz",
-    "format": "biome check --fix",
+    "commit": "bun run format && git add . && cz",
+    "format": "bun run check && biome check --fix",
     "check": "tsc --noEmit"
   },
   "maintainers": [

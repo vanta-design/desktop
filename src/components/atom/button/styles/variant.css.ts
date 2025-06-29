@@ -1,6 +1,6 @@
-import { style } from '@/styles/layer.css';
 import { fill, text } from '@/tokens/accent.css';
 import { primitive } from '@/tokens/primitive.css';
+import { style } from '@/utils/style';
 
 export default {
   primary: style({

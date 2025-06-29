@@ -1,5 +1,5 @@
-import { style } from '@/styles/layer.css';
 import { radius, spacing } from '@/tokens/attribute.css';
+import { style } from '@/utils/style';
 
 export default {
   large: style({

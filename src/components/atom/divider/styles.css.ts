@@ -1,5 +1,5 @@
-import { style } from '@/styles/layer.css';
 import { line } from '@/tokens/color.css';
+import { style } from '@/utils/style';
 
 export const divider = style({
   appearance: 'none',

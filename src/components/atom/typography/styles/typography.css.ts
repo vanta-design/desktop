@@ -1,5 +1,5 @@
-import { style } from '@/styles/layer.css';
 import { letterSpacing, lineHeight, size } from '@/tokens/typography.css';
+import { style } from '@/utils/style';
 import type { TypographySize } from '../shared';
 
 const sizes: Array<TypographySize> = [

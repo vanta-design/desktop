@@ -3,6 +3,7 @@ import {
   style as _style,
   type StyleRule,
 } from '@vanilla-extract/css';
+import { resetLayer, vantaLayer } from '@/styles/layer.css';
 
 type StyleFunction = typeof _style;
 
@@ -40,3 +41,6 @@ export function applyLayer(layer: string, rule: StyleRule) {
 function isLayerApplicable(rule: StyleRule | ClassNames): rule is StyleRule {
   return typeof rule === 'object' && !Array.isArray(rule);
 }
+
+export const { globalStyle: resetGlobalStyle } = getLayerApplier(resetLayer);
+export const { style } = getLayerApplier(vantaLayer);

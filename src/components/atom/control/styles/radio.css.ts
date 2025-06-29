@@ -1,7 +1,7 @@
-import { style } from '@/styles/layer.css';
 import { accent } from '@/tokens/accent.css';
 import { radius } from '@/tokens/attribute.css';
 import { fill, line } from '@/tokens/color.css';
+import { style } from '@/utils/style';
 
 export const radio = style({
   appearance: 'none',

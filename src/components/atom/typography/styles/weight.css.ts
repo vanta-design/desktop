@@ -1,5 +1,5 @@
-import { style } from '@/styles/layer.css';
 import { weight } from '@/tokens/typography.css';
+import { style } from '@/utils/style';
 import type { Weight } from '../shared';
 
 const weights: Array<Weight> = ['bold', 'strong', 'regular', 'light'];

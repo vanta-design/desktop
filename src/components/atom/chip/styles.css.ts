@@ -1,6 +1,6 @@
-import { style } from '@/styles/layer.css';
 import { fill, text } from '@/tokens/accent.css';
 import { radius, spacing } from '@/tokens/attribute.css';
+import { style } from '@/utils/style';
 
 export const chip = style({
   padding: `${spacing[6]} ${spacing[12]}`,

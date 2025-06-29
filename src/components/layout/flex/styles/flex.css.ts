@@ -1,4 +1,4 @@
-import { style } from '@/styles/layer.css';
+import { style } from '@/utils/style';
 
 export const flex = style({
   display: 'flex',

@@ -1,5 +1,5 @@
 import { fill, line, text } from '@/tokens/color.css';
-import { resetGlobalStyle } from './layer.css';
+import { resetGlobalStyle } from '@/utils/style';
 import { wantedSansVariable } from './typography.css';
 
 resetGlobalStyle('html, body', {
