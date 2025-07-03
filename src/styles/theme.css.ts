@@ -17,6 +17,7 @@ createGlobalTheme('[data-theme=light]', color, {
       raised: monochrome[15],
       invert: monochrome[100],
       dim: 'rgba(0, 0, 0, 0.08)',
+      glass: 'rgba(250, 250, 250, 0.75)',
     },
     interaction: {
       none: primitive.transparent,
@@ -81,6 +82,7 @@ createGlobalTheme('[data-theme=dark]', color, {
       raised: monochrome[95],
       invert: monochrome[10],
       dim: 'rgba(0, 0, 0, 0.08)',
+      glass: 'rgba(10, 10, 10, 0.75)',
     },
     interaction: {
       none: primitive.transparent,
@@ -145,6 +147,7 @@ createGlobalTheme('[data-theme=darkest]', color, {
       raised: monochrome[100],
       invert: primitive.pureWhite,
       dim: 'rgba(0, 0, 0, 0.16)',
+      glass: 'rgba(0, 0, 0, 0.75)',
     },
     interaction: {
       none: primitive.transparent,

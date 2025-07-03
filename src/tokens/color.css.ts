@@ -8,6 +8,7 @@ export const color = createGlobalThemeContract(
         raised: 'fill-surface-raised',
         invert: 'fill-surface-invert',
         dim: 'fill-surface-dim',
+        glass: 'fill-surface-glass',
       },
       interaction: {
         none: 'fill-interaction-none',
