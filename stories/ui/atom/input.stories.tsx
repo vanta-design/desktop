@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Search } from 'lucide-react';
-import { Input } from '@/components/atom/input';
+import { TextInput } from '@/components/atom/input';
 import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
 
@@ -14,12 +14,12 @@ export const Text: StoryObj = {
   render: () => (
     <Container>
       <Column gap={16} align='center'>
-        <Input.Text
+        <TextInput
           placeholder='플레이스홀더'
           icon={Search}
           style={{ width: 300 }}
         />
-        <Input.Text.Compact
+        <TextInput.Compact
           placeholder='플레이스홀더'
           icon={Search}
           style={{ width: 300 }}

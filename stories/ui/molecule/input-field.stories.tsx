@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from '@/components/atom/input';
+import { TextInput } from '@/components/atom/input';
 import { InputField } from '@/components/molecule/input-field';
 
 const meta: Meta<typeof InputField> = {
@@ -16,7 +16,7 @@ export default meta;
 export const Showcase: StoryObj<typeof InputField> = {
   render: (props) => (
     <InputField {...props} style={{ width: 400 }}>
-      <Input.Text placeholder='플레이스홀더' />
+      <TextInput placeholder='플레이스홀더' />
     </InputField>
   ),
 };

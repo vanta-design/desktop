@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@/components/atom/button';
 import { Control } from '@/components/atom/control';
 import { Divider } from '@/components/atom/divider';
-import { Input } from '@/components/atom/input';
+import { TextInput } from '@/components/atom/input';
 import { Typo } from '@/components/atom/typography';
 import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
@@ -26,10 +26,10 @@ export const UserRegistrationForm: StoryObj = {
           <Typo.Headline weight='strong'>회원가입</Typo.Headline>
         </Container>
         <InputField label='이름' essential>
-          <Input.Text />
+          <TextInput />
         </InputField>
         <InputField label='이메일' essential>
-          <Input.Text type='email' />
+          <TextInput type='email' />
         </InputField>
         <InputField label='성별' essential>
           <ControlGroup name='gender'>

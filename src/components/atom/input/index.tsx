@@ -1,7 +1,5 @@
 import { _TextInput } from './kind/text';
 
-const Input = {
-  Text: _TextInput,
-};
+const TextInput = _TextInput;
 
-export { Input };
+export { TextInput };
