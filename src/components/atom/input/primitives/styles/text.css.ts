@@ -1,14 +1,11 @@
 import { accent } from '@/tokens/accent.css';
-import { radius, spacing } from '@/tokens/attribute.css';
 import { fill, line, semantic } from '@/tokens/color.css';
 import { style } from '@/utils/style';
 
 export const wrapper = style({
   width: '100%',
-  padding: `${spacing[12]} ${spacing[16]}`,
   backgroundColor: fill.surface.raised,
   border: `1px solid ${line.outline}`,
-  borderRadius: radius[12],
   cursor: 'text',
 });
 

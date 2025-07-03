@@ -16,7 +16,7 @@ export default meta;
 export const Showcase: StoryObj<typeof InputField> = {
   render: (props) => (
     <InputField {...props} style={{ width: 400 }}>
-      <Input placeholder='플레이스홀더' />
+      <Input.Text placeholder='플레이스홀더' />
     </InputField>
   ),
 };
