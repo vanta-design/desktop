@@ -2,9 +2,9 @@ import { fill, line, text } from '@/tokens/color.css';
 import { resetGlobalStyle } from '@/utils/style';
 import { wantedSansVariable } from './typography.css';
 
-resetGlobalStyle('html, body', {
+resetGlobalStyle('html', {
   width: '100%',
-  backgroundColor: fill.surface.base,
+  backgroundColor: fill.surface.glass,
   color: text.primary,
   wordBreak: 'keep-all',
   wordWrap: 'break-word',
