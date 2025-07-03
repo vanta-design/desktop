@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { SquareDashed } from 'lucide-react';
-import { Badge } from '@/components/atom/badge';
+import { Badge, IconBadge } from '@/components/atom/badge';
 import { Container } from '@/components/layout/container';
 import { Row } from '@/components/layout/row';
 import { semanticColors } from '@/lib/color';
@@ -17,8 +17,9 @@ const meta: Meta = {
 export default meta;
 
 type BadgeStory = StoryObj<typeof Badge.Large>;
+type IconBadgeStory = StoryObj<typeof IconBadge.Large>;
 
-export const Showcase: BadgeStory = {
+export const Default: BadgeStory = {
   render: (props) => (
     <>
       <Container>
@@ -32,6 +33,28 @@ export const Showcase: BadgeStory = {
         <Row gap={spacing[8]}>
           {semanticColors.map((s) => (
             <Badge.Small key={s} {...props} semantic={s} />
+          ))}
+        </Row>
+      </Container>
+    </>
+  ),
+};
+
+export const Icon: IconBadgeStory = {
+  render: (props) => (
+    <>
+      {' '}
+      <Container>
+        <Row gap={spacing[8]}>
+          {semanticColors.map((s) => (
+            <IconBadge.Large key={s} {...props} semantic={s} />
+          ))}
+        </Row>
+      </Container>
+      <Container>
+        <Row gap={spacing[8]}>
+          {semanticColors.map((s) => (
+            <IconBadge.Small key={s} {...props} semantic={s} />
           ))}
         </Row>
       </Container>

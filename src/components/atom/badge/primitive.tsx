@@ -1,53 +1,22 @@
-import type { LucideIcon } from 'lucide-react';
 import { Row } from '@/components/layout/row';
-import { spacing } from '@/tokens/attribute.css';
 import type { Semantic } from '@/types/color';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
-import { Icon } from '../icon';
-import { Typo } from '../typography';
 import semanticMap from './styles/semantic.css';
-import sizeMap from './styles/size.css';
-
-const gapMap = {
-  large: spacing[6],
-  small: spacing[4],
-};
-
-const TypoMap = {
-  large: Typo.Caption,
-  small: Typo.Footnote,
-};
-
-const iconSizeMap = {
-  large: 14,
-  small: 12,
-};
-
-type BadgeSize = 'large' | 'small';
 
 export interface _PrimitiveBadgeProps extends BaseProps<HAS_CHILDREN> {
-  size: BadgeSize;
   semantic?: Semantic;
-  icon?: LucideIcon;
+  gap?: string;
 }
 
 export function _PrimitiveBadge(props: _PrimitiveBadgeProps) {
-  const { size, semantic = 'neutral', icon, className, children } = props;
-  const Typo = TypoMap[size];
+  const { semantic = 'neutral', gap, className, children } = props;
 
-  const classNames = [sizeMap[size], semanticMap[semantic], className];
+  const classNames = [semanticMap[semantic], className];
 
   return (
-    <Row
-      as='span'
-      className={cn(classNames)}
-      inline
-      gap={gapMap[size]}
-      align='center'
-    >
-      <Icon icon={icon} size={iconSizeMap[size]} />
-      <Typo>{children}</Typo>
+    <Row as='span' className={cn(classNames)} inline gap={gap} align='center'>
+      {children}
     </Row>
   );
 }
