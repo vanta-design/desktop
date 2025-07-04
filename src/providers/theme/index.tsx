@@ -2,6 +2,7 @@ import {
   type PropsWithChildren,
   useCallback,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 import { wrapper } from './styles.css';
@@ -17,8 +18,10 @@ interface ThemeProviderProps extends PropsWithChildren {
 export function ThemeProvider(props: ThemeProviderProps) {
   const { theme, defaultTheme, children } = props;
 
+  const media = useRef(window.matchMedia('(prefers-color-scheme: dark)'));
+  const fallbackTheme = media.current.matches ? 'dark' : 'light';
   const [currentTheme, setCurrentTheme] = useState(
-    theme || defaultTheme || 'light',
+    theme || defaultTheme || fallbackTheme,
   );
 
   const handleMediaChange = useCallback((e: MediaQueryListEvent) => {
@@ -27,15 +30,13 @@ export function ThemeProvider(props: ThemeProviderProps) {
   }, []);
 
   useEffect(() => {
-    setCurrentTheme(theme || 'light');
-  }, [theme]);
+    setCurrentTheme(theme || fallbackTheme);
+  }, [theme, fallbackTheme]);
 
   useEffect(() => {
-    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    media.current.addEventListener('change', handleMediaChange);
 
-    media.addEventListener('change', handleMediaChange);
-
-    return media.removeEventListener('change', handleMediaChange);
+    return media.current.removeEventListener('change', handleMediaChange);
   }, [handleMediaChange]);
 
   return (
