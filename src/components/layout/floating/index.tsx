@@ -1,10 +1,11 @@
-import { type PropsWithChildren, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fullWidth } from '@/styles/utils.css';
+import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
 import { wrapper } from './styles.css';
 
-export function Floating(props: PropsWithChildren) {
-  const { children } = props;
+export function Floating(props: BaseProps<HAS_CHILDREN>) {
+  const { className, children } = props;
 
   const [height, setHeight] = useState(0);
 
@@ -28,7 +29,7 @@ export function Floating(props: PropsWithChildren) {
 
   return (
     <>
-      <div className={cn(wrapper, fullWidth)}>{children}</div>
+      <div className={cn(wrapper, fullWidth, className)}>{children}</div>
       <div
         style={{
           height: height,
