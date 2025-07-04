@@ -8,7 +8,7 @@ import { spacing } from '@/tokens/attribute.css';
 import { cn } from '@/utils/common';
 import { activeStyle, emphasizedStyle, item } from './styles/item.css';
 
-interface _SidebarMenuItemProps extends PropsWithChildren {
+interface _PanelSectionItemProps extends PropsWithChildren {
   emphasized?: boolean;
   active?: boolean;
   leadingArea?: ReactNode;
@@ -16,7 +16,7 @@ interface _SidebarMenuItemProps extends PropsWithChildren {
   trailingArea?: ReactNode;
 }
 
-export function _SidebarMenuItem(props: _SidebarMenuItemProps) {
+export function _PanelSectionItem(props: _PanelSectionItemProps) {
   const {
     emphasized,
     active,

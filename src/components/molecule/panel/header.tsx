@@ -10,13 +10,13 @@ import { spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
 import { header, image } from './styles/header.css';
 
-interface _SidebarHeaderProps {
+interface _PanelHeaderProps {
   imageSrc: string;
   name: string;
   description: string;
 }
 
-export function _SidebarHeader(props: _SidebarHeaderProps) {
+export function _PanelHeader(props: _PanelHeaderProps) {
   const { imageSrc, name, description } = props;
 
   return (

@@ -4,13 +4,13 @@ import { Typo } from '@/components/atom/typography';
 import { Row } from '@/components/layout/row';
 import { header } from './styles/header.css';
 
-interface _SidebarMenuHeaderProps {
+interface _PanelSectionHeaderProps {
   title: string;
   open?: boolean;
   onClick?: () => unknown;
 }
 
-export function _SidebarMenuHeader(props: _SidebarMenuHeaderProps) {
+export function _PanelSectionHeader(props: _PanelSectionHeaderProps) {
   const { title, open, onClick } = props;
 
   return (
