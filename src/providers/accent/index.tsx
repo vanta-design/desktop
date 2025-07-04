@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { wrapper } from './styles.css';
+import '@/styles/accent.css';
 
 export type Accent = 'monochrome' | 'green' | 'blue' | 'indigo';
 

@@ -1,4 +1,6 @@
 import type { Decorator } from '@storybook/react-vite';
+import { AccentProvider } from '../src/providers/accent';
+import { ThemeProvider } from '../src/providers/theme';
 import { VantaProvider } from '../src/providers/vanta-root';
 import { fill } from '../src/tokens/color.css';
 
@@ -12,7 +14,11 @@ export const decorators: Array<Decorator> = [
 
     return (
       <VantaProvider>
-        <Story />
+        <ThemeProvider theme='dark'>
+          <AccentProvider>
+            <Story />
+          </AccentProvider>
+        </ThemeProvider>
       </VantaProvider>
     );
   },

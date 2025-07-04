@@ -5,6 +5,7 @@ import {
   useState,
 } from 'react';
 import { wrapper } from './styles.css';
+import '@/styles/theme.css';
 
 export type Theme = 'light' | 'dark' | 'darkest';
 

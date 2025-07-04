@@ -1,4 +1,5 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
+import { resetGlobalStyle } from '@/utils/style';
 import { color, text } from '../tokens/color.css';
 import {
   blue,
@@ -9,6 +10,10 @@ import {
   primitive,
   red,
 } from '../tokens/primitive.css';
+
+resetGlobalStyle('[data-theme]', {
+  color: color.text.primary,
+});
 
 createGlobalTheme('[data-theme=light]', color, {
   fill: {
