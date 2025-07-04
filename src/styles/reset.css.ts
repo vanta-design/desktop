@@ -9,6 +9,7 @@ resetGlobalStyle('html', {
   wordBreak: 'keep-all',
   wordWrap: 'break-word',
   textWrap: 'pretty',
+  overscrollBehavior: 'none',
 });
 
 resetGlobalStyle('*', {
