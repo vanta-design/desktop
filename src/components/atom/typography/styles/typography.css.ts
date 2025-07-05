@@ -19,6 +19,9 @@ export default sizes.reduce(
       fontSize: size[current],
       lineHeight: lineHeight[current],
       letterSpacing: letterSpacing[current],
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
     });
     return acc;
   },

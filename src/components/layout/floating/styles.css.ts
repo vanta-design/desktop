@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
-  position: 'fixed',
+  position: 'sticky',
   zIndex: 1,
 });

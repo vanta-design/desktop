@@ -7,6 +7,7 @@ export const item = style({
   padding: `${spacing[6]} ${spacing[8]}`,
   color: text.tertiary,
   borderRadius: radius[12],
+  cursor: 'pointer',
 });
 
 export const emphasizedStyle = style({

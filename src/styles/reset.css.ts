@@ -7,7 +7,6 @@ resetGlobalStyle('html', {
   wordBreak: 'keep-all',
   wordWrap: 'break-word',
   textWrap: 'pretty',
-  overscrollBehavior: 'none',
 });
 
 resetGlobalStyle('*', {
@@ -20,6 +19,7 @@ resetGlobalStyle('*', {
   textRendering: 'optimizeLegibility',
   shapeRendering: 'geometricPrecision',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
+  overscrollBehavior: 'none',
 });
 
 resetGlobalStyle('*:focus-visible', {
