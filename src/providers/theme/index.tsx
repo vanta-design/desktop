@@ -2,7 +2,6 @@ import {
   type PropsWithChildren,
   useCallback,
   useEffect,
-  useRef,
   useState,
 } from 'react';
 import { wrapper } from './styles.css';
@@ -18,8 +17,10 @@ interface ThemeProviderProps extends PropsWithChildren {
 export function ThemeProvider(props: ThemeProviderProps) {
   const { theme, defaultTheme, children } = props;
 
-  const media = useRef(window.matchMedia('(prefers-color-scheme: dark)'));
-  const fallbackTheme = media.current.matches ? 'dark' : 'light';
+  const fallbackTheme = window.matchMedia('(prefers-color-scheme: dark)')
+    .matches
+    ? 'dark'
+    : 'light';
   const [currentTheme, setCurrentTheme] = useState(
     theme || defaultTheme || fallbackTheme,
   );
@@ -34,9 +35,13 @@ export function ThemeProvider(props: ThemeProviderProps) {
   }, [theme, fallbackTheme]);
 
   useEffect(() => {
-    media.current.addEventListener('change', handleMediaChange);
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', handleMediaChange);
 
-    return media.current.removeEventListener('change', handleMediaChange);
+    return window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .removeEventListener('change', handleMediaChange);
   }, [handleMediaChange]);
 
   return (
