@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { style } from '@/utils/style';
 
 export const wrapper = style({
   position: 'sticky',

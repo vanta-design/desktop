@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css';
 import { accent } from '@/tokens/accent.css';
 import { fill, line } from '@/tokens/color.css';
+import { style } from '@/utils/style';
 
 export const wrapper = style({
   position: 'relative',

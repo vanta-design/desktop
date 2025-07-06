@@ -1,5 +1,5 @@
-import { style } from '@vanilla-extract/css';
 import { fill } from '@/tokens/color.css';
+import { style } from '@/utils/style';
 
 export const panel = style({
   position: 'relative',

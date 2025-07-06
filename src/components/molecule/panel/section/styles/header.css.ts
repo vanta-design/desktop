@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css';
 import { spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
+import { style } from '@/utils/style';
 
 export const header = style({
   padding: spacing[4],

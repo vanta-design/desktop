@@ -1,5 +1,5 @@
-import { style } from '@vanilla-extract/css';
 import { lineHeight } from '@/tokens/typography.css';
+import { style } from '@/utils/style';
 
 export default {
   large: style({

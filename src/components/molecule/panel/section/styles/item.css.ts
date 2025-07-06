@@ -1,7 +1,7 @@
-import { style } from '@vanilla-extract/css';
 import { accent } from '@/tokens/accent.css';
 import { radius, spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
+import { style } from '@/utils/style';
 
 export const item = style({
   padding: `${spacing[6]} ${spacing[8]}`,

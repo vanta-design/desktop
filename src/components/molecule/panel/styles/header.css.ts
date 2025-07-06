@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css';
 import { radius } from '@/tokens/attribute.css';
 import { fill, line } from '@/tokens/color.css';
+import { style } from '@/utils/style';
 
 export const header = style({
   top: 0,
