@@ -40,7 +40,9 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
   }, []);
 
   return (
-    <DropdownContext value={{ currentValue, setCurrentValue }}>
+    <DropdownContext
+      value={{ currentOption: currentValue, setCurrentOption: setCurrentValue }}
+    >
       <div className={wrapper}>
         <Row
           as='button'

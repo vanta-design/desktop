@@ -1,10 +1,12 @@
 import { spacing } from '@/tokens/attribute.css';
+import { withDefaultClassNames } from '@/utils/component';
+import { _PrimitiveDropdownItem } from '../primitives/item';
 import { _PrimitiveDropdownList } from '../primitives/list';
 import {
   _PrimitiveDropdown,
   type DropdownProps,
 } from '../primitives/primitive';
-import { dropdown, list } from './styles/compact.css';
+import { dropdown, item, list } from './styles/compact.css';
 
 export function _CompactDropdown(props: DropdownProps) {
   const { children } = props;
@@ -23,3 +25,5 @@ export function _CompactDropdown(props: DropdownProps) {
     </_PrimitiveDropdown>
   );
 }
+
+_CompactDropdown.Item = withDefaultClassNames(_PrimitiveDropdownItem, item);

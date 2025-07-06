@@ -15,14 +15,18 @@ export const Showcase: StoryObj = {
   render: () => (
     <Row>
       <Column gap={spacing[16]} style={{ width: 300 }}>
-        <Dropdown
-          defaultIcon={SquareDashed}
-          placeholder='플레이스홀더'
-        ></Dropdown>
-        <Dropdown.Compact
-          defaultIcon={SquareDashed}
-          placeholder='플레이스홀더'
-        ></Dropdown.Compact>
+        <Dropdown defaultIcon={SquareDashed} placeholder='플레이스홀더'>
+          <Dropdown.Item value='apple'>사과</Dropdown.Item>
+          <Dropdown.Item value='banana'>바나나</Dropdown.Item>
+          <Dropdown.Item value='cherry'>체리</Dropdown.Item>
+          <Dropdown.Item value='grape'>포도</Dropdown.Item>
+        </Dropdown>
+        <Dropdown.Compact defaultIcon={SquareDashed} placeholder='플레이스홀더'>
+          <Dropdown.Item value='apple'>사과</Dropdown.Item>
+          <Dropdown.Item value='banana'>바나나</Dropdown.Item>
+          <Dropdown.Item value='cherry'>체리</Dropdown.Item>
+          <Dropdown.Item value='grape'>포도</Dropdown.Item>
+        </Dropdown.Compact>
       </Column>
     </Row>
   ),

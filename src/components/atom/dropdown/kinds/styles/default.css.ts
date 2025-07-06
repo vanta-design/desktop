@@ -9,3 +9,8 @@ export const dropdown = style({
 export const list = style({
   borderRadius: radius[16],
 });
+
+export const item = style({
+  padding: `${spacing[6]} ${spacing[8]}`,
+  borderRadius: radius[12],
+});

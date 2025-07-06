@@ -1,0 +1,22 @@
+import { accent } from '@/tokens/accent.css';
+import { text } from '@/tokens/color.css';
+import { style } from '@/utils/style';
+
+export const item = style({
+  color: text.secondary,
+  cursor: 'pointer',
+});
+
+export const active = style({
+  backgroundColor: accent.fill.secondary,
+  color: accent.text.accent,
+});
+
+export const iconStyle = style({
+  opacity: 0,
+  selectors: {
+    [`${active} > &`]: {
+      opacity: 1,
+    },
+  },
+});
