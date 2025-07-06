@@ -1,5 +1,5 @@
 import { ChevronDown, ChevronUp, type LucideIcon } from 'lucide-react';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Row } from '@/components/layout/row';
 import { fullWidth } from '@/styles/utils.css';
 import { text } from '@/tokens/color.css';
@@ -36,10 +36,29 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentOption, setCurrentOption] = useState<Option | null>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleClick = useCallback(() => {
     setIsExpanded((prev) => !prev);
   }, []);
+
+  const handleDocumentClick = useCallback((e: MouseEvent) => {
+    if (
+      e.target instanceof Element &&
+      wrapperRef.current &&
+      !wrapperRef.current.contains(e.target)
+    ) {
+      setIsExpanded(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isExpanded) return;
+    document.addEventListener('click', handleDocumentClick);
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, [isExpanded, handleDocumentClick]);
 
   return (
     <DropdownContext
@@ -51,7 +70,7 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
         setIsExpanded,
       }}
     >
-      <div className={wrapper}>
+      <div className={wrapper} ref={wrapperRef}>
         <Row
           as='button'
           className={cn(controller, className, fullWidth)}
