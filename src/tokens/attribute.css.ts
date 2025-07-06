@@ -31,6 +31,9 @@ export const attribute = createGlobalThemeContract(
       32: 'radius-32',
       full: 'radius-full',
     },
+    opacity: {
+      disabled: 'opacity-disabled',
+    },
   },
   (value) => `attribute-${value}`,
 );

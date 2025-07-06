@@ -16,6 +16,7 @@ export default sizes.reduce(
       fontSize: size[current],
       lineHeight: lineHeight[lineHeightKeyMap[current]],
       letterSpacing: letterSpacing[current],
+      textAlign: 'left',
     });
     return acc;
   },

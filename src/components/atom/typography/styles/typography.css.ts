@@ -19,6 +19,7 @@ export default sizes.reduce(
       fontSize: size[current],
       lineHeight: lineHeight[current],
       letterSpacing: letterSpacing[current],
+      textAlign: 'left',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',

@@ -122,6 +122,9 @@ createGlobalTheme(':root', attribute, {
     32: '32px',
     full: '9999px',
   },
+  opacity: {
+    disabled: '35px',
+  },
 });
 
 createGlobalTheme(':root', layout, {
