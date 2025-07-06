@@ -4,7 +4,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { wrapper } from './styles.css';
 import '@/styles/theme.css';
 
 export type Theme = 'light' | 'dark' | 'darkest';
@@ -44,9 +43,9 @@ export function ThemeProvider(props: ThemeProviderProps) {
       .removeEventListener('change', handleMediaChange);
   }, [handleMediaChange]);
 
-  return (
-    <div className={wrapper} data-theme={currentTheme}>
-      {children}
-    </div>
-  );
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  }, [currentTheme]);
+
+  return children;
 }

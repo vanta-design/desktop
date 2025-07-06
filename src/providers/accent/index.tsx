@@ -1,5 +1,4 @@
-import type { PropsWithChildren } from 'react';
-import { wrapper } from './styles.css';
+import { type PropsWithChildren, useEffect } from 'react';
 import '@/styles/accent.css';
 
 export type Accent = 'monochrome' | 'green' | 'blue' | 'indigo';
@@ -11,9 +10,9 @@ interface AccentProviderProps extends PropsWithChildren {
 export function AccentProvider(props: AccentProviderProps) {
   const { accent = 'monochrome', children } = props;
 
-  return (
-    <div className={wrapper} data-accent={accent}>
-      {children}
-    </div>
-  );
+  useEffect(() => {
+    document.documentElement.setAttribute('data-accent', accent);
+  }, [accent]);
+
+  return children;
 }
