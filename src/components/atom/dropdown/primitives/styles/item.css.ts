@@ -12,11 +12,6 @@ export const active = style({
   color: accent.text.accent,
 });
 
-export const iconStyle = style({
+export const hideIcon = style({
   opacity: 0,
-  selectors: {
-    [`${active} > &`]: {
-      opacity: 1,
-    },
-  },
 });

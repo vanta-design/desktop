@@ -13,8 +13,11 @@ export type Option = {
 };
 
 type DropdownContextType = {
+  defaultValue?: string;
   currentOption: Option | null;
+  isExpanded: boolean;
   setCurrentOption: Dispatch<SetStateAction<Option | null>>;
+  setIsExpanded: Dispatch<SetStateAction<boolean>>;
 };
 
 export const DropdownContext = createContext({} as DropdownContextType);

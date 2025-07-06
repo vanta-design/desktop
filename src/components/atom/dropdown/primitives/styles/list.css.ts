@@ -8,4 +8,11 @@ export const list = style({
   backgroundColor: fill.surface.glass,
   border: `1px solid ${line.outline}`,
   zIndex: 10,
+  selectors: {
+    '&[aria-hidden=true]': {
+      visibility: 'hidden',
+      pointerEvents: 'none',
+      overflow: 'hidden',
+    },
+  },
 });

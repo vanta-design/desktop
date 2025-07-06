@@ -12,6 +12,7 @@ import { controller, wrapper } from './styles/primitive.css';
 
 export interface DropdownProps extends BaseProps<HAS_CHILDREN> {
   defaultIcon?: LucideIcon;
+  defaultValue?: string;
   placeholder?: string;
 }
 
@@ -27,13 +28,14 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
     iconSize,
     indicatorSize,
     defaultIcon,
+    defaultValue,
     placeholder,
     className,
     children,
   } = props;
 
   const [isExpanded, setIsExpanded] = useState(false);
-  const [currentValue, setCurrentValue] = useState<Option | null>(null);
+  const [currentOption, setCurrentOption] = useState<Option | null>(null);
 
   const handleClick = useCallback(() => {
     setIsExpanded((prev) => !prev);
@@ -41,7 +43,13 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
 
   return (
     <DropdownContext
-      value={{ currentOption: currentValue, setCurrentOption: setCurrentValue }}
+      value={{
+        defaultValue,
+        currentOption,
+        isExpanded,
+        setCurrentOption,
+        setIsExpanded,
+      }}
     >
       <div className={wrapper}>
         <Row
@@ -55,15 +63,17 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
           aria-expanded={isExpanded}
           onClick={handleClick}
         >
-          <Icon icon={defaultIcon} size={iconSize} />
-          <Typo.Body className={fullWidth}>{placeholder}</Typo.Body>
+          <Icon icon={currentOption?.icon ?? defaultIcon} size={iconSize} />
+          <Typo.Body className={fullWidth}>
+            {currentOption?.label ?? placeholder}
+          </Typo.Body>
           <Icon
             icon={isExpanded ? ChevronUp : ChevronDown}
             size={indicatorSize}
             color={text.tertiary}
           />
         </Row>
-        {isExpanded && children}
+        {children}
       </div>
     </DropdownContext>
   );
