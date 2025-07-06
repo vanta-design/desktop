@@ -8,7 +8,7 @@ import { cn } from '@/utils/common';
 import { Icon } from '../../icon';
 import { Typo } from '../../typography';
 import { DropdownContext, type Option } from '../context';
-import { controller, wrapper } from './styles/primitive.css';
+import { controller, expanded, wrapper } from './styles/primitive.css';
 
 export interface DropdownProps extends BaseProps<HAS_CHILDREN> {
   defaultIcon?: LucideIcon;
@@ -73,7 +73,12 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
       <div className={wrapper} ref={wrapperRef}>
         <Row
           as='button'
-          className={cn(controller, className, fullWidth)}
+          className={cn(
+            controller,
+            isExpanded && expanded,
+            className,
+            fullWidth,
+          )}
           gap={gap}
           align='center'
           justify='start'
@@ -82,8 +87,15 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
           aria-expanded={isExpanded}
           onClick={handleClick}
         >
-          <Icon icon={currentOption?.icon ?? defaultIcon} size={iconSize} />
-          <Typo.Body className={fullWidth}>
+          <Icon
+            icon={currentOption?.icon ?? defaultIcon}
+            size={iconSize}
+            color={currentOption ? text.primary : text.tertiary}
+          />
+          <Typo.Body
+            className={fullWidth}
+            color={currentOption ? text.primary : text.status.disabled}
+          >
             {currentOption?.label ?? placeholder}
           </Typo.Body>
           <Icon
