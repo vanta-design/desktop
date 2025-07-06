@@ -5,7 +5,7 @@ import {
   type DropdownProps,
 } from '../primitives/primitive';
 import { _CompactDropdown } from './compact';
-import { defaultList, defaultStyle } from './styles.css';
+import { dropdown, list } from './styles/default.css';
 
 export function _DefaultDropdown(props: DropdownProps) {
   const { children } = props;
@@ -13,12 +13,12 @@ export function _DefaultDropdown(props: DropdownProps) {
   return (
     <_PrimitiveDropdown
       {...props}
-      className={defaultStyle}
+      className={dropdown}
       gap={spacing[8]}
       iconSize={18}
       indicatorSize={16}
     >
-      <_PrimitiveDropdownList className={defaultList}>
+      <_PrimitiveDropdownList className={list}>
         {children}
       </_PrimitiveDropdownList>
     </_PrimitiveDropdown>
