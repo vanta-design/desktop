@@ -1,14 +1,16 @@
 import { semanticColors } from '@/lib/color';
 import { accent } from '@/tokens/accent.css';
 import { radius } from '@/tokens/attribute.css';
-import { semantic } from '@/tokens/color.css';
+import { fill, semantic } from '@/tokens/color.css';
 import type { Semantic } from '@/types/color';
 import { style } from '@/utils/style';
 
 export const indicator = style({
+  display: 'block',
   backgroundColor: accent.fill.primary,
   aspectRatio: '1 / 1',
   flexShrink: 0,
+  outline: `2px solid ${fill.surface.base}`,
   borderRadius: radius.full,
 });
 
