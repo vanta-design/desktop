@@ -1,18 +1,18 @@
 import type { ReactNode } from 'react';
 import { cn } from '@/utils/common';
-import { profile, sizeMap, status, wrapper } from './styles.css';
+import { profile, sizeMap, status, wrapper } from './styles/profile.css';
 
 export type ProfileSize = 'small' | 'regular' | 'medium' | 'large';
 
 export interface _PrimitiveProfileProps {
   src: string;
   alt: string;
-  size?: ProfileSize;
+  size: ProfileSize;
   indicator?: ReactNode;
 }
 
 export function _PrimitiveProfile(props: _PrimitiveProfileProps) {
-  const { src, alt, size = 'regular', indicator } = props;
+  const { src, alt, size, indicator } = props;
 
   return (
     <div className={cn(wrapper, sizeMap[size])}>
