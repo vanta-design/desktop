@@ -4,7 +4,7 @@ import { text } from '@/tokens/color.css';
 import { style } from '@/utils/style';
 
 export const item = style({
-  padding: `${spacing[6]} ${spacing[8]}`,
+  padding: `${spacing[8]} ${spacing[12]}`,
   color: text.tertiary,
   borderRadius: radius[12],
   cursor: 'pointer',

@@ -1,16 +1,17 @@
 import { useCallback, useState } from 'react';
-import { Container } from '@/components/layout/container';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { _PanelSectionHeader } from './header';
 import { _PanelSectionItem } from './item';
+import { innerSection, section } from './styles/section.css';
 
 interface _PanelSectionProps extends BaseProps<HAS_CHILDREN> {
   title: string;
+  inner?: boolean;
   defaultOpen?: boolean;
 }
 
 export function _PanelSection(props: _PanelSectionProps) {
-  const { title, defaultOpen = true, children } = props;
+  const { title, inner = false, defaultOpen = true, children } = props;
 
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
@@ -19,10 +20,15 @@ export function _PanelSection(props: _PanelSectionProps) {
   }, []);
 
   return (
-    <Container vertical='narrow'>
-      <_PanelSectionHeader title={title} open={isOpen} onClick={handleClick} />
+    <ul className={inner ? innerSection : section}>
+      <_PanelSectionHeader
+        title={title}
+        open={isOpen}
+        inner={inner}
+        onClick={handleClick}
+      />
       {isOpen && children}
-    </Container>
+    </ul>
   );
 }
 

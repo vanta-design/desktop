@@ -37,6 +37,7 @@ export function _PanelSectionItem(props: _PanelSectionItemProps) {
 
   return (
     <Row
+      as='li'
       className={cn(classNames)}
       gap={spacing[6]}
       align='center'
@@ -49,12 +50,7 @@ export function _PanelSectionItem(props: _PanelSectionItemProps) {
       ) : (
         leadingArea
       )}
-      <Typo.Caption
-        className={fullWidth}
-        weight={emphasized ? 'strong' : 'regular'}
-      >
-        {children}
-      </Typo.Caption>
+      <Typo.Caption className={fullWidth}>{children}</Typo.Caption>
       {!active && trailingArea}
     </Row>
   );

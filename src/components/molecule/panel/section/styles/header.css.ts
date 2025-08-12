@@ -9,3 +9,7 @@ export const header = style({
   WebkitUserSelect: 'none',
   cursor: 'pointer',
 });
+
+export const innerStyle = style({
+  padding: `${spacing[4]} 0`,
+});

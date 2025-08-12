@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BookmarkCheck, Box, FileText, HardDrive } from 'lucide-react';
+import {
+  BookmarkCheck,
+  Box,
+  FileText,
+  HardDrive,
+  MessageCircle,
+  MessageSquare,
+  Mic,
+} from 'lucide-react';
 import { Badge } from '@/components/atom/badge';
 import { Row } from '@/components/layout/row';
 import { Panel } from '@/components/molecule/panel';
@@ -38,6 +46,34 @@ export const Showcase: StoryObj = {
               Documents
             </Panel.Section.Item>
           </Panel.Section>
+          <Panel.Section title='Chats'>
+            <Panel.Section.Item leadingIcon={MessageCircle}>
+              General
+            </Panel.Section.Item>
+            <Panel.Section.Item leadingIcon={MessageCircle}>
+              Random
+            </Panel.Section.Item>
+            <Panel.Section inner title='Platform'>
+              <Panel.Section.Item leadingIcon={MessageCircle}>
+                Core
+              </Panel.Section.Item>
+              <Panel.Section.Item leadingIcon={MessageCircle}>
+                Mobile
+              </Panel.Section.Item>
+              <Panel.Section.Item leadingIcon={MessageCircle}>
+                Desktop
+              </Panel.Section.Item>
+            </Panel.Section>
+            <Panel.Section.Item leadingIcon={Mic}>General</Panel.Section.Item>
+            <Panel.Section.Item leadingIcon={Mic}>Meetup</Panel.Section.Item>
+            <Panel.Section.Item leadingIcon={Mic}>
+              Playground
+            </Panel.Section.Item>
+            <Panel.Section.Item leadingIcon={MessageSquare}>
+              Brainstorming
+            </Panel.Section.Item>
+          </Panel.Section>
+          <Panel.Section title='Directs'></Panel.Section>
         </Panel>
       </div>
     </Row>
