@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import { useCallback } from 'react';
 import { Row } from '@/components/layout/row';
+import { spacing } from '@/tokens/attribute.css';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
 import { Icon } from '../icon';
@@ -33,7 +34,12 @@ export function Chip(props: ChipProps) {
   ];
 
   return (
-    <Row as='button' className={cn(classNames)} onClick={onClick}>
+    <Row
+      as='button'
+      className={cn(classNames)}
+      gap={spacing[6]}
+      onClick={onClick}
+    >
       <Icon icon={leadingIcon} size={14} />
       <Typo.Caption>{children}</Typo.Caption>
     </Row>
