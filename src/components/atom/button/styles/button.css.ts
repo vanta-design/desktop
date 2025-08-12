@@ -15,5 +15,5 @@ export const iconButton = style({
 });
 
 export const content = style({
-  padding: `0 ${spacing[4]}`,
+  padding: `0 ${spacing[8]}`,
 });
