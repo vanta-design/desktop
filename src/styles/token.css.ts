@@ -137,10 +137,10 @@ createGlobalTheme(':root', layout, {
 
 createGlobalTheme(':root', typography, {
   weight: {
-    bold: '700',
-    strong: '600',
+    bold: '600',
+    strong: '500',
     regular: '450',
-    light: '370',
+    light: '400',
   },
   size: {
     display: '36px',
