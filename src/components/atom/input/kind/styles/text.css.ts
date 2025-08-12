@@ -7,6 +7,6 @@ export const defaultText = style({
 });
 
 export const compactText = style({
-  padding: `${spacing[6]} ${spacing[12]}`,
+  padding: `${spacing[8]} ${spacing[12]}`,
   borderRadius: radius[12],
 });
