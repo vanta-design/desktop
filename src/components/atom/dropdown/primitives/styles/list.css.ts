@@ -5,7 +5,7 @@ export const list = style({
   position: 'absolute',
   top: 'calc(100% + 8px)',
   left: 0,
-  backgroundColor: fill.surface.glass,
+  backgroundColor: fill.surface.baseGlass,
   border: `1px solid ${line.outline}`,
   zIndex: 10,
   selectors: {

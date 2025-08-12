@@ -8,7 +8,7 @@ export const radio = style({
   width: 22,
   height: 22,
   aspectRatio: '1/1',
-  backgroundColor: fill.surface.raised,
+  backgroundColor: fill.interaction.base,
   border: `1px solid ${line.outline}`,
   borderRadius: radius.full,
   cursor: 'pointer',

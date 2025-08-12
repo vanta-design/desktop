@@ -1,6 +1,6 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
 import { resetGlobalStyle } from '@/utils/style';
-import { color, text } from '../tokens/color.css';
+import { color, fill, text } from '../tokens/color.css';
 import {
   blue,
   green,
@@ -18,15 +18,17 @@ resetGlobalStyle('[data-theme]', {
 createGlobalTheme('[data-theme=light]', color, {
   fill: {
     surface: {
-      base: monochrome[10],
-      raised: monochrome[15],
+      base: primitive.pureWhite,
+      subtle: monochrome[10],
       invert: monochrome[100],
-      dim: 'rgba(0, 0, 0, 0.08)',
-      glass: 'rgba(250, 250, 250, 0.75)',
+      dim: 'rgba(0, 0, 0, 0.16)',
+      baseGlass: 'rgba(255, 255, 255, 0.70)',
+      subtleGlass: 'rgba(252, 252, 252, 0.70)',
     },
     interaction: {
-      none: primitive.transparent,
-      hover: 'rgba(250, 250, 250, 0.2)',
+      base: fill.surface.subtle,
+      raised: monochrome[15],
+      hoverOverlay: 'rgba(10, 10, 10, 0.01)',
     },
   },
   text: {
@@ -83,15 +85,17 @@ createGlobalTheme('[data-theme=light]', color, {
 createGlobalTheme('[data-theme=dark]', color, {
   fill: {
     surface: {
-      base: monochrome[100],
-      raised: monochrome[95],
+      base: monochrome[95],
+      subtle: monochrome[90],
       invert: monochrome[10],
-      dim: 'rgba(0, 0, 0, 0.08)',
-      glass: 'rgba(10, 10, 10, 0.75)',
+      dim: 'rgba(0, 0, 0, 0.16)',
+      baseGlass: 'rgba(15, 15, 15, 0.7)',
+      subtleGlass: 'rgba(17, 17, 18, 0.7)',
     },
     interaction: {
-      none: primitive.transparent,
-      hover: 'rgba(10, 10, 10, 0.2)',
+      base: fill.surface.subtle,
+      raised: monochrome[85],
+      hoverOverlay: 'rgba(250, 250, 250, 0.1)',
     },
   },
   text: {
@@ -114,31 +118,31 @@ createGlobalTheme('[data-theme=dark]', color, {
   semantic: {
     neutral: {
       emphasized: monochrome[10],
-      weak: monochrome[90],
+      weak: monochrome[85],
       text: text.primary,
     },
     info: {
-      emphasized: blue[50],
+      emphasized: blue[40],
       weak: blue[90],
       text: blue[30],
     },
     highlight: {
-      emphasized: indigo[50],
+      emphasized: indigo[40],
       weak: indigo[90],
       text: indigo[30],
     },
     positive: {
-      emphasized: green[50],
+      emphasized: green[40],
       weak: green[90],
       text: green[30],
     },
     caution: {
-      emphasized: orange[50],
+      emphasized: orange[40],
       weak: orange[90],
       text: orange[30],
     },
     negative: {
-      emphasized: red[50],
+      emphasized: red[40],
       weak: red[90],
       text: red[30],
     },
@@ -149,14 +153,16 @@ createGlobalTheme('[data-theme=darkest]', color, {
   fill: {
     surface: {
       base: primitive.pureBlack,
-      raised: monochrome[100],
+      subtle: primitive.pureBlack,
       invert: primitive.pureWhite,
       dim: 'rgba(0, 0, 0, 0.16)',
-      glass: 'rgba(0, 0, 0, 0.75)',
+      baseGlass: 'rgba(0, 0, 0, 0.7)',
+      subtleGlass: 'rgba(0, 0, 0, 0.7)',
     },
     interaction: {
-      none: primitive.transparent,
-      hover: 'rgba(10, 10, 10, 0.2)',
+      base: fill.surface.subtle,
+      raised: monochrome[100],
+      hoverOverlay: 'rgba(250, 250, 250, 0.1)',
     },
   },
   text: {

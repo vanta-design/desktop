@@ -4,7 +4,7 @@ import { style } from '@/utils/style';
 
 export const wrapper = style({
   width: '100%',
-  backgroundColor: fill.surface.raised,
+  backgroundColor: fill.interaction.base,
   border: `1px solid ${line.outline}`,
   cursor: 'text',
 });

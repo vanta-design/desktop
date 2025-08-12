@@ -7,7 +7,7 @@ export const wrapper = style({
 });
 
 export const controller = style({
-  backgroundColor: fill.surface.raised,
+  backgroundColor: fill.interaction.base,
   border: `1px solid ${line.outline}`,
   cursor: 'pointer',
 });

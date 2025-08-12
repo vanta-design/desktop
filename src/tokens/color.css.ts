@@ -5,14 +5,16 @@ export const color = createGlobalThemeContract(
     fill: {
       surface: {
         base: 'fill-surface-base',
-        raised: 'fill-surface-raised',
+        subtle: 'fill-surface-subtle',
         invert: 'fill-surface-invert',
         dim: 'fill-surface-dim',
-        glass: 'fill-surface-glass',
+        baseGlass: 'fill-surface-base-glass',
+        subtleGlass: 'fill-surface-subtle-glass',
       },
       interaction: {
-        none: 'fill-interaction-none',
-        hover: 'fill-interaction-hover',
+        base: 'fill-interaction-base',
+        raised: 'fill-interaction-raised',
+        hoverOverlay: 'fill-interaction-hover-overlay',
       },
     },
     text: {
