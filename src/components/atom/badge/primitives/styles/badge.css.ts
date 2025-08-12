@@ -1,9 +1,15 @@
 import { semanticColors } from '@/lib/color';
+import { accent } from '@/tokens/accent.css';
 import { semantic } from '@/tokens/color.css';
 import type { Semantic } from '@/types/color';
 import { style } from '@/utils/style';
 
-export default semanticColors.reduce(
+export const primitive = style({
+  backgroundColor: accent.fill.secondary,
+  color: accent.text.accent,
+});
+
+export const semanticMap = semanticColors.reduce(
   (acc, current) => {
     acc[current] = style({
       backgroundColor: semantic[current].weak,

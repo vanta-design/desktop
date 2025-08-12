@@ -3,7 +3,7 @@ import { spacing } from '@/tokens/attribute.css';
 import { withDefaultProps } from '@/utils/component';
 import { Icon } from '../../icon';
 import { Typo } from '../../typography';
-import { _PrimitiveBadge } from '../primitive';
+import { _PrimitiveBadge } from '../primitives/badge';
 import type { _BadgeProps } from '../shared';
 import sizeMap from './styles/default.css';
 

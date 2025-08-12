@@ -1,5 +1,5 @@
 import type { Semantic } from '@/types/color';
-import type { _PrimitiveBadgeProps } from './primitive';
+import type { _PrimitiveBadgeProps } from './primitives/badge';
 
 export type BadgeSize = 'large' | 'small';
 
