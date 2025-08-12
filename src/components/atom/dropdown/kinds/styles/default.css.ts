@@ -11,6 +11,6 @@ export const list = style({
 });
 
 export const item = style({
-  padding: `${spacing[6]} ${spacing[8]}`,
+  padding: `${spacing[8]} ${spacing[12]}`,
   borderRadius: radius[12],
 });

@@ -17,7 +17,6 @@ export function _DefaultDropdown(props: DropdownProps) {
       {...props}
       className={dropdown}
       gap={spacing[8]}
-      iconSize={18}
       indicatorSize={16}
     >
       <_PrimitiveDropdownList className={list}>
@@ -29,7 +28,7 @@ export function _DefaultDropdown(props: DropdownProps) {
 
 _DefaultDropdown.Item = withDefaultProps(_PrimitiveDropdownItem, {
   gap: spacing[8],
-  iconSize: 18,
+  iconSize: 16,
   className: item,
 });
 

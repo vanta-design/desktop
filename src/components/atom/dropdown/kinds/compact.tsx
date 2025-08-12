@@ -16,7 +16,6 @@ export function _CompactDropdown(props: DropdownProps) {
       {...props}
       className={dropdown}
       gap={spacing[6]}
-      iconSize={16}
       indicatorSize={14}
     >
       <_PrimitiveDropdownList className={list}>

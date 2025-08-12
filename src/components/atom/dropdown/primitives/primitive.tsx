@@ -1,5 +1,6 @@
-import { ChevronDown, ChevronUp, type LucideIcon } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Column } from '@/components/layout/column';
 import { Row } from '@/components/layout/row';
 import { fullWidth } from '@/styles/utils.css';
 import { text } from '@/tokens/color.css';
@@ -11,23 +12,21 @@ import { DropdownContext, type Option } from '../context';
 import { controller, expanded, wrapper } from './styles/primitive.css';
 
 export interface DropdownProps extends BaseProps<HAS_CHILDREN> {
-  defaultIcon?: LucideIcon;
+  label?: string;
   defaultValue?: string;
   placeholder?: string;
 }
 
 export interface _PrimitiveDropdownProps extends DropdownProps {
   gap: string;
-  iconSize: number;
   indicatorSize: number;
 }
 
 export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
   const {
     gap,
-    iconSize,
     indicatorSize,
-    defaultIcon,
+    label,
     defaultValue,
     placeholder,
     className,
@@ -87,17 +86,17 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
           aria-expanded={isExpanded}
           onClick={handleClick}
         >
-          <Icon
-            icon={currentOption?.icon ?? defaultIcon}
-            size={iconSize}
-            color={currentOption ? text.primary : text.tertiary}
-          />
-          <Typo.Body
-            className={fullWidth}
-            color={currentOption ? text.primary : text.status.disabled}
-          >
-            {currentOption?.label ?? placeholder}
-          </Typo.Body>
+          <Column className={fullWidth}>
+            <Typo.Footnote weight='light' color={text.tertiary}>
+              {label}
+            </Typo.Footnote>
+            <Typo.Body
+              className={fullWidth}
+              color={currentOption ? text.primary : text.status.disabled}
+            >
+              {currentOption?.label ?? placeholder}
+            </Typo.Body>
+          </Column>
           <Icon
             icon={isExpanded ? ChevronUp : ChevronDown}
             size={indicatorSize}
