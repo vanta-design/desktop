@@ -7,7 +7,7 @@ import { style } from '@/utils/style';
 export const box = style({
   width: 36,
   padding: spacing[4],
-  backgroundColor: fill.interaction.base,
+  backgroundColor: fill.interaction.raised,
   border: `1px solid ${line.outline}`,
   borderRadius: radius.full,
 });

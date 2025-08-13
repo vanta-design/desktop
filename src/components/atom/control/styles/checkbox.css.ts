@@ -13,7 +13,7 @@ export const box = style({
   height: 22,
   aspectRatio: '1/1',
   padding: spacing[4],
-  backgroundColor: fill.interaction.base,
+  backgroundColor: fill.interaction.raised,
   border: `1px solid ${line.outline}`,
   borderRadius: radius[8],
 });
