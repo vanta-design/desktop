@@ -1,6 +1,6 @@
 import { accent } from '@/tokens/accent.css';
-import { radius, spacing } from '@/tokens/attribute.css';
-import { fill, line } from '@/tokens/color.css';
+import { attribute, radius, spacing } from '@/tokens/attribute.css';
+import { fill, line, text } from '@/tokens/color.css';
 import { primitive } from '@/tokens/primitive.css';
 import { style } from '@/utils/style';
 
@@ -21,12 +21,15 @@ export const thumb = style({
   display: 'block',
   width: 14,
   height: 14,
-  aspectRatio: '1/1',
-  backgroundColor: line.outline,
+  aspectRatio: '1 / 1',
+  opacity: attribute.opacity.disabled,
+  backgroundColor: text.tertiary,
   borderRadius: radius.full,
   selectors: {
     [`${activeStyle} > &`]: {
+      backgroundColor: fill.interaction.base,
       marginLeft: 14,
+      opacity: 1,
     },
   },
 });

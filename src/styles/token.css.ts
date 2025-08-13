@@ -123,7 +123,7 @@ createGlobalTheme(':root', attribute, {
     full: '9999px',
   },
   opacity: {
-    disabled: '35px',
+    disabled: '0.35',
   },
 });
 

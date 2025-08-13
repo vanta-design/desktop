@@ -45,7 +45,7 @@ createGlobalTheme('[data-theme=light]', color, {
     },
   },
   line: {
-    outline: monochrome[25],
+    outline: monochrome[20],
     divider: monochrome[20],
   },
   semantic: {
@@ -113,7 +113,7 @@ createGlobalTheme('[data-theme=dark]', color, {
   },
   line: {
     outline: monochrome[85],
-    divider: monochrome[90],
+    divider: monochrome[85],
   },
   semantic: {
     neutral: {
@@ -179,8 +179,8 @@ createGlobalTheme('[data-theme=darkest]', color, {
     },
   },
   line: {
-    outline: monochrome[90],
-    divider: monochrome[80],
+    outline: monochrome[95],
+    divider: monochrome[95],
   },
   semantic: {
     neutral: {
