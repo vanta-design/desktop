@@ -10,6 +10,7 @@ export const attribute = createGlobalThemeContract(
       8: 'spacing-8',
       12: 'spacing-12',
       16: 'spacing-16',
+      18: 'spacing-18',
       20: 'spacing-20',
       24: 'spacing-24',
       28: 'spacing-28',
