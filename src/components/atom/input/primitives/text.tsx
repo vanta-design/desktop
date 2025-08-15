@@ -31,6 +31,7 @@ interface _PrimitiveTextInputProps extends TextInputProps {
   gap: string;
   iconSize: number;
   resetIconSize: number;
+  inputClassName: string;
 }
 
 export function _PrimitiveTextInput(props: _PrimitiveTextInputProps) {
@@ -42,6 +43,7 @@ export function _PrimitiveTextInput(props: _PrimitiveTextInputProps) {
     gap,
     iconSize,
     resetIconSize,
+    inputClassName,
     style,
     value: propValue,
     defaultValue,
@@ -116,7 +118,7 @@ export function _PrimitiveTextInput(props: _PrimitiveTextInputProps) {
         <input
           {...restProps}
           ref={inputRef}
-          className={input}
+          className={cn(input, inputClassName)}
           type={secure ? 'password' : type}
           value={value}
           disabled={disabled}

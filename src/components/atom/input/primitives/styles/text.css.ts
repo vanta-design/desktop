@@ -5,7 +5,7 @@ import { style } from '@/utils/style';
 export const wrapper = style({
   width: '100%',
   backgroundColor: fill.interaction.base,
-  border: `1px solid ${line.outline}`,
+  outline: `1px solid ${line.outline}`,
   cursor: 'text',
 });
 
@@ -37,16 +37,16 @@ export const disabledStyle = style({
 });
 
 export const invalidStyle = style({
-  borderColor: semantic.negative.emphasized,
+  outlineColor: semantic.negative.emphasized,
 });
 
 export const focusStyle = style({
   backgroundColor: accent.fill.secondary,
-  borderColor: accent.text.accent,
+  outlineColor: accent.text.accent,
   selectors: {
     [`&${invalidStyle}`]: {
       backgroundColor: semantic.negative.weak,
-      borderColor: semantic.negative.emphasized,
+      outlineColor: semantic.negative.emphasized,
     },
   },
 });

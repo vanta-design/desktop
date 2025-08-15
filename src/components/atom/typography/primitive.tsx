@@ -1,12 +1,14 @@
 import { createElement, type JSX } from 'react';
 import { cn } from '@/utils/common';
 import type { TypographyPropsBase, Weight } from './shared';
+import { nowrap } from './styles/typography.css';
 import weightMap from './styles/weight.css';
 
 export interface _PrimitiveProps extends TypographyPropsBase {
   as?: keyof JSX.IntrinsicElements;
   weight?: Weight;
   color?: string;
+  wrap?: boolean;
 }
 
 export function _PrimitiveTypography(props: _PrimitiveProps) {
@@ -14,6 +16,7 @@ export function _PrimitiveTypography(props: _PrimitiveProps) {
     as = 'span',
     weight = 'regular',
     color,
+    wrap = false,
     children,
     className,
     style,
@@ -24,7 +27,7 @@ export function _PrimitiveTypography(props: _PrimitiveProps) {
     return null;
   }
 
-  const classNames = [weightMap[weight], className];
+  const classNames = [weightMap[weight], !wrap && nowrap, className];
 
   return createElement(as, {
     ...restProps,

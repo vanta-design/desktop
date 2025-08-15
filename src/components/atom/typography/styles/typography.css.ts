@@ -20,11 +20,14 @@ export default sizes.reduce(
       lineHeight: lineHeight[current],
       letterSpacing: letterSpacing[current],
       textAlign: 'left',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
     });
     return acc;
   },
   {} as { [key in TypographySize]: string },
 );
+
+export const nowrap = style({
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+});
