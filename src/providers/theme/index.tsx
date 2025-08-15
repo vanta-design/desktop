@@ -5,33 +5,29 @@ import {
   useState,
 } from 'react';
 import '@/styles/theme.css';
-
-export type Theme = 'light' | 'dark' | 'darkest';
+import { type Theme, ThemeContext } from './context';
 
 interface ThemeProviderProps extends PropsWithChildren {
-  theme?: Theme;
   defaultTheme?: Theme;
 }
 
 export function ThemeProvider(props: ThemeProviderProps) {
-  const { theme, defaultTheme, children } = props;
+  const { defaultTheme, children } = props;
 
   const fallbackTheme = window.matchMedia('(prefers-color-scheme: dark)')
     .matches
     ? 'dark'
     : 'light';
-  const [currentTheme, setCurrentTheme] = useState(
-    theme || defaultTheme || fallbackTheme,
-  );
+  const [theme, setTheme] = useState(defaultTheme || fallbackTheme);
 
   const handleMediaChange = useCallback((e: MediaQueryListEvent) => {
     const newColorScheme = e.matches ? 'dark' : 'light';
-    setCurrentTheme(newColorScheme);
+    setTheme(newColorScheme);
   }, []);
 
   useEffect(() => {
-    setCurrentTheme(theme || fallbackTheme);
-  }, [theme, fallbackTheme]);
+    setTheme(defaultTheme || fallbackTheme);
+  }, [defaultTheme, fallbackTheme]);
 
   useEffect(() => {
     window
@@ -44,8 +40,8 @@ export function ThemeProvider(props: ThemeProviderProps) {
   }, [handleMediaChange]);
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-  }, [currentTheme]);
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
-  return children;
+  return <ThemeContext value={{ theme, setTheme }}>{children}</ThemeContext>;
 }

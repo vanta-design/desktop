@@ -1,18 +1,20 @@
-import { type PropsWithChildren, useEffect } from 'react';
+import { type PropsWithChildren, useEffect, useState } from 'react';
 import '@/styles/accent.css';
-
-export type Accent = 'monochrome' | 'green' | 'blue' | 'indigo';
+import { type Accent, AccentContext } from './context';
 
 interface AccentProviderProps extends PropsWithChildren {
-  accent?: Accent;
+  defaultAccent?: Accent;
 }
 
 export function AccentProvider(props: AccentProviderProps) {
-  const { accent = 'monochrome', children } = props;
+  const { defaultAccent = 'monochrome', children } = props;
+  const [accent, setAccent] = useState<Accent>(defaultAccent);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-accent', accent);
   }, [accent]);
 
-  return children;
+  return (
+    <AccentContext value={{ accent, setAccent }}>{children}</AccentContext>
+  );
 }
