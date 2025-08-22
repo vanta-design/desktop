@@ -112,7 +112,7 @@ createGlobalTheme('[data-theme=dark]', color, {
     },
   },
   line: {
-    outline: monochrome[85],
+    outline: monochrome[80],
     divider: monochrome[85],
   },
   semantic: {

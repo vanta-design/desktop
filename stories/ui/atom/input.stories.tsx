@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Search } from 'lucide-react';
-import { TextInput } from '@/components/atom/input';
+import { ImagePreviewInput, TextInput } from '@/components/atom/input';
 import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
 
@@ -27,4 +27,8 @@ export const Text: StoryObj = {
       </Column>
     </Container>
   ),
+};
+
+export const ImagePreview: StoryObj = {
+  render: () => <ImagePreviewInput />,
 };
