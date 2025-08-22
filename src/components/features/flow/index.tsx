@@ -328,5 +328,5 @@ export function createFlow<
 
   const Flow = Object.assign(FlowRoot, { Step });
 
-  return { Flow, Step, useFlow, FlowContext };
+  return { Flow, Step, useFlow, context: FlowContext };
 }

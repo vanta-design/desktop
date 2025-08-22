@@ -25,6 +25,7 @@ import {
 export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: LucideIcon;
   secure?: boolean;
+  onValueChange?: (value: string) => unknown;
 }
 
 interface _PrimitiveTextInputProps extends TextInputProps {
@@ -40,6 +41,7 @@ export function _PrimitiveTextInput(props: _PrimitiveTextInputProps) {
     disabled,
     icon,
     secure = type === 'password',
+    onValueChange,
     gap,
     iconSize,
     resetIconSize,
@@ -76,8 +78,9 @@ export function _PrimitiveTextInput(props: _PrimitiveTextInputProps) {
       const newValue = e.target.value;
       setValue(newValue);
       checkValidation();
+      onValueChange?.(newValue);
     },
-    [checkValidation],
+    [checkValidation, onValueChange],
   );
 
   const onClickReset = useCallback(() => {
