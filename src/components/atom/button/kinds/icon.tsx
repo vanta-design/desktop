@@ -11,14 +11,10 @@ export interface _IconButtonProps extends ButtonPropsBase {
 }
 
 export function _IconButton(props: _IconButtonProps) {
-  const { size = 'large', icon, className, ...restProps } = props;
+  const { size = 'large', icon, className } = props;
 
   return (
-    <_PrimitiveButton
-      size={size}
-      className={cn(iconButton, className)}
-      {...restProps}
-    >
+    <_PrimitiveButton {...props} className={cn(iconButton, className)}>
       <Icon className={iconSizeMap[size]} icon={icon} />
     </_PrimitiveButton>
   );

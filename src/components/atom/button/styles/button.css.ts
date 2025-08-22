@@ -1,9 +1,16 @@
-import { spacing } from '@/tokens/attribute.css';
+import { attribute, spacing } from '@/tokens/attribute.css';
 import { style } from '@/utils/style';
 
 export const button = style({
+  position: 'relative',
   cursor: 'pointer',
   userSelect: 'none',
+  selectors: {
+    '&:disabled': {
+      cursor: 'not-allowed',
+      opacity: attribute.opacity.disabled,
+    },
+  },
 });
 
 export const iconButton = style({
@@ -16,4 +23,15 @@ export const iconButton = style({
 
 export const content = style({
   padding: `0 ${spacing[8]}`,
+});
+
+export const hide = style({
+  opacity: 0,
+});
+
+export const loadingCircle = style({
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
 });

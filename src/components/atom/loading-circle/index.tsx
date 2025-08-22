@@ -1,19 +1,21 @@
 import { Flex } from '@/components/layout/flex';
 import { typography } from '@/tokens/typography.css';
+import type { BaseProps } from '@/types/props';
 import { vector } from './styles.css';
 
 type LoadingCircleSize = 'body' | 'caption' | 'footnote';
 
-interface LoadingCircleProps {
+interface LoadingCircleProps extends BaseProps {
   size?: LoadingCircleSize;
   color?: string;
 }
 
 export function LoadingCircle(props: LoadingCircleProps) {
-  const { color = 'currentColor', size = 'body' } = props;
+  const { color = 'currentColor', size = 'body', className } = props;
 
   return (
     <Flex
+      className={className}
       inline
       align='center'
       justify='center'

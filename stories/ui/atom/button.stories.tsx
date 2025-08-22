@@ -11,51 +11,60 @@ const meta: Meta = {
 
 export default meta;
 
-const defaultButtonArgs = {
-  children: '버튼',
-  leadingIcon: SquareDashed,
-  trailingIcon: SquareDashed,
-};
-
-const defaultIconButtonArgs = {
-  icon: SquareDashed,
-};
-
-export const Showcase: StoryObj = {
-  render: () => (
+export const Default: StoryObj<typeof Button.Large> = {
+  render: (args) => (
     <>
       <Section>
-        <Button.Large {...defaultButtonArgs} variant='primary' />
-        <Button.Large {...defaultButtonArgs} variant='secondary' />
-        <Button.Large {...defaultButtonArgs} variant='bare' />
+        <Button.Large {...args} variant='primary' />
+        <Button.Large {...args} variant='secondary' />
+        <Button.Large {...args} variant='bare' />
       </Section>
       <Section>
-        <Button.Medium {...defaultButtonArgs} variant='primary' />
-        <Button.Medium {...defaultButtonArgs} variant='secondary' />
-        <Button.Medium {...defaultButtonArgs} variant='bare' />
+        <Button.Medium {...args} variant='primary' />
+        <Button.Medium {...args} variant='secondary' />
+        <Button.Medium {...args} variant='bare' />
       </Section>
       <Section>
-        <Button.Small {...defaultButtonArgs} variant='primary' />
-        <Button.Small {...defaultButtonArgs} variant='secondary' />
-        <Button.Small {...defaultButtonArgs} variant='bare' />
-      </Section>
-      <Section>
-        <IconButton.Large {...defaultIconButtonArgs} variant='primary' />
-        <IconButton.Large {...defaultIconButtonArgs} variant='secondary' />
-        <IconButton.Large {...defaultIconButtonArgs} variant='bare' />
-      </Section>
-      <Section>
-        <IconButton.Medium {...defaultIconButtonArgs} variant='primary' />
-        <IconButton.Medium {...defaultIconButtonArgs} variant='secondary' />
-        <IconButton.Medium {...defaultIconButtonArgs} variant='bare' />
-      </Section>
-      <Section>
-        <IconButton.Small {...defaultIconButtonArgs} variant='primary' />
-        <IconButton.Small {...defaultIconButtonArgs} variant='secondary' />
-        <IconButton.Small {...defaultIconButtonArgs} variant='bare' />
+        <Button.Small {...args} variant='primary' />
+        <Button.Small {...args} variant='secondary' />
+        <Button.Small {...args} variant='bare' />
       </Section>
     </>
   ),
+  args: {
+    children: '버튼',
+    loading: false,
+    disabled: false,
+    leadingIcon: SquareDashed,
+    trailingIcon: SquareDashed,
+  },
+};
+
+export const Icon: StoryObj<typeof IconButton.Large> = {
+  render: (args) => (
+    <>
+      <Section>
+        <IconButton.Large {...args} variant='primary' />
+        <IconButton.Large {...args} variant='secondary' />
+        <IconButton.Large {...args} variant='bare' />
+      </Section>
+      <Section>
+        <IconButton.Medium {...args} variant='primary' />
+        <IconButton.Medium {...args} variant='secondary' />
+        <IconButton.Medium {...args} variant='bare' />
+      </Section>
+      <Section>
+        <IconButton.Small {...args} variant='primary' />
+        <IconButton.Small {...args} variant='secondary' />
+        <IconButton.Small {...args} variant='bare' />
+      </Section>
+    </>
+  ),
+  args: {
+    icon: SquareDashed,
+    loading: false,
+    disabled: false,
+  },
 };
 
 function Section(props: PropsWithChildren) {
