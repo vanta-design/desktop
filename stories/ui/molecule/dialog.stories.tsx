@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@/components/atom/button';
 import { TextInput } from '@/components/atom/input';
-import { createOverlay } from '@/components/features/overlay';
+import { useOverlay } from '@/components/features/overlay';
 import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
 import { Row } from '@/components/layout/row';
@@ -16,7 +16,7 @@ export default meta;
 
 export const Default: StoryObj = {
   render: () => {
-    const DefaultDialog = createOverlay(Dialog.Default);
+    const DefaultDialog = useOverlay(Dialog.Default);
 
     return (
       <Container>
@@ -46,7 +46,7 @@ export const Default: StoryObj = {
 
 export const Alert: StoryObj = {
   render: () => {
-    const AlertDialog = createOverlay(Dialog.Alert);
+    const AlertDialog = useOverlay(Dialog.Alert);
 
     return (
       <Container>
@@ -66,8 +66,8 @@ export const Alert: StoryObj = {
 
 export const Confirm: StoryObj = {
   render: () => {
-    const ConfirmDialog = createOverlay(Dialog.Confirm);
-    const DeleteConfirmDialog = createOverlay(Dialog.Confirm);
+    const ConfirmDialog = useOverlay(Dialog.Confirm);
+    const DeleteConfirmDialog = useOverlay(Dialog.Confirm);
 
     return (
       <Container>

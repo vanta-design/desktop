@@ -1,48 +1,56 @@
 import {
+  type ComponentType,
   createContext,
   type Dispatch,
   type SetStateAction,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
 import type { OverlayComponent, OverlayContextType } from './types';
 
-export function createOverlay<T>(Component: OverlayComponent<T>) {
-  const OverlayContext = createContext<OverlayContextType | null>(null);
-  let _setIsOpen: Dispatch<SetStateAction<boolean>> | null = null;
+export function useOverlay<T>(Component: OverlayComponent<T>) {
+  const setOpenRef = useRef<Dispatch<SetStateAction<boolean>> | null>(null);
 
-  function show() {
-    _setIsOpen?.(true);
-  }
+  const show = useCallback(() => setOpenRef.current?.(true), []);
+  const hide = useCallback(() => setOpenRef.current?.(false), []);
 
-  function hide() {
-    _setIsOpen?.(false);
-  }
+  const Context = useMemo(
+    () => createContext<OverlayContextType | null>(null),
+    [],
+  );
 
-  function OverlayRoot(props: T) {
-    const [isOpen, setIsOpen] = useState(false);
+  const Render = useMemo<ComponentType<T>>(() => {
+    function OverlayRender(props: T) {
+      const [isOpen, setIsOpen] = useState(false);
 
-    _setIsOpen = setIsOpen;
+      useEffect(() => {
+        setOpenRef.current = setIsOpen;
+        return () => {
+          if (setOpenRef.current === setIsOpen) setOpenRef.current = null;
+        };
+      }, []);
 
-    const overlayRoot = document.getElementById('overlay-root');
-    if (!overlayRoot) {
-      console.warn('Overlay root not found');
-      return null;
+      const overlayRoot = document.getElementById('overlay-root');
+      if (!overlayRoot) {
+        console.warn('Overlay root not found (expected #overlay-root)');
+        return null;
+      }
+
+      if (!isOpen) return null;
+
+      return createPortal(
+        <Context value={{ isOpen, setIsOpen }}>
+          <Component isOpen={isOpen} close={hide} {...props} />
+        </Context>,
+        overlayRoot,
+      );
     }
+    return OverlayRender;
+  }, [Component, Context, hide]);
 
-    return isOpen
-      ? createPortal(
-          <OverlayContext value={{ isOpen, setIsOpen }}>
-            <Component isOpen={isOpen} close={hide} {...props} />
-          </OverlayContext>,
-          overlayRoot,
-        )
-      : null;
-  }
-
-  return {
-    Render: OverlayRoot,
-    show,
-    hide,
-  };
+  return { Render, show, hide };
 }
