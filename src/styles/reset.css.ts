@@ -53,3 +53,10 @@ resetGlobalStyle('input::placeholder, textarea::placeholder', {
 });
 
 resetGlobalStyle('::-webkit-scrollbar', { display: 'none' });
+
+resetGlobalStyle('#overlay-root', {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  zIndex: 100,
+});
