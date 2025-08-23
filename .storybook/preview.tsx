@@ -13,8 +13,8 @@ export const decorators: Array<Decorator> = [
 
     return (
       <VantaProvider>
-        <ThemeProvider theme={theme}>
-          <AccentProvider accent={accent}>
+        <ThemeProvider defaultTheme={theme}>
+          <AccentProvider defaultAccent={accent}>
             <Story />
           </AccentProvider>
         </ThemeProvider>
