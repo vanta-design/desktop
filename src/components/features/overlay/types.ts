@@ -10,4 +10,6 @@ export interface OverlayComponentProps {
   close: () => void;
 }
 
-export type OverlayComponent = (props: OverlayComponentProps) => ReactNode;
+export type OverlayComponent<P> = (
+  props: OverlayComponentProps & P,
+) => ReactNode;

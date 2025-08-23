@@ -12,13 +12,16 @@ export const decorators: Array<Decorator> = [
     document.body.style.backgroundColor = fill.surface.base;
 
     return (
-      <VantaProvider>
-        <ThemeProvider defaultTheme={theme}>
-          <AccentProvider defaultAccent={accent}>
-            <Story />
-          </AccentProvider>
-        </ThemeProvider>
-      </VantaProvider>
+      <>
+        <VantaProvider>
+          <ThemeProvider defaultTheme={theme}>
+            <AccentProvider defaultAccent={accent}>
+              <Story />
+            </AccentProvider>
+          </ThemeProvider>
+        </VantaProvider>
+        <div id='overlay-root' />
+      </>
     );
   },
 ];

@@ -1,11 +1,11 @@
-import { _DialogBackdrop } from './backdrop';
 import { _DialogBody } from './body';
 import { _DialogContainer } from './container';
 import { _DialogFooter } from './footer';
 import { _DialogHeader } from './header';
+import { _DialogRoot } from './root';
 
 const _Dialog = {
-  Backdrop: _DialogBackdrop,
+  Root: _DialogRoot,
   Body: _DialogBody,
   Container: _DialogContainer,
   Footer: _DialogFooter,
