@@ -26,7 +26,7 @@ export const Default: StoryObj = {
         <DefaultDialog.Render
           title='Add new task'
           content={
-            <Column gap={12}>
+            <Column gap={16}>
               <InputField label='Title' essential>
                 <TextInput placeholder='Summary of task' />
               </InputField>
