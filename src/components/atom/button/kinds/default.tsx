@@ -39,6 +39,7 @@ export function _DefaultButton(props: _DefaultButtonProps) {
     leadingIcon,
     trailingIcon,
     fill,
+    className,
     children,
   } = props;
 
@@ -46,7 +47,7 @@ export function _DefaultButton(props: _DefaultButtonProps) {
   const weight = size === 'large' ? 'strong' : 'regular';
 
   return (
-    <_PrimitiveButton {...props} className={cn(fill && fullWidth)}>
+    <_PrimitiveButton {...props} className={cn(fill && fullWidth, className)}>
       <Row
         className={cn(content, { [hide]: loading })}
         as='span'
