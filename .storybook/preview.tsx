@@ -4,6 +4,8 @@ import { ThemeProvider } from '../src/providers/theme';
 import { VantaProvider } from '../src/providers/vanta-root';
 import { fill } from '../src/tokens/color.css';
 
+const overlayRootId = 'overlay-root';
+
 export const decorators: Array<Decorator> = [
   (Story, context) => {
     const theme = context.globals.theme || 'dark';
@@ -20,7 +22,7 @@ export const decorators: Array<Decorator> = [
             </AccentProvider>
           </ThemeProvider>
         </VantaProvider>
-        <div id='overlay-root' />
+        <div id={overlayRootId} />
       </>
     );
   },
