@@ -3,6 +3,7 @@ import { style } from '@/utils/style';
 
 export const button = style({
   position: 'relative',
+  height: 'fit-content',
   cursor: 'pointer',
   userSelect: 'none',
   selectors: {
