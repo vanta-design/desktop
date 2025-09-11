@@ -130,9 +130,9 @@ createGlobalTheme(':root', attribute, {
 
 createGlobalTheme(':root', layout, {
   padding: {
-    wide: attribute.spacing[20],
-    regular: attribute.spacing[12],
-    narrow: attribute.spacing[6],
+    wide: attribute.spacing[24],
+    regular: attribute.spacing[16],
+    narrow: attribute.spacing[8],
   },
 });
 
