@@ -5,17 +5,18 @@ import {
   type ReactNode,
   type RefObject,
   useCallback,
+  useContext,
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react';
 import { Row } from '@/components/layout/row';
-import { useControlGroupContext } from '@/components/molecule/control-group/context';
+import { ControlGroupContext } from '@/components/molecule/control-group/context';
 import { spacing } from '@/tokens/attribute.css';
 import { Label } from '../label';
 import { type ControlStatus, getAriaChecked } from './shared';
-import { boundingBox } from './styles/primitive.css';
+import { boundingBox, wrapper } from './styles/primitive.css';
 
 type ChildrenArgs = {
   id: string;
@@ -45,7 +46,7 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const controlId = useId();
   const [status, setStatus] = useState(propStatus || defaultStatus || 'none');
-  const { name } = useControlGroupContext();
+  const groupContext = useContext(ControlGroupContext);
 
   const updateStatus = useCallback(() => {
     setStatus(inputRef.current?.checked ? 'checked' : 'none');
@@ -70,8 +71,14 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
     updateStatus();
   }, [updateStatus]);
 
+  useEffect(() => {
+    if (propStatus) {
+      setStatus(propStatus);
+    }
+  }, [propStatus]);
+
   return (
-    <Row gap={spacing[6]} align='center' justify='start'>
+    <Row className={wrapper} gap={spacing[6]} align='center' justify='start'>
       <div
         className={boundingBox}
         role={role}
@@ -85,7 +92,7 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
           id={controlId}
           ref={inputRef}
           type={role}
-          name={name}
+          name={groupContext?.name}
           value={value}
           checked={status === 'checked'}
           aria-hidden

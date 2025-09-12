@@ -13,10 +13,12 @@ export const Showcase: StoryObj = {
     <Container>
       <Table.Root>
         <thead>
-          <Table.HeaderCell width={50}>#</Table.HeaderCell>
-          <Table.HeaderCell>Header 1</Table.HeaderCell>
-          <Table.HeaderCell>Header 2</Table.HeaderCell>
-          <Table.HeaderCell>Header 3</Table.HeaderCell>
+          <tr>
+            <Table.HeaderCell width={50}>#</Table.HeaderCell>
+            <Table.HeaderCell>Header 1</Table.HeaderCell>
+            <Table.HeaderCell>Header 2</Table.HeaderCell>
+            <Table.HeaderCell>Header 3</Table.HeaderCell>
+          </tr>
         </thead>
         <tbody>
           <Table.Body.Row>

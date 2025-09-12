@@ -1,6 +1,10 @@
 import { spacing } from '@/tokens/attribute.css';
 import { style } from '@/utils/style';
 
+export const wrapper = style({
+  width: 'fit-content',
+});
+
 export const boundingBox = style({
   display: 'inline-flex',
   alignItems: 'center',
