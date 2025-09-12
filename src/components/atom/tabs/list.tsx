@@ -1,5 +1,6 @@
 import { Column } from '@/components/layout/column';
 import { Row } from '@/components/layout/row';
+import { spacing } from '@/tokens/attribute.css';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { useTabsContext } from './context';
 
@@ -11,6 +12,7 @@ export function _TabsList(props: _TabsListProps) {
   return orientation === 'horizontal' ? (
     <Row
       {...props}
+      gap={spacing[8]}
       role='tablist'
       aria-orientation={orientation}
       justify='start'
@@ -18,6 +20,7 @@ export function _TabsList(props: _TabsListProps) {
   ) : (
     <Column
       {...props}
+      gap={spacing[8]}
       role='tablist'
       aria-orientation={orientation}
       align='start'

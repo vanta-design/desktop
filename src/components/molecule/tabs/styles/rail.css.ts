@@ -6,7 +6,7 @@ import { padding } from '@/tokens/layout.css';
 
 export const segment = {
   vertical: style({
-    padding: `${spacing[8]} ${spacing[16]}`,
+    padding: `${spacing[4]} ${spacing[16]}`,
     selectors: {
       '&[aria-selected="true"]': {
         boxShadow: `-2px 0 0 0 ${accent.text.accent}`,
