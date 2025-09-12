@@ -5,14 +5,13 @@ import {
   type ReactNode,
   type RefObject,
   useCallback,
-  useContext,
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react';
 import { Row } from '@/components/layout/row';
-import { ControlGroupContext } from '@/components/molecule/control-group/context';
+import { useControlGroupContext } from '@/components/molecule/control-group/context';
 import { spacing } from '@/tokens/attribute.css';
 import { Label } from '../label';
 import { type ControlStatus, getAriaChecked } from './shared';
@@ -46,7 +45,7 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const controlId = useId();
   const [status, setStatus] = useState(propStatus || defaultStatus || 'none');
-  const { name } = useContext(ControlGroupContext);
+  const { name } = useControlGroupContext();
 
   const updateStatus = useCallback(() => {
     setStatus(inputRef.current?.checked ? 'checked' : 'none');

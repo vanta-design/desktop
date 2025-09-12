@@ -1,12 +1,6 @@
-import {
-  type PropsWithChildren,
-  useCallback,
-  useContext,
-  useId,
-  useRef,
-} from 'react';
+import { type PropsWithChildren, useCallback, useId, useRef } from 'react';
 import { Row } from '@/components/layout/row';
-import { ControlGroupContext } from '@/components/molecule/control-group/context';
+import { useControlGroupContext } from '@/components/molecule/control-group/context';
 import { spacing } from '@/tokens/attribute.css';
 import { Label } from '../../label';
 import { boundingBox } from '../styles/primitive.css';
@@ -22,7 +16,7 @@ export function _Radio(props: _RadioProps) {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const controlId = useId();
-  const { name } = useContext(ControlGroupContext);
+  const { name } = useControlGroupContext();
 
   const onClick = useCallback(() => {
     inputRef.current?.click();
