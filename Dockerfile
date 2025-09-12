@@ -1,11 +1,14 @@
-FROM oven/bun AS builder
+FROM node:23-slim AS builder
 
 WORKDIR /app
+
+RUN npm i -g bun@latest
 
 COPY package.json bun.lockb* ./
 RUN bun install --frozen-lockfile
 COPY . .
-RUN bun run storybook:build
+
+RUN npm run storybook:build
 
 FROM nginx:alpine AS storybook
 

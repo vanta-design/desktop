@@ -13,7 +13,7 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build --debug",
+    "storybook:build": "storybook build",
     "commit": "bun run format && git add . && cz",
     "format": "bun run check && biome check --fix",
     "check": "tsc --noEmit"

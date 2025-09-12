@@ -7,3 +7,4 @@ README.md
 coverage
 .DS_Store
 *.log
+storybook-static
