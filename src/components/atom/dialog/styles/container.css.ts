@@ -6,7 +6,7 @@ import { style } from '@/utils/style';
 
 export const container = style([
   fullWidth,
-  shadow,
+  shadow.strong,
   {
     position: 'static',
     backgroundColor: fill.surface.base,
