@@ -1,8 +1,14 @@
-import { createContext, type Dispatch, type SetStateAction } from 'react';
+import {
+  createContext,
+  type Dispatch,
+  type RefObject,
+  type SetStateAction,
+} from 'react';
 import { createContextHook } from '@/utils/context-hook';
 
 type MenuContextType = {
   show: boolean;
+  triggerRef: RefObject<HTMLElement | null>;
   setShow: Dispatch<SetStateAction<boolean>>;
 };
 

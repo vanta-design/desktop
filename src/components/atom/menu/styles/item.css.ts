@@ -1,7 +1,12 @@
+import { accent } from '@/tokens/accent.css';
 import { spacing } from '@/tokens/attribute.css';
 import { style } from '@/utils/style';
 
 export const item = style({
-  padding: `${spacing[4]} ${spacing[6]}`,
+  minWidth: 200,
+  padding: `${spacing[4]} ${spacing[16]}`,
   cursor: 'pointer',
+  ':hover': {
+    backgroundColor: accent.fill.secondary,
+  },
 });
