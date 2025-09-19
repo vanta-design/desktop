@@ -25,13 +25,13 @@ export const UserRegistrationForm: StoryObj = {
         <Container vertical='wide'>
           <Typo.Headline weight='strong'>회원가입</Typo.Headline>
         </Container>
-        <InputField label='이름' essential>
+        <InputField label='이름'>
           <TextInput />
         </InputField>
-        <InputField label='이메일' essential>
+        <InputField label='이메일'>
           <TextInput type='email' />
         </InputField>
-        <InputField label='성별' essential>
+        <InputField label='성별'>
           <ControlGroup name='gender'>
             <Control.Radio>남성</Control.Radio>
             <Control.Radio>여성</Control.Radio>

@@ -27,10 +27,10 @@ export const Default: StoryObj = {
           title='Add new task'
           content={
             <Column gap={16}>
-              <InputField label='Title' essential>
+              <InputField label='Title'>
                 <TextInput placeholder='Summary of task' />
               </InputField>
-              <InputField label='Description' essential>
+              <InputField label='Description'>
                 <TextInput placeholder='Describe the task' />
               </InputField>
             </Column>

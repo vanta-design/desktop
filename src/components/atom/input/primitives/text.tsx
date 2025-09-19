@@ -8,6 +8,7 @@ import {
   useState,
 } from 'react';
 import { Row } from '@/components/layout/row';
+import { useInputFieldContext } from '@/components/molecule/input-field/context';
 import { spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
 import { cn } from '@/utils/common';
@@ -58,6 +59,7 @@ export function _PrimitiveTextInput(props: _PrimitiveTextInputProps) {
   const [value, setValue] = useState(String(propValue || defaultValue || ''));
   const [isFocused, setIsFocused] = useState(false);
   const [isValid, setIsValid] = useState(true);
+  const { optional } = useInputFieldContext();
 
   const checkValidation = useCallback(() => {
     if (inputRef.current && value.length > 0) {
@@ -125,6 +127,7 @@ export function _PrimitiveTextInput(props: _PrimitiveTextInputProps) {
           type={secure ? 'password' : type}
           value={value}
           disabled={disabled}
+          required={!optional}
           onChange={onChange}
         />
       </Row>

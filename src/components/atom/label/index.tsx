@@ -1,10 +1,15 @@
-import type { LabelHTMLAttributes, PropsWithChildren } from 'react';
+import {
+  type LabelHTMLAttributes,
+  type PropsWithChildren,
+  useMemo,
+} from 'react';
 import { Row } from '@/components/layout/row';
+import { useInputFieldContext } from '@/components/molecule/input-field/context';
 import { spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
 import { Typo } from '../typography';
 
-interface LabelProps
+export interface LabelProps
   extends PropsWithChildren,
     LabelHTMLAttributes<HTMLLabelElement> {
   optional?: boolean;
@@ -12,7 +17,18 @@ interface LabelProps
 }
 
 export function Label(props: LabelProps) {
-  const { optional, optionalLabel = '(선택)', children, ...restProps } = props;
+  const {
+    optional: optionalProp,
+    optionalLabel = '(선택)',
+    children,
+    ...restProps
+  } = props;
+  const { optional: optionalContext } = useInputFieldContext();
+
+  const optional = useMemo(
+    () => optionalProp ?? optionalContext,
+    [optionalProp, optionalContext],
+  );
 
   return (
     <label {...restProps}>

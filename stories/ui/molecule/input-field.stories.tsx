@@ -5,7 +5,6 @@ import { InputField } from '@/components/molecule/input-field';
 const meta: Meta<typeof InputField> = {
   title: 'UI/Molecule/InputField',
   args: {
-    essential: true,
     label: '라벨',
     description: '설명',
   },
