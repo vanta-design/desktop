@@ -16,7 +16,7 @@ export function InputField(props: InputFieldProps) {
 
   return (
     <Column gap={spacing[8]}>
-      <Label essential={essential}>{label}</Label>
+      <Label optional={essential}>{label}</Label>
       {children}
       <Paragraph.Caption color={text.tertiary}>{description}</Paragraph.Caption>
     </Column>
