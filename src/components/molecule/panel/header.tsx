@@ -5,7 +5,7 @@ import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
 import { Floating } from '@/components/layout/floating';
 import { Row } from '@/components/layout/row';
-import { fullWidth } from '@/styles/utils.css';
+import { fillWidth } from '@/styles/utils.css';
 import { spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
 import { header, image } from './styles/header.css';
@@ -26,7 +26,7 @@ export function _PanelHeader(props: _PanelHeaderProps) {
           <Container vertical='narrow' horizontal='narrow'>
             <Row gap={spacing[12]} align='center' justify='start'>
               <img className={image} src={imageSrc} alt={name} />
-              <Column className={fullWidth} align='start'>
+              <Column className={fillWidth} align='start'>
                 <Typo.Body weight='strong'>{name}</Typo.Body>
                 <Typo.Footnote color={text.tertiary}>
                   {description}

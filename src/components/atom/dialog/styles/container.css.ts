@@ -1,11 +1,11 @@
 import { shadow } from '@/styles/effect.css';
-import { fullWidth } from '@/styles/utils.css';
+import { fillWidth } from '@/styles/utils.css';
 import { radius } from '@/tokens/attribute.css';
 import { fill, line, text } from '@/tokens/color.css';
 import { style } from '@/utils/style';
 
 export const container = style([
-  fullWidth,
+  fillWidth,
   shadow.strong,
   {
     position: 'static',

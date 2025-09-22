@@ -5,6 +5,8 @@ import { group } from './group.css';
 
 export const wrapper = style({
   position: 'relative',
+  flexShrink: 0,
+  userSelect: 'none',
 });
 
 export const sizeMap = {

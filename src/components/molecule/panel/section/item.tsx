@@ -3,7 +3,7 @@ import type { PropsWithChildren, ReactNode } from 'react';
 import { Icon } from '@/components/atom/icon';
 import { Typo } from '@/components/atom/typography';
 import { Row } from '@/components/layout/row';
-import { fullWidth, userSelectNone } from '@/styles/utils.css';
+import { fillWidth, userSelectNone } from '@/styles/utils.css';
 import { spacing } from '@/tokens/attribute.css';
 import { cn } from '@/utils/common';
 import { activeStyle, emphasizedStyle, item } from './styles/item.css';
@@ -50,7 +50,7 @@ export function _PanelSectionItem(props: _PanelSectionItemProps) {
       ) : (
         leadingArea
       )}
-      <Typo.Caption className={fullWidth}>{children}</Typo.Caption>
+      <Typo.Caption className={fillWidth}>{children}</Typo.Caption>
       {!active && trailingArea}
     </Row>
   );

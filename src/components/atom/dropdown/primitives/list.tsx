@@ -1,6 +1,6 @@
 import { Container } from '@/components/layout/container';
 import { glass } from '@/styles/effect.css';
-import { fullWidth } from '@/styles/utils.css';
+import { fillWidth } from '@/styles/utils.css';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
 import { useDropdownContext } from '../context';
@@ -15,7 +15,7 @@ export function _PrimitiveDropdownList(props: _PrimitiveDropdownListProps) {
 
   return (
     <Container
-      className={cn(list, fullWidth, glass, className)}
+      className={cn(list, fillWidth, glass, className)}
       vertical='narrow'
       horizontal='narrow'
       role='listbox'

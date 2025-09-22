@@ -2,7 +2,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Column } from '@/components/layout/column';
 import { Row } from '@/components/layout/row';
-import { fullWidth } from '@/styles/utils.css';
+import { fillWidth } from '@/styles/utils.css';
 import { text } from '@/tokens/color.css';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
@@ -76,7 +76,7 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
             controller,
             isExpanded && expanded,
             className,
-            fullWidth,
+            fillWidth,
           )}
           gap={gap}
           align='center'
@@ -86,12 +86,12 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
           aria-expanded={isExpanded}
           onClick={handleClick}
         >
-          <Column className={fullWidth}>
+          <Column className={fillWidth}>
             <Typo.Footnote weight='light' color={text.tertiary}>
               {label}
             </Typo.Footnote>
             <Typo.Body
-              className={fullWidth}
+              className={fillWidth}
               color={currentOption ? text.primary : text.status.disabled}
             >
               {currentOption?.label ?? placeholder}

@@ -1,5 +1,5 @@
 import { Row } from '@/components/layout/row';
-import { fullWidth } from '@/styles/utils.css';
+import { fillWidth } from '@/styles/utils.css';
 import { spacing } from '@/tokens/attribute.css';
 import type { PropsWithIcons } from '@/types/props';
 import { cn } from '@/utils/common';
@@ -47,7 +47,7 @@ export function _DefaultButton(props: _DefaultButtonProps) {
   const weight = size === 'large' ? 'strong' : 'regular';
 
   return (
-    <_PrimitiveButton {...props} className={cn(fill && fullWidth, className)}>
+    <_PrimitiveButton {...props} className={cn(fill && fillWidth, className)}>
       <Row
         className={cn(content, { [hide]: loading })}
         as='span'

@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { Column } from '@/components/layout/column';
-import { fullHeight } from '@/styles/utils.css';
+import { fillHeight } from '@/styles/utils.css';
 import { cn } from '@/utils/common';
 import { _PanelHeader } from './header';
 import { _PanelSection } from './section';
@@ -10,7 +10,7 @@ export function Panel(props: PropsWithChildren) {
   const { children } = props;
 
   return (
-    <Column className={cn(panel, fullHeight)} justify='start' shrink={false}>
+    <Column className={cn(panel, fillHeight)} justify='start' shrink={false}>
       {children}
     </Column>
   );

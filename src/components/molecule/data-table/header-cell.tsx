@@ -3,7 +3,7 @@ import { Icon } from '@/components/atom/icon';
 import { Table } from '@/components/atom/table';
 import { Typo } from '@/components/atom/typography';
 import { Row } from '@/components/layout/row';
-import { fullWidth } from '@/styles/utils.css';
+import { fillWidth } from '@/styles/utils.css';
 import { spacing } from '@/tokens/attribute.css';
 import { headerCell } from './styles/header-cell.css';
 import type { Column } from './types';
@@ -20,7 +20,7 @@ export function _DataTableHeaderCell<T extends object>(
   return (
     <Table.HeaderCell width={column.width}>
       <Row className={headerCell} as='span' align='center' gap={spacing[8]}>
-        <Typo.Caption className={fullWidth} weight='light'>
+        <Typo.Caption className={fillWidth} weight='light'>
           {column.label}
         </Typo.Caption>
         {column.sortable !== false && <Icon icon={ChevronsUpDown} size={14} />}
