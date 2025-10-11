@@ -23,7 +23,7 @@ export function _PanelHeader(props: _PanelHeaderProps) {
     <Floating className={header}>
       <Container>
         <Row gap={spacing[8]} align='center'>
-          <Container vertical='narrow' horizontal='narrow'>
+          <Container vertical='small' horizontal='small'>
             <Row gap={spacing[12]} align='center' justify='start'>
               <img className={image} src={imageSrc} alt={name} />
               <Column className={fillWidth} align='start'>

@@ -9,7 +9,7 @@ export function _DialogBody(props: _DialogBodyProps) {
   const { compact = false, children } = props;
 
   return (
-    <Container vertical={compact ? 'none' : 'wide'} horizontal='wide'>
+    <Container vertical={compact ? 'none' : 'large'} horizontal='large'>
       {children}
     </Container>
   );

@@ -7,7 +7,7 @@ import { style } from '@/utils/style';
 
 export const indicator = style({
   display: 'block',
-  backgroundColor: accent.fill.primary,
+  backgroundColor: accent.fill.accent,
   aspectRatio: '1 / 1',
   flexShrink: 0,
   outline: `2px solid ${fill.surface.base}`,
@@ -32,7 +32,7 @@ export const sizeMap = {
 export const semanticMap = semanticColors.reduce(
   (acc, current) => {
     acc[current] = style({
-      backgroundColor: semantic[current].emphasized,
+      backgroundColor: semantic[current].primary,
     });
     return acc;
   },

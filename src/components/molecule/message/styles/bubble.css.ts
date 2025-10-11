@@ -15,7 +15,7 @@ export const box = style({
 
 export const senderStyles = {
   me: style({
-    backgroundColor: accent.fill.primary,
+    backgroundColor: accent.fill.accent,
     color: accent.text.base,
   }),
   opponent: style({

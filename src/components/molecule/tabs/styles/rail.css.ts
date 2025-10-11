@@ -28,7 +28,7 @@ export const list = {
     borderLeft: `solid 1px ${line.divider}`,
   }),
   horizontal: style({
-    padding: `${padding.regular} ${padding.wide} 0`,
+    padding: `${padding.medium} ${padding.large} 0`,
     borderBottom: `solid 1px ${line.divider}`,
   }),
 };

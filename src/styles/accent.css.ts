@@ -4,8 +4,8 @@ import { semantic, text } from '../tokens/color.css';
 
 createGlobalTheme('[data-accent=monochrome]', accent, {
   fill: {
-    primary: semantic.neutral.emphasized,
-    secondary: semantic.neutral.weak,
+    base: semantic.neutral.secondary,
+    accent: semantic.neutral.primary,
   },
   text: {
     base: text.status.invert,
@@ -15,8 +15,8 @@ createGlobalTheme('[data-accent=monochrome]', accent, {
 
 createGlobalTheme('[data-accent=green]', accent, {
   fill: {
-    primary: semantic.positive.emphasized,
-    secondary: semantic.positive.weak,
+    base: semantic.positive.secondary,
+    accent: semantic.positive.primary,
   },
   text: {
     base: text.static.white,
@@ -26,8 +26,8 @@ createGlobalTheme('[data-accent=green]', accent, {
 
 createGlobalTheme('[data-accent=blue]', accent, {
   fill: {
-    primary: semantic.info.emphasized,
-    secondary: semantic.info.weak,
+    base: semantic.info.secondary,
+    accent: semantic.info.primary,
   },
   text: {
     base: text.static.white,
@@ -37,8 +37,8 @@ createGlobalTheme('[data-accent=blue]', accent, {
 
 createGlobalTheme('[data-accent=indigo]', accent, {
   fill: {
-    primary: semantic.highlight.emphasized,
-    secondary: semantic.highlight.weak,
+    base: semantic.highlight.secondary,
+    accent: semantic.highlight.primary,
   },
   text: {
     base: text.static.white,

@@ -37,16 +37,16 @@ export const disabledStyle = style({
 });
 
 export const invalidStyle = style({
-  outlineColor: semantic.negative.emphasized,
+  outlineColor: semantic.negative.primary,
 });
 
 export const focusStyle = style({
-  backgroundColor: accent.fill.secondary,
+  backgroundColor: accent.fill.base,
   outlineColor: accent.text.accent,
   selectors: {
     [`&${invalidStyle}`]: {
-      backgroundColor: semantic.negative.weak,
-      outlineColor: semantic.negative.emphasized,
+      backgroundColor: semantic.negative.secondary,
+      outlineColor: semantic.negative.primary,
     },
   },
 });

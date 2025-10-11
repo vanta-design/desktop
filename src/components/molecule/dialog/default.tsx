@@ -20,7 +20,7 @@ export function _DefaultDialog(
   return (
     <_Dialog.Root preventClose={preventClose} close={close}>
       <_Dialog.Container isOpen={isOpen} maxWidth={maxWidth || 600}>
-        <Container vertical='narrow' horizontal='narrow'>
+        <Container vertical='small' horizontal='small'>
           <_Dialog.Header title={title} close={close} />
           <_Dialog.Body>{content}</_Dialog.Body>
         </Container>

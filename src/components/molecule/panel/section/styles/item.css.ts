@@ -15,6 +15,6 @@ export const emphasizedStyle = style({
 });
 
 export const activeStyle = style({
-  backgroundColor: accent.fill.secondary,
+  backgroundColor: accent.fill.base,
   color: accent.text.accent,
 });

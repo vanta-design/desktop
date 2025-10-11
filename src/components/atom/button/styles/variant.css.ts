@@ -4,11 +4,11 @@ import { style } from '@/utils/style';
 
 export default {
   primary: style({
-    backgroundColor: fill.primary,
+    backgroundColor: fill.accent,
     color: text.base,
   }),
   secondary: style({
-    backgroundColor: fill.secondary,
+    backgroundColor: fill.base,
     color: text.accent,
   }),
   bare: style({

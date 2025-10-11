@@ -8,7 +8,7 @@ export const item = style({
 });
 
 export const active = style({
-  backgroundColor: accent.fill.secondary,
+  backgroundColor: accent.fill.base,
   color: accent.text.accent,
 });
 

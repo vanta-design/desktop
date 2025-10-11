@@ -16,7 +16,7 @@ export function _BubbleMessageGroup(props: _MessageGroupProps) {
   const { sender, profileUrl, name, children } = props;
 
   return (
-    <Container vertical='narrow' horizontal='none'>
+    <Container vertical='small' horizontal='none'>
       <Row gap={spacing[8]} align='end' justify='start'>
         {sender === 'opponent' && (
           <Profile.Medium src={profileUrl} alt={name} />

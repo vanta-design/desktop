@@ -16,7 +16,7 @@ export function _AlertDialog(props: _AlertDialogProps & OverlayComponentProps) {
   return (
     <_Dialog.Root close={close}>
       <_Dialog.Container isOpen={isOpen} maxWidth={500}>
-        <Container vertical='narrow' horizontal='narrow'>
+        <Container vertical='small' horizontal='small'>
           <_Dialog.Header title={title} close={close} hideCloseButton />
           <_Dialog.Body compact>
             <Paragraph.Body wrap color={text.tertiary}>

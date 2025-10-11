@@ -5,14 +5,14 @@ import type { Semantic } from '@/types/color';
 import { style } from '@/utils/style';
 
 export const primitive = style({
-  backgroundColor: accent.fill.secondary,
+  backgroundColor: accent.fill.base,
   color: accent.text.accent,
 });
 
 export const semanticMap = semanticColors.reduce(
   (acc, current) => {
     acc[current] = style({
-      backgroundColor: semantic[current].weak,
+      backgroundColor: semantic[current].secondary,
       color: semantic[current].text,
     });
     return acc;

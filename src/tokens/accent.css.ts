@@ -3,8 +3,8 @@ import { createGlobalThemeContract } from '@vanilla-extract/css';
 export const accent = createGlobalThemeContract(
   {
     fill: {
-      primary: 'fill-primary',
-      secondary: 'fill-secondary',
+      base: 'fill-base',
+      accent: 'fill-accent',
     },
     text: {
       base: 'text-base',

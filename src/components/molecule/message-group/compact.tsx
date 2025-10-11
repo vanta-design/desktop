@@ -16,7 +16,7 @@ export function _CompactMessageGroup(props: _MessageGroupProps) {
   const { sender, profileUrl, name, timestamp, children } = props;
 
   return (
-    <Container vertical='narrow' horizontal='none'>
+    <Container vertical='small' horizontal='none'>
       <Row gap={spacing[12]} align='start' justify='start'>
         <Profile.Medium src={profileUrl} alt={name} />
         <Column className={cn(messageGroup, fillWidth)} gap={spacing[4]}>

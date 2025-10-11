@@ -13,7 +13,7 @@ export const box = style({
 });
 
 export const activeStyle = style({
-  backgroundColor: accent.fill.primary,
+  backgroundColor: accent.fill.accent,
   borderColor: primitive.transparent,
 });
 

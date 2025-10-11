@@ -13,7 +13,7 @@ export const radio = style({
   borderRadius: radius.full,
   cursor: 'pointer',
   ':checked': {
-    borderColor: accent.fill.primary,
+    borderColor: accent.fill.accent,
     borderWidth: 6,
   },
 });

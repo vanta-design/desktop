@@ -2,9 +2,9 @@ import { createGlobalThemeContract } from '@vanilla-extract/css';
 
 export const layout = createGlobalThemeContract({
   padding: {
-    wide: 'padding-wide',
-    regular: 'padding-regular',
-    narrow: 'padding-narrow',
+    large: 'padding-large',
+    medium: 'padding-medium',
+    small: 'padding-small',
   },
 });
 

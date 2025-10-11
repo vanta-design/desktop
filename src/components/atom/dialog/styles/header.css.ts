@@ -2,7 +2,7 @@ import { padding } from '@/tokens/layout.css';
 import { style } from '@/utils/style';
 
 export const header = style({
-  padding: `${padding.wide} ${padding.wide} ${padding.narrow} ${padding.wide}`,
+  padding: `${padding.large} ${padding.large} ${padding.small} ${padding.large}`,
 });
 
 export const closeButton = style({

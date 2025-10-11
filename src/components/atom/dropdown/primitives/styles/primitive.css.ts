@@ -13,6 +13,6 @@ export const controller = style({
 });
 
 export const expanded = style({
-  backgroundColor: accent.fill.secondary,
+  backgroundColor: accent.fill.base,
   borderColor: accent.text.accent,
 });

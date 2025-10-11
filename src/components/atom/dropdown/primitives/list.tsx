@@ -16,8 +16,8 @@ export function _PrimitiveDropdownList(props: _PrimitiveDropdownListProps) {
   return (
     <Container
       className={cn(list, fillWidth, glass, className)}
-      vertical='narrow'
-      horizontal='narrow'
+      vertical='small'
+      horizontal='small'
       role='listbox'
       aria-hidden={!isExpanded}
     >

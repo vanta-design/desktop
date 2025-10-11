@@ -7,6 +7,6 @@ export const item = style({
   padding: `${spacing[4]} ${spacing[16]}`,
   cursor: 'pointer',
   ':hover': {
-    backgroundColor: accent.fill.secondary,
+    backgroundColor: accent.fill.base,
   },
 });

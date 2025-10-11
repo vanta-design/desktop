@@ -12,6 +12,7 @@
     "url": "https://github.com/vanta-design/desktop.git"
   },
   "scripts": {
+    "dev": "bun run storybook",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "commit": "bun run format && git add . && cz",

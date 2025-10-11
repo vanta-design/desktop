@@ -14,7 +14,7 @@ export default meta;
 
 export const Showcase: StoryObj<typeof TorlnSymbol> = {
   render: (props) => (
-    <Container vertical='wide'>
+    <Container vertical='large'>
       <Row>
         <TorlnSymbol {...props} />
       </Row>

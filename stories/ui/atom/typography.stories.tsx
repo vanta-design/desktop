@@ -75,7 +75,7 @@ function Section(props: { label: string } & BaseProps<HAS_CHILDREN>) {
   const { label, children } = props;
 
   return (
-    <Container vertical='wide'>
+    <Container vertical='large'>
       <Container horizontal='none'>
         <Typo.Title weight='light' color={text.tertiary}>
           {label}

@@ -2,7 +2,7 @@ import { Container } from '@/components/layout/container';
 import { divider } from './styles.css';
 
 interface DividerProps {
-  padding?: 'none' | 'narrow' | 'regular' | 'wide';
+  padding?: 'none' | 'small' | 'medium' | 'large';
 }
 
 export function Divider(props: DividerProps) {

@@ -10,11 +10,11 @@ const meta: Meta<typeof Divider> = {
 
 export default meta;
 
-const paddings = ['none', 'narrow', 'regular', 'wide'] as const;
+const paddings = ['none', 'small', 'medium', 'large'] as const;
 
 export const Showcase: StoryObj = {
   render: () => (
-    <Container vertical='wide'>
+    <Container vertical='large'>
       <Row>
         <Column gap={20} style={{ width: 200 }}>
           {paddings.map((p) => (

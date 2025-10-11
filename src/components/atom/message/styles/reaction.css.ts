@@ -13,6 +13,6 @@ export const toggle = style({
 });
 
 export const toggleActive = style({
-  backgroundColor: accent.fill.secondary,
+  backgroundColor: accent.fill.base,
   outlineColor: accent.text.accent,
 });

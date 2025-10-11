@@ -14,8 +14,8 @@ export function _DialogFooter(props: _DialogFooterProps) {
   return (
     <Container
       className={outline ? footerOutline : ''}
-      vertical='wide'
-      horizontal='wide'
+      vertical='large'
+      horizontal='large'
     >
       <Row gap={spacing[8]} align='center' justify='end'>
         {children}
