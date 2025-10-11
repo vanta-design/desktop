@@ -4,7 +4,7 @@ import { indicator, semanticMap, sizeMap } from './styles/indicator.css';
 
 type IndicatorSize = 'small' | 'medium' | 'large';
 
-interface _IndicatorProps {
+export interface _IndicatorProps {
   size?: IndicatorSize;
   semantic?: Semantic;
 }

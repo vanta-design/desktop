@@ -22,7 +22,7 @@ const iconSizeMap = {
   small: 12,
 };
 
-interface _DefaultBadgeProps extends _BadgeProps {
+export interface _DefaultBadgeProps extends _BadgeProps {
   icon?: LucideIcon;
 }
 
