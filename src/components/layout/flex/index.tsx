@@ -12,7 +12,7 @@ export function Flex(props: FlexProps) {
     as = 'div',
     direction = 'row',
     wrap = 'nowrap',
-    align = 'stretch',
+    align = 'center',
     justify = 'center',
     grow = true,
     shrink = true,

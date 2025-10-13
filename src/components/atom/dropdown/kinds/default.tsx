@@ -1,11 +1,8 @@
 import { spacing } from '@/tokens/attribute.css';
 import { withDefaultProps } from '@/utils/component';
+import { _PrimitiveDropdown, type DropdownProps } from '../primitives/dropdown';
 import { _PrimitiveDropdownItem } from '../primitives/item';
 import { _PrimitiveDropdownList } from '../primitives/list';
-import {
-  _PrimitiveDropdown,
-  type DropdownProps,
-} from '../primitives/primitive';
 import { _CompactDropdown } from './compact';
 import { dropdown, item, list } from './styles/default.css';
 

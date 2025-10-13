@@ -15,7 +15,7 @@ export function _PrimitiveDropdownList(props: _PrimitiveDropdownListProps) {
 
   return (
     <Container
-      className={cn(list, fillWidth, glass, className)}
+      className={cn(list, fillWidth, glass.weak, className)}
       vertical='small'
       horizontal='small'
       role='listbox'

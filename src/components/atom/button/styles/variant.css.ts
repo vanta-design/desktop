@@ -1,18 +1,18 @@
-import { fill, text } from '@/tokens/accent.css';
+import { accent } from '@/tokens/accent.css';
 import { primitive } from '@/tokens/primitive.css';
 import { style } from '@/utils/style';
 
 export default {
   primary: style({
-    backgroundColor: fill.accent,
-    color: text.base,
+    backgroundColor: accent.fill.accent,
+    color: accent.text.base,
   }),
   secondary: style({
-    backgroundColor: fill.base,
-    color: text.accent,
+    backgroundColor: accent.fill.base,
+    color: accent.text.accent,
   }),
   bare: style({
     backgroundColor: primitive.transparent,
-    color: text.accent,
+    color: accent.text.accent,
   }),
 };

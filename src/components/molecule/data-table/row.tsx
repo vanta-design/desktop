@@ -9,7 +9,7 @@ interface _DataTableRowProps<T extends object> extends PropsWithChildren {
 }
 
 export function _DataTableRow<T extends object>(props: _DataTableRowProps<T>) {
-  const { data, selected, onClick, children } = props;
+  const { selected, onClick, children } = props;
 
   return (
     <Table.Body.Row onClick={onClick}>

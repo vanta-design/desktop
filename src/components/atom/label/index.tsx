@@ -5,6 +5,7 @@ import {
 } from 'react';
 import { Row } from '@/components/layout/row';
 import { useInputFieldContext } from '@/components/molecule/input-field/context';
+import { fillWidth } from '@/styles/utils.css';
 import { spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
 import { Typo } from '../typography';
@@ -32,7 +33,7 @@ export function Label(props: LabelProps) {
 
   return (
     <label {...restProps}>
-      <Row as='span' gap={spacing[4]} align='center' justify='start'>
+      <Row className={fillWidth} as='span' gap={spacing[4]} justify='start'>
         <Typo.Body color={text.secondary}>{children}</Typo.Body>
         {optional && (
           <Typo.Footnote weight='light' color={text.tertiary}>

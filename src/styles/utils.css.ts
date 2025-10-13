@@ -6,6 +6,11 @@ export const fillHeight = style({ height: '100%' });
 export const fitWidth = style({ width: 'fit-content' });
 export const fitHeight = style({ height: 'fit-content' });
 
+export const fullScreen = style({
+  width: '100dvw',
+  height: '100dvh',
+});
+
 export const userSelectNone = style({
   userSelect: 'none',
   WebkitUserSelect: 'none',

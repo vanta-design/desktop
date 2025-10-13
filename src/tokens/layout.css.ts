@@ -7,5 +7,3 @@ export const layout = createGlobalThemeContract({
     small: 'padding-small',
   },
 });
-
-export const { padding } = layout;

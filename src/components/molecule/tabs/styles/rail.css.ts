@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { accent } from '@/tokens/accent.css';
 import { spacing } from '@/tokens/attribute.css';
 import { line } from '@/tokens/color.css';
-import { padding } from '@/tokens/layout.css';
+import { layout } from '@/tokens/layout.css';
 
 export const segment = {
   vertical: style({
@@ -28,7 +28,7 @@ export const list = {
     borderLeft: `solid 1px ${line.divider}`,
   }),
   horizontal: style({
-    padding: `${padding.medium} ${padding.large} 0`,
+    padding: `${layout.padding.medium} ${layout.padding.large} 0`,
     borderBottom: `solid 1px ${line.divider}`,
   }),
 };

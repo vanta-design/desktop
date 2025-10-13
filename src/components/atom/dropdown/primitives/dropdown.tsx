@@ -79,14 +79,13 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
             fillWidth,
           )}
           gap={gap}
-          align='center'
           justify='start'
           role='combobox'
           aria-haspopup='listbox'
           aria-expanded={isExpanded}
           onClick={handleClick}
         >
-          <Column className={fillWidth}>
+          <Column className={fillWidth} align='start'>
             <Typo.Footnote weight='light' color={text.tertiary}>
               {label}
             </Typo.Footnote>

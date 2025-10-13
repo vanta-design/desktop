@@ -1,10 +1,10 @@
-import { padding } from '@/tokens/layout.css';
+import { layout } from '@/tokens/layout.css';
 import { style } from '@/utils/style';
 
 export const section = style({
-  padding: `${padding.small} ${padding.medium}`,
+  padding: `${layout.padding.small} ${layout.padding.medium}`,
 });
 
 export const innerSection = style({
-  paddingLeft: padding.medium,
+  paddingLeft: layout.padding.medium,
 });

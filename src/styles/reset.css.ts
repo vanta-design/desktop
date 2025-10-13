@@ -1,4 +1,4 @@
-import { line, text } from '@/tokens/color.css';
+import { fill, line, text } from '@/tokens/color.css';
 import { resetGlobalStyle } from '@/utils/style';
 import { wantedSansVariable } from './typography.css';
 
@@ -7,6 +7,7 @@ resetGlobalStyle('html', {
   wordBreak: 'keep-all',
   wordWrap: 'break-word',
   textWrap: 'pretty',
+  backgroundColor: fill.surface.base,
 });
 
 resetGlobalStyle('*', {

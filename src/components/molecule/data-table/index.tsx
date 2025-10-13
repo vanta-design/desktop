@@ -15,7 +15,7 @@ interface DataTableProps<T extends object> {
 export function DataTable<T extends object>(props: DataTableProps<T>) {
   const { columns, data, actions } = props;
   const [selectedSet, setSelectedSet] = useState<Set<T>>(new Set());
-  const hasActions = useMemo(
+  const _hasActions = useMemo(
     () => Array.isArray(actions) && actions.length > 0,
     [actions],
   );

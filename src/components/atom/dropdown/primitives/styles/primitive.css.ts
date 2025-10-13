@@ -4,6 +4,7 @@ import { style } from '@/utils/style';
 
 export const wrapper = style({
   position: 'relative',
+  width: '100%',
 });
 
 export const controller = style({

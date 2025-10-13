@@ -13,5 +13,3 @@ export const accent = createGlobalThemeContract(
   },
   (value) => `accent-${value}`,
 );
-
-export const { fill, text } = accent;

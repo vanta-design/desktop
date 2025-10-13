@@ -1,8 +1,8 @@
-import { padding } from '@/tokens/layout.css';
+import { layout } from '@/tokens/layout.css';
 import { style } from '@/utils/style';
 
 export const header = style({
-  padding: `${padding.large} ${padding.large} ${padding.small} ${padding.large}`,
+  padding: `${layout.padding.large} ${layout.padding.large} ${layout.padding.small} ${layout.padding.large}`,
 });
 
 export const closeButton = style({
