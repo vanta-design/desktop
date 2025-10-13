@@ -15,7 +15,11 @@ export const Showcase: StoryObj = {
   render: () => (
     <Row>
       <Column gap={spacing[16]} style={{ width: 300 }}>
-        <Dropdown label='과일' placeholder='플레이스홀더'>
+        <Dropdown
+          label='과일'
+          placeholder='플레이스홀더'
+          onValueChange={console.log}
+        >
           <Dropdown.Item value='apple'>사과</Dropdown.Item>
           <Dropdown.Item value='banana'>바나나</Dropdown.Item>
           <Dropdown.Item value='cherry'>체리</Dropdown.Item>

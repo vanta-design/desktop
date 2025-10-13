@@ -16,6 +16,7 @@ type DropdownContextType = {
   defaultValue?: string;
   currentOption: Option | null;
   isExpanded: boolean;
+  onCurrentOptionChange: (option: Option | null) => void;
   setCurrentOption: Dispatch<SetStateAction<Option | null>>;
   setIsExpanded: Dispatch<SetStateAction<boolean>>;
 };

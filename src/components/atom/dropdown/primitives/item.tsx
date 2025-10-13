@@ -22,15 +22,30 @@ export interface _PrimitiveDropdownItemProps extends DropdownItemProps {
 export function _PrimitiveDropdownItem(props: _PrimitiveDropdownItemProps) {
   const { icon, value, gap, iconSize, className, children } = props;
 
-  const { defaultValue, currentOption, setCurrentOption, setIsExpanded } =
-    useDropdownContext();
+  const {
+    defaultValue,
+    currentOption,
+    onCurrentOptionChange,
+    setCurrentOption,
+    setIsExpanded,
+  } = useDropdownContext();
   const isActive = currentOption?.value === value;
   const shouldShowIcon = isActive || icon;
 
   const handleClick = useCallback(() => {
-    setCurrentOption({ icon, value, label: children || value });
+    const option = { icon, value, label: children || value };
+
+    setCurrentOption(option);
+    onCurrentOptionChange(option);
     setIsExpanded(false);
-  }, [icon, value, children, setCurrentOption, setIsExpanded]);
+  }, [
+    icon,
+    value,
+    children,
+    onCurrentOptionChange,
+    setCurrentOption,
+    setIsExpanded,
+  ]);
 
   useEffect(() => {
     if (!currentOption && defaultValue === value) {

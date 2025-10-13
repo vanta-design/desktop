@@ -1,5 +1,11 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useEffectEvent,
+  useRef,
+  useState,
+} from 'react';
 import { Column } from '@/components/layout/column';
 import { Row } from '@/components/layout/row';
 import { fillWidth } from '@/styles/utils.css';
@@ -13,8 +19,10 @@ import { controller, expanded, wrapper } from './styles/primitive.css';
 
 export interface DropdownProps extends BaseProps<HAS_CHILDREN> {
   label?: string;
+  value?: string;
   defaultValue?: string;
   placeholder?: string;
+  onValueChange?: (value: string) => unknown;
 }
 
 export interface _PrimitiveDropdownProps extends DropdownProps {
@@ -27,8 +35,10 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
     gap,
     indicatorSize,
     label,
+    value: propValue,
     defaultValue,
     placeholder,
+    onValueChange,
     className,
     children,
   } = props;
@@ -51,6 +61,12 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
     }
   }, []);
 
+  const onCurrentOptionChange = useEffectEvent((option: Option | null) => {
+    if (option && option.value !== propValue) {
+      onValueChange?.(option.value);
+    }
+  });
+
   useEffect(() => {
     if (!isExpanded) return;
     document.addEventListener('click', handleDocumentClick);
@@ -65,43 +81,44 @@ export function _PrimitiveDropdown(props: _PrimitiveDropdownProps) {
         defaultValue,
         currentOption,
         isExpanded,
+        onCurrentOptionChange,
         setCurrentOption,
         setIsExpanded,
       }}
     >
       <div className={wrapper} ref={wrapperRef}>
-        <Row
-          as='button'
+        <button
           className={cn(
             controller,
             isExpanded && expanded,
             className,
             fillWidth,
           )}
-          gap={gap}
-          justify='start'
+          type='button'
           role='combobox'
           aria-haspopup='listbox'
           aria-expanded={isExpanded}
           onClick={handleClick}
         >
-          <Column className={fillWidth} align='start'>
-            <Typo.Footnote weight='light' color={text.tertiary}>
-              {label}
-            </Typo.Footnote>
-            <Typo.Body
-              className={fillWidth}
-              color={currentOption ? text.primary : text.status.disabled}
-            >
-              {currentOption?.label ?? placeholder}
-            </Typo.Body>
-          </Column>
-          <Icon
-            icon={isExpanded ? ChevronUp : ChevronDown}
-            size={indicatorSize}
-            color={text.tertiary}
-          />
-        </Row>
+          <Row gap={gap} justify='start'>
+            <Column className={fillWidth} align='start'>
+              <Typo.Footnote weight='light' color={text.tertiary}>
+                {label}
+              </Typo.Footnote>
+              <Typo.Body
+                className={fillWidth}
+                color={currentOption ? text.primary : text.status.disabled}
+              >
+                {currentOption?.label ?? placeholder}
+              </Typo.Body>
+            </Column>
+            <Icon
+              icon={isExpanded ? ChevronUp : ChevronDown}
+              size={indicatorSize}
+              color={text.tertiary}
+            />
+          </Row>
+        </button>
         {children}
       </div>
     </DropdownContext>

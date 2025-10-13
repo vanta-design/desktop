@@ -20,7 +20,6 @@ resetGlobalStyle('*', {
   textRendering: 'optimizeLegibility',
   shapeRendering: 'geometricPrecision',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-  overscrollBehavior: 'none',
 });
 
 resetGlobalStyle('*:focus-visible', {
