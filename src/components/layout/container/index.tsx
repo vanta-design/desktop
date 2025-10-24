@@ -1,4 +1,4 @@
-import { createElement, type HTMLAttributes, type JSX } from 'react';
+import { createElement, type HTMLAttributes, type JSX, type Ref } from 'react';
 import { layout } from '@/tokens/layout.css';
 import { cn } from '@/utils/common';
 import { container } from './styles.css';
@@ -7,6 +7,7 @@ type Padding = 'large' | 'medium' | 'small' | 'none';
 
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {
   as?: keyof JSX.IntrinsicElements;
+  ref?: Ref<HTMLElement>;
   vertical?: Padding;
   horizontal?: Padding;
 }

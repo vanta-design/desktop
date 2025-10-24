@@ -7,6 +7,7 @@ import { activeStyle, box, thumb } from '../styles/switch.css';
 interface _SwitchProps extends PropsWithChildren {
   active?: boolean;
   defaultActive?: boolean;
+  onChange?: (status: ControlStatus) => unknown;
 }
 
 export function _Switch(props: _SwitchProps) {

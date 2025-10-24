@@ -1,3 +1,5 @@
+export * from 'flowness';
+
 // Components
 export * from './components/atom/badge';
 export * from './components/atom/button';
@@ -18,7 +20,6 @@ export * from './components/atom/tabs';
 export * from './components/atom/torln-symbol';
 export * from './components/atom/typography';
 
-export * from './components/features/flow';
 export * from './components/features/overlay';
 export * from './components/features/positioner';
 

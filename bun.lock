@@ -26,6 +26,7 @@
       "peerDependencies": {
         "@vanilla-extract/css": "^1.17.4",
         "classnames": "^2.5.1",
+        "flowness": "^0.1.2",
         "lucide-react": "^0.545.0",
         "motion": "^12.23.24",
         "react": "^19.2.0",
@@ -502,6 +503,8 @@
     "find-up": ["find-up@7.0.0", "", { "dependencies": { "locate-path": "^7.2.0", "path-exists": "^5.0.0", "unicorn-magic": "^0.1.0" } }, "sha512-YyZM99iHrqLKjmt4LJDj58KI+fYyufRLBSYcqycxf//KpBk9FoewoGX0450m9nB44qrZnovzC2oeP5hUibxc/g=="],
 
     "findup-sync": ["findup-sync@4.0.0", "", { "dependencies": { "detect-file": "^1.0.0", "is-glob": "^4.0.0", "micromatch": "^4.0.2", "resolve-dir": "^1.0.1" } }, "sha512-6jvvn/12IC4quLBL1KNokxC7wWTvYncaVUYSoxWw7YykPLuRrnv4qdHcSOywOI5RpkOVGeQRtWM8/q+G6W6qfQ=="],
+
+    "flowness": ["flowness@0.1.2", "https://private-registry.torln.com/flowness/-/flowness-0.1.2.tgz", { "peerDependencies": { "react": "^19", "react-dom": "^19", "typescript": "^5" } }, "sha512-iSsytM6XCNVN2bDMXxR+sMOnOqwYuk4QK7CTjdqHGDkWsS3OC4nS9Zw9KXdWqwpcPfELEas5Y9QYM1PWrPbSDw=="],
 
     "foreground-child": ["foreground-child@3.3.1", "", { "dependencies": { "cross-spawn": "^7.0.6", "signal-exit": "^4.0.1" } }, "sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw=="],
 

@@ -9,6 +9,7 @@ import { active, box } from '../styles/checkbox.css';
 interface _CheckboxProps extends PropsWithChildren {
   status?: ControlStatus;
   defaultStatus?: ControlStatus;
+  onChange?: (status: ControlStatus) => unknown;
 }
 
 export function _Checkbox(props: _CheckboxProps) {

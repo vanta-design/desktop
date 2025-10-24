@@ -30,6 +30,7 @@ interface _PrimitiveControlProps {
   status?: ControlStatus;
   defaultStatus?: ControlStatus;
   label?: ReactNode;
+  onChange?: (status: ControlStatus) => unknown;
   children: (args: ChildrenArgs) => ReactNode;
 }
 
@@ -40,18 +41,21 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
     status: propStatus,
     defaultStatus,
     label,
+    onChange,
     children,
   } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
   const controlId = useId();
   const [status, setStatus] = useState(propStatus || defaultStatus || 'none');
-  const groupContext = useControlGroupContext();
+  const { name } = useControlGroupContext();
   const { optional } = useInputFieldContext();
 
   const updateStatus = useCallback(() => {
-    setStatus(inputRef.current?.checked ? 'checked' : 'none');
-  }, []);
+    const nextStatus = inputRef.current?.checked ? 'checked' : 'none';
+    setStatus(nextStatus);
+    onChange?.(nextStatus);
+  }, [onChange]);
 
   const onClick = useCallback(() => {
     inputRef.current?.click();
@@ -67,10 +71,6 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
     },
     [onClick],
   );
-
-  useEffect(() => {
-    updateStatus();
-  }, [updateStatus]);
 
   useEffect(() => {
     if (propStatus) {
@@ -93,7 +93,7 @@ export function _PrimitiveControl(props: _PrimitiveControlProps) {
           id={controlId}
           ref={inputRef}
           type={role}
-          name={groupContext?.name}
+          name={name}
           value={value}
           checked={status === 'checked'}
           required={!optional}
