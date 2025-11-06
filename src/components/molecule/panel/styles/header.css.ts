@@ -5,7 +5,7 @@ import { style } from '@/utils/style';
 export const header = style({
   top: 0,
   left: 0,
-  backgroundColor: fill.surface.subtleGlass,
+  backgroundColor: fill.surface.baseGlass,
 });
 
 export const image = style({

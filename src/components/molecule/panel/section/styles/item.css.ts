@@ -1,10 +1,11 @@
 import { accent } from '@/tokens/accent.css';
 import { radius, spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
+import { layout } from '@/tokens/layout.css';
 import { style } from '@/utils/style';
 
 export const item = style({
-  padding: `${spacing[8]} ${spacing[12]}`,
+  padding: `${spacing[6]} ${layout.padding.medium}`,
   color: text.tertiary,
   borderRadius: radius[12],
   cursor: 'pointer',

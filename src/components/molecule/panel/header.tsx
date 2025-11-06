@@ -11,9 +11,9 @@ import { text } from '@/tokens/color.css';
 import { header, image } from './styles/header.css';
 
 interface _PanelHeaderProps {
-  imageSrc: string;
+  imageSrc?: string;
   name: string;
-  description: string;
+  description?: string;
 }
 
 export function _PanelHeader(props: _PanelHeaderProps) {
@@ -25,7 +25,7 @@ export function _PanelHeader(props: _PanelHeaderProps) {
         <Row gap={spacing[8]} align='center'>
           <Container vertical='small' horizontal='small'>
             <Row gap={spacing[12]} align='center' justify='start'>
-              <img className={image} src={imageSrc} alt={name} />
+              {imageSrc && <img className={image} src={imageSrc} alt={name} />}
               <Column className={fillWidth} align='start'>
                 <Typo.Body weight='strong'>{name}</Typo.Body>
                 <Typo.Footnote color={text.tertiary}>
@@ -34,7 +34,7 @@ export function _PanelHeader(props: _PanelHeaderProps) {
               </Column>
             </Row>
           </Container>
-          <IconButton.Small variant='secondary' icon={Menu} />
+          <IconButton.Small variant='bare' icon={Menu} />
         </Row>
       </Container>
     </Floating>

@@ -53,17 +53,6 @@ export const Showcase: StoryObj = {
             <Panel.Section.Item leadingIcon={MessageCircle}>
               Random
             </Panel.Section.Item>
-            <Panel.Section inner title='Platform'>
-              <Panel.Section.Item leadingIcon={MessageCircle}>
-                Core
-              </Panel.Section.Item>
-              <Panel.Section.Item leadingIcon={MessageCircle}>
-                Mobile
-              </Panel.Section.Item>
-              <Panel.Section.Item leadingIcon={MessageCircle}>
-                Desktop
-              </Panel.Section.Item>
-            </Panel.Section>
             <Panel.Section.Item leadingIcon={Mic}>General</Panel.Section.Item>
             <Panel.Section.Item leadingIcon={Mic}>Meetup</Panel.Section.Item>
             <Panel.Section.Item leadingIcon={Mic}>
