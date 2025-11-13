@@ -1,6 +1,6 @@
 {
   "name": "@vanta-design/desktop",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Design system for Torln",
   "license": "MIT",
   "type": "module",
@@ -18,7 +18,8 @@
     "commit": "bun run format && git add . && cz",
     "format": "bun run check && biome check --fix",
     "check": "tsc --noEmit",
-    "build": "bun run format && rimraf dist && rollup -c"
+    "build": "bun run format && rimraf dist && rollup -c",
+    "prepublishOnly": "bun run build"
   },
   "maintainers": [
     {
