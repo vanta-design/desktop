@@ -22,6 +22,7 @@ type DropdownContextType = {
 };
 
 export const DropdownContext = createContext({} as DropdownContextType);
+DropdownContext.displayName = 'DropdownContext';
 
 export function useDropdownContext() {
   const context = useContext(DropdownContext);

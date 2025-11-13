@@ -8,3 +8,4 @@ type AccentContextType = {
 };
 
 export const AccentContext = createContext<AccentContextType | null>(null);
+AccentContext.displayName = 'AccentContext';

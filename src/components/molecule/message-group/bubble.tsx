@@ -21,7 +21,11 @@ export function _BubbleMessageGroup(props: _MessageGroupProps) {
         {sender === 'opponent' && (
           <Profile.Medium src={profileUrl} alt={name} />
         )}
-        <Column className={cn(messageGroup, fillWidth)} gap={spacing[4]}>
+        <Column
+          className={cn(messageGroup, fillWidth)}
+          gap={spacing[4]}
+          align={sender === 'opponent' ? 'start' : 'end'}
+        >
           {sender === 'opponent' && (
             <Typo.Footnote color={text.tertiary}>{name}</Typo.Footnote>
           )}

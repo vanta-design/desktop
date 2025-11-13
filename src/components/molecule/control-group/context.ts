@@ -7,5 +7,6 @@ type ControlGroupContextType = {
 
 export const ControlGroupContext =
   createContext<ControlGroupContextType | null>(null);
+ControlGroupContext.displayName = 'ControlGroupContext';
 
 export const useControlGroupContext = createContextHook(ControlGroupContext);

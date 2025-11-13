@@ -8,3 +8,4 @@ type ThemeContextType = {
 };
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
+ThemeContext.displayName = 'ThemeContext';

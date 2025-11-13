@@ -12,6 +12,7 @@ type ChipGroupContextType<T extends string> = {
 };
 
 export const ChipGroupContext = createContext<unknown>(null);
+ChipGroupContext.displayName = 'ChipGroupContext';
 
 export function useChipGroupContext<T extends string>() {
   const ctx = useContext(ChipGroupContext) as ChipGroupContextType<T> | null;

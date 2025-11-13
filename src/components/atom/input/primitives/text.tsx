@@ -93,6 +93,10 @@ export function _PrimitiveTextInput(props: _PrimitiveTextInputProps) {
     checkValidation();
   }, [checkValidation]);
 
+  useEffect(() => {
+    setValue(String(propValue || ''));
+  }, [propValue]);
+
   const classNames = [
     className,
     wrapper,

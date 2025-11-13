@@ -13,5 +13,6 @@ type MenuContextType = {
 };
 
 export const MenuContext = createContext<MenuContextType | null>(null);
+MenuContext.displayName = 'MenuContext';
 
 export const useMenuContext = createContextHook(MenuContext);

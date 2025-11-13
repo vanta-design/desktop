@@ -19,7 +19,11 @@ export function _CompactMessageGroup(props: _MessageGroupProps) {
     <Container vertical='small' horizontal='none'>
       <Row gap={spacing[12]} align='start' justify='start'>
         <Profile.Medium src={profileUrl} alt={name} />
-        <Column className={cn(messageGroup, fillWidth)} gap={spacing[4]}>
+        <Column
+          className={cn(messageGroup, fillWidth)}
+          gap={spacing[4]}
+          align='start'
+        >
           <Row gap={spacing[16]} align='center' justify='between'>
             <Typo.Caption color={text.secondary}>{name}</Typo.Caption>
             <Typo.Footnote weight='light' color={text.tertiary}>

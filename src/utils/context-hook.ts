@@ -16,8 +16,6 @@ export function createContextHook<T extends object>(
         throw new Error(`${context.displayName} is not provided`);
       }
 
-      console.warn(`${context.displayName} is not provided`);
-
       const nullProxy = new Proxy<T>(Object.create(null), {
         get: () => null,
         has: () => true,

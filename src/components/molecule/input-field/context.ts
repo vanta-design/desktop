@@ -8,5 +8,6 @@ type InputFieldContextType = {
 export const InputFieldContext = createContext<InputFieldContextType | null>(
   null,
 );
+InputFieldContext.displayName = 'InputFieldContext';
 
 export const useInputFieldContext = createContextHook(InputFieldContext);

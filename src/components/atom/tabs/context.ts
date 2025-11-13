@@ -8,5 +8,6 @@ type TabsContextType = {
 };
 
 export const TabsContext = createContext<TabsContextType | null>(null);
+TabsContext.displayName = 'TabsContext';
 
 export const useTabsContext = createContextHook(TabsContext);
