@@ -28,7 +28,7 @@ const basePlugins = [
 
 export default defineConfig([
   {
-    input: 'src/index.ts',
+    input: ['src/index.ts', 'src/icon.ts'],
     plugins: [...basePlugins, esbuild({ minify: true })],
     output: [
       {
@@ -51,7 +51,7 @@ export default defineConfig([
     ],
   },
   {
-    input: 'src/index.ts',
+    input: ['src/index.ts', 'src/icon.ts'],
     plugins: [
       ...basePlugins,
       esbuild({ minify: false }),

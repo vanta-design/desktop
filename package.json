@@ -72,10 +72,14 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/src/index.d.ts"
+    },
+    "./icon": {
+      "import": "./dist/icon.js",
+      "types": "./dist/src/icon.d.ts"
     }
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "files": [
     "dist"
   ]
