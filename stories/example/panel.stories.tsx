@@ -9,6 +9,7 @@ import {
   Mic,
 } from 'lucide-react';
 import { Badge } from '@/components/atom/badge';
+import { Profile } from '@/components/atom/profile';
 import { Row } from '@/components/layout/row';
 import { Panel } from '@/components/molecule/panel';
 
@@ -21,7 +22,7 @@ export default meta;
 export const Showcase: StoryObj = {
   render: () => (
     <Row>
-      <div style={{ width: 300 }}>
+      <div style={{ width: 300, height: 500 }}>
         <Panel>
           <Panel.Header
             imageSrc='/vanta.png'
@@ -63,6 +64,10 @@ export const Showcase: StoryObj = {
             </Panel.Section.Item>
           </Panel.Section>
           <Panel.Section title='Directs'></Panel.Section>
+          <Panel.Footer
+            profile={<Profile.Large src='/vanta.png' alt='VD' />}
+            name='Vanta Design'
+          />
         </Panel>
       </div>
     </Row>

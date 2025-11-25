@@ -5,9 +5,11 @@ import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
 import { Floating } from '@/components/layout/floating';
 import { Row } from '@/components/layout/row';
+import { glass } from '@/styles/effect.css';
 import { fillWidth } from '@/styles/utils.css';
 import { spacing } from '@/tokens/attribute.css';
 import { text } from '@/tokens/color.css';
+import { cn } from '@/utils/common';
 import { header, image } from './styles/header.css';
 
 interface _PanelHeaderProps {
@@ -20,7 +22,7 @@ export function _PanelHeader(props: _PanelHeaderProps) {
   const { imageSrc, name, description } = props;
 
   return (
-    <Floating className={header}>
+    <Floating className={cn(header, glass.strong)}>
       <Container>
         <Row gap={spacing[8]} align='center'>
           <Container vertical='small' horizontal='small'>
