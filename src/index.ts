@@ -30,6 +30,7 @@ export * from './components/layout/flex';
 export * from './components/layout/floating';
 export * from './components/layout/row';
 
+export * from './components/molecule/breadcrumb';
 export * from './components/molecule/control-group';
 export * from './components/molecule/data-table';
 export * from './components/molecule/dialog';
