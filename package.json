@@ -1,7 +1,7 @@
 {
   "name": "@vanta-design/desktop",
   "version": "0.0.6",
-  "description": "Design system for Torln",
+  "description": "Design System for Torln",
   "license": "MIT",
   "type": "module",
   "sideEffects": [
@@ -24,8 +24,8 @@
   "maintainers": [
     {
       "name": "Taeyeong Kim",
-      "email": "t.yeong.kim@torln.com",
-      "url": "https://github.com/cottons-kr"
+      "email": "cottons@torln.com",
+      "url": "https://github.com/tyeongkim"
     }
   ],
   "config": {
