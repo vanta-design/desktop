@@ -6,6 +6,8 @@ The delicate UI toolkit, focused on accessibility, performance, and client side 
 > vanta design is an internal project under active development. <br>
 > Not yet publicly released. Source is available under [MIT + CC license](https://github.com/vanta-design/desktop/blob/main/LICENSE), except Flowness.
 
+<img src="https://github.com/vanta-design/desktop/blob/main/public/preview.png?raw=true" alt="vanta preview" style="width: 100%; height: auto;">
+
 ## Highlights
 - 30+ popular components
 - Native Light / Dark mode
