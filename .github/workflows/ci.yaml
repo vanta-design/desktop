@@ -20,7 +20,7 @@ jobs:
           bun-version: latest
 
       - name: "Create .npmrc"
-        run: echo "//private-registry.torln.com/:_authToken=${NPM_CONFIG_TOKEN}" >> .npmrc
+        run: echo "//private-registry.torln.com/:_authToken=\"${NPM_CONFIG_TOKEN}\"" > .npmrc
         env:
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_CONFIG_TOKEN }}
 
@@ -46,7 +46,7 @@ jobs:
           bun-version: latest
 
       - name: "Create .npmrc"
-        run: echo "//private-registry.torln.com/:_authToken=${NPM_CONFIG_TOKEN}" >> .npmrc
+        run: echo "//private-registry.torln.com/:_authToken=\"${NPM_CONFIG_TOKEN}\"" > .npmrc
         env:
           NPM_CONFIG_TOKEN: ${{ secrets.NPM_CONFIG_TOKEN }}
 
