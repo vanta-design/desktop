@@ -19,9 +19,6 @@ jobs:
         with:
           bun-version: latest
 
-      - name: "Create .npmrc"
-        run: echo "//private-registry.torln.com/:_authToken=\"${{ secrets.NPM_CONFIG_TOKEN }}\"" > .npmrc
-
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
@@ -42,9 +39,6 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
-      - name: "Create .npmrc"
-        run: echo "//private-registry.torln.com/:_authToken=\"${{ secrets.NPM_CONFIG_TOKEN }}\"" > .npmrc
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
