@@ -9,7 +9,7 @@ The delicate UI toolkit, focused on accessibility, performance, and client side 
 <img src="https://github.com/vanta-design/desktop/blob/main/public/preview.png?raw=true" alt="vanta preview" style="width: 100%; height: auto;">
 
 ## Highlights
-- 30+ popular components
+- 30+ components including chat-specific UI.
 - Native Light / Dark mode
 - Customizable color mode
 - Built with React
@@ -25,6 +25,8 @@ The delicate UI toolkit, focused on accessibility, performance, and client side 
 
 ## Documentation
 Visit [storybook.vanta.design](https://storybook.vanta.design/) to see component showcases.
+
+<img src="https://github.com/vanta-design/desktop/blob/main/public/chat-preview.png?raw=true" alt="Chat example: Let's introduce our project to the whole world / What a great idea!" style="width: 100%; height: auto;" >
 
 ---
 
