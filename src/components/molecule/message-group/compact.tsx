@@ -30,7 +30,7 @@ export function _CompactMessageGroup(props: _MessageGroupProps) {
               {timestamp}
             </Typo.Footnote>
           </Row>
-          <div>
+          <div className={fillWidth}>
             {Children.map(children, (child) => {
               if (isValidElement<MessageProps>(child)) {
                 return cloneElement(child, { variant: 'compact', sender });
