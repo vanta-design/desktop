@@ -1,0 +1,45 @@
+# Vanta Design Desktop – Production-Ready Components
+> Only components actually exported from `src/index.ts`. Quick notes on key props/usage by category.
+
+## Atom
+- Button / IconButton: `variant primary|secondary|bare`, size subcomponents, `leadingIcon|trailingIcon`, `loading`.
+- Badge / Indicator: `semantic`(positive|info|caution|danger), `size` small/large, optional icon.
+- Chip, Chip.Group: single-select toggle; `value`, `leadingIcon`, `onActive(value)`.
+- Control: `Checkbox status|defaultStatus`, `Radio value defaultActive`, `Switch active|defaultActive`; `onChange`.
+- Dialog (primitive): `_Dialog.Root` + Header/Body/Footer/Container, `preventClose?`, receives `close` handler.
+- Divider: `width? height? padding`.
+- Dropdown: `label? value? defaultValue? placeholder? onValueChange`; `Dropdown.Item value icon?`.
+- Icon: `icon: LucideIcon`; renders nothing if missing.
+- Input: `TextInput`(+`Compact`), `ImagePreviewInput`; `icon? secure? onValueChange?`, image preview uploader.
+- Label: `optional`, `optionalLabel` display support.
+- LoadingCircle: `size body|caption|footnote`, `color?`.
+- Menu: `_Menu.Root` + `Trigger` (render-prop), `List`, `Item icon? onClick?`.
+- Message (reaction set): `Reaction{reaction,active?,onClick?}`, `ReactionGroup reactions[]`, `Reply` slot.
+- Profile: avatar `src alt size small|regular|medium|large`, `indicator` slot; `Profile.Group`.
+- Table: `Table.Root` with `HeaderCell`, `Body.Row onClick?`, `Body.Cell`.
+- Tabs (primitive): `_Tabs.Root defaultSelected orientation`, `List`, `Segment value icon? disabled?`, `Panel value`.
+- TorlnSymbol: `withLabel? size?`.
+- Typography / Typo / Paragraph: `as? weight? color? wrap?` with size-specific subcomponents.
+
+## Feature
+- useOverlay: `useOverlay(Component)` → `{ Render, show, hide }` to control overlay/modal.
+- Positioner: floating positioner; `show`, `anchorRef`, `side`, `align`, `offset`; render-prop for content.
+
+## Layout
+- Container: `as?`, padding `vertical|horizontal`, ref friendly.
+- Flex: `direction`, `wrap`, `align`, `justify`, `gap`, `grow|shrink`, `inline`.
+- Row / Column: common alignment presets; `gap`.
+- Center: vertical/horizontal centering, optional `vertical` spacing.
+- Floating: simple wrapper for floating layers.
+
+## Molecule
+- Breadcrumb: `Segment active? icon?` plus button attrs.
+- ControlGroup: radio/checkbox group; `direction row|column`, `name` required.
+- DataTable: `columns[{key,label,width?,sortable?,cell}]`, `data[]`, `actions[{icon,disabled?,onClick}]`.
+- Dialog: `Alert(title, description?)`, `Confirm(..., confirmLabel?, declineLabel?, onConfirm)`, `Default(title, content, footer, preventClose?, maxWidth?)`.
+- InputField: `label`, `optional? optionalLabel?`, `description?`; place input children inside.
+- Menu: `Static items[{label,icon?,subItems?}]`; re-exports `Trigger`.
+- Message: chat bubble/compact `variant`, `sender me|opponent`, `timestamp` required, `reply?`, `reactions?`.
+- MessageGroup: `Bubble`/`Compact` thread wrapper.
+- Panel: `Header`, `Section`, `Footer` slots.
+- Tabs.Rail: `tabs[{label,value,content,icon?,disabled?}]`, `horizontal?`/`vertical`, `onChange?`.

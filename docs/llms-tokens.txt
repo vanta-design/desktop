@@ -1,0 +1,47 @@
+# Vanta Design Desktop – Full Token Catalog
+> Enumerates every token exposed via vanilla-extract contracts (`src/tokens/*`). Use as a definitive lookup, not just file names.
+
+## Primitive Color Ramp (`primitive`)
+- Root: `transparent`, `pureWhite`, `pureBlack`
+- Red: `red-1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100`
+- Orange: `orange-1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100`
+- Yellow: `yellow-1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100`
+- Green: `green-1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100`
+- Blue: `blue-1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100`
+- Indigo: `indigo-1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100`
+- Monochrome: `monochrome-1400, 1300, 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100`
+
+## Semantic & Surface Color (`color`)
+- Fill.surface: `surface-base`, `surface-subtle`, `surface-invert`, `surface-dim`, `surface-base-glass`, `surface-subtle-glass`
+- Fill.interaction: `interaction-base`, `interaction-raised`, `interaction-hover-overlay`
+- Text: `text-primary`, `text-secondary`, `text-tertiary`
+- Text.status: `text-status-disabled`, `text-status-invert`
+- Text.static: `text-static-white`, `text-static-black`
+- Line: `line-outline`, `line-divider`
+- Semantic.neutral: `semantic-neutral-primary`, `semantic-neutral-secondary`, `semantic-neutral-text`
+- Semantic.info: `semantic-info-primary`, `semantic-info-secondary`, `semantic-info-text`
+- Semantic.highlight: `semantic-highlight-primary`, `semantic-highlight-secondary`, `semantic-highlight-text`
+- Semantic.positive: `semantic-positive-primary`, `semantic-positive-secondary`, `semantic-positive-text`
+- Semantic.caution: `semantic-caution-primary`, `semantic-caution-secondary`, `semantic-caution-text`
+- Semantic.negative: `semantic-negative-primary`, `semantic-negative-secondary`, `semantic-negative-text`
+
+## Layout (`layout`)
+- Padding scale: `padding-large`, `padding-medium`, `padding-small`
+
+## Typography (`typography`)
+- Weight: `weight-bold`, `weight-strong`, `weight-regular`, `weight-light`
+- Size: `size-display`, `size-headline`, `size-title`, `size-lead`, `size-body`, `size-caption`, `size-footnote`, `size-fine`
+- Line height: `line-height-display`, `line-height-headline`, `line-height-title`, `line-height-lead`, `line-height-body`, `line-height-body-paragraph`, `line-height-caption`, `line-height-caption-paragraph`, `line-height-footnote`, `line-height-footnote-paragraph`, `line-height-fine`, `line-height-fine-paragraph`
+- Letter spacing: `letter-spacing-display`, `letter-spacing-headline`, `letter-spacing-title`, `letter-spacing-lead`, `letter-spacing-body`, `letter-spacing-caption`, `letter-spacing-footnote`, `letter-spacing-fine`
+
+## Attribute (`attribute`)
+- Spacing: `spacing-none`, `2`, `4`, `6`, `8`, `12`, `16`, `18`, `20`, `24`, `28`, `32`, `36`, `40`, `48`, `64`, `72`, `80`
+- Radius: `radius-none`, `4`, `8`, `12`, `16`, `24`, `32`, `full`
+- Opacity: `opacity-disabled`
+
+## Accent (`accent`)
+- Fill: `fill-base`, `fill-accent`
+- Text: `text-base`, `text-accent`
+
+## Usage notes
+- All tokens are exposed via `src/index.ts` re-exports and are namespaced by vanilla-extract; resolve actual values in theme/accent styles (`styles/theme.css.ts`, `styles/accent.css.ts`, `styles/token.css.ts`).

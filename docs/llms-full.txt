@@ -1,0 +1,296 @@
+# vanta design.
+> Delicate React desktop UI toolkit focused on accessibility, performance, and client-side rendering with 30+ components and Flowness integration.
+
+Built with React 19, vanilla-extract theming, and shipped as an ESM package for Torln internal products.
+
+## Quickstart
+- [README.md](README.md): Project overview, highlights, licensing note, and Storybook link.
+- [package.json](package.json): Install name `@vanta-design/desktop` plus dev/build/test scripts.
+- [src/providers/vanta-root/index.tsx](src/providers/vanta-root/index.tsx): Minimal app wrapper combining theme and accent providers with global styles.
+- [.storybook/preview.tsx](.storybook/preview.tsx): Example of wiring `VantaProvider` with theme/accent globals for all stories.
+- [https://storybook.vanta.design/](https://storybook.vanta.design/): Live component gallery and props playground.
+
+## Core Concepts
+- [src/index.ts](src/index.ts): Central barrel exporting all components, providers, styles, tokens, and Flowness re-export.
+- [src/providers/theme/index.tsx](src/providers/theme/index.tsx): Theme provider, prefers-color-scheme fallback, and `data-theme` management.
+- [src/providers/accent/index.tsx](src/providers/accent/index.tsx): Accent provider handling accent palette selection.
+- [src/lib/color.ts](src/lib/color.ts): Color helpers used across themes and components.
+
+## Components
+- [src/components](src/components): Source organized by atoms, molecules, layouts, and feature utilities.
+- Note: filenames/parts starting with `_` are internal building blocks; consumer code should import the public names re-exported from `src/index.ts` (e.g., use `Dialog.Default`, not `_Dialog.Root`).
+- **Atom**
+  - [button](src/components/atom/button/index.tsx): `variant primary|secondary|bare`, `size`, `loading`, icons.  
+    ```tsx
+    <Button.Medium variant="primary" leadingIcon={Send} onClick={save} loading={submitting}>
+      Send
+    </Button.Medium>
+    <IconButton.Small icon={MoreHorizontal} aria-label="More" />
+    ```
+  - [input](src/components/atom/input/index.ts): TextInput `icon? secure? onValueChange?`; ImagePreviewInput `previewSrc? onChange(file)`.  
+    ```tsx
+    <TextInput icon={Mail} placeholder="Work email" onValueChange={setEmail} />
+    <ImagePreviewInput previewSrc={avatar} onChange={setAvatarFile} />
+    ```
+  - [dropdown](src/components/atom/dropdown/index.ts): `label? value? defaultValue? placeholder? onValueChange`; Item `value` `icon?`.  
+    ```tsx
+    <Dropdown label="Status" defaultValue="open" onValueChange={setStatus}>
+      <Dropdown.Item value="open" icon={Circle}>Open</Dropdown.Item>
+      <Dropdown.Item value="closed">Closed</Dropdown.Item>
+    </Dropdown>
+    ```
+  - [dialog](src/components/atom/dialog/index.ts): `Root preventClose? close`; parts Header/Body/Footer/Container.  
+    ```tsx
+    <_Dialog.Root close={close}>
+      <_Dialog.Header>Title</_Dialog.Header>
+      <_Dialog.Body>Body text</_Dialog.Body>
+      <_Dialog.Footer><Button.Small onClick={close}>OK</Button.Small></_Dialog.Footer>
+    </_Dialog.Root>
+    ```
+  - [tabs](src/components/atom/tabs/index.ts): `Root defaultSelected orientation`; Segment `value icon? disabled?`; Panel `value`.  
+    ```tsx
+    <_Tabs.Root defaultSelected="info" orientation="horizontal">
+      <_Tabs.List>
+        <_Tabs.Segment value="info" icon={Info}>Info</_Tabs.Segment>
+        <_Tabs.Segment value="settings" disabled>Settings</_Tabs.Segment>
+      </_Tabs.List>
+      <_Tabs.Panel value="info">Details...</_Tabs.Panel>
+    </_Tabs.Root>
+    ```
+  - [table](src/components/atom/table/index.ts): `Body.Row onClick?`; `HeaderCell`/`Body.Cell` children.  
+    ```tsx
+    <Table.Root>
+      <Table.HeaderCell>Name</Table.HeaderCell>
+      <Table.Body.Row onClick={() => open(user.id)}>
+        <Table.Body.Cell>Ada Lovelace</Table.Body.Cell>
+      </Table.Body.Row>
+    </Table.Root>
+    ```
+  - [message](src/components/atom/message/index.ts): `Reaction{reaction,active?,onClick?}`, `ReactionGroup reactions[]`, `Reply children`.  
+    ```tsx
+    <_Message.Reaction reaction={{emoji:"👍",count:3,emojiPrettyName:"Thumbs Up",unitPrettyName:"Reactions"}} />
+    ```
+  - [badge](src/components/atom/badge/index.tsx): `semantic? size small|large icon?`; Indicator `size small|medium|large`.  
+    ```tsx
+    <Badge.Small semantic="positive" icon={Sparkles}>Live</Badge.Small>
+    <Indicator.Medium semantic="caution" />
+    ```
+  - [control](src/components/atom/control/index.tsx): Checkbox `status? defaultStatus? onChange?`; Radio `value? defaultActive? onChange?`; Switch `active? defaultActive? onChange?`.  
+    ```tsx
+    <Control.Switch defaultActive onChange={setOn}>Notifications</Control.Switch>
+    <Control.Radio value="pro" defaultActive>Pro</Control.Radio>
+    ```
+  - [menu](src/components/atom/menu/index.ts): `Trigger` render-prop, `List` children, `Item icon? onClick?`.  
+    ```tsx
+    <_Menu.Root>
+      <_Menu.Trigger>{(p)=><Button.Small ref={p.ref} onClick={p.onClick}>Open</Button.Small>}</_Menu.Trigger>
+      <_Menu.List>
+        <_Menu.Item icon={Copy}>Copy</_Menu.Item>
+        <_Menu.Item onClick={deleteItem}>Delete</_Menu.Item>
+      </_Menu.List>
+    </_Menu.Root>
+    ```
+  - [profile](src/components/atom/profile/index.ts): `src alt size small|regular|medium|large indicator?`; Group.  
+    ```tsx
+    <Profile.Medium src="/me.png" alt="Me" indicator={<Indicator.Small semantic="positive" />} />
+    ```
+  - [loading-circle](src/components/atom/loading-circle/index.tsx): `size body|caption|footnote`, `color?`.  
+    ```tsx
+    <LoadingCircle size="caption" color="var(--vanta-semantic-info)" />
+    ```
+  - [label](src/components/atom/label/index.tsx): `optional? optionalLabel?`.  
+    ```tsx
+    <Label optional optionalLabel="(Optional)">Display name</Label>
+    ```
+  - [typography](src/components/atom/typography/index.tsx): Variants `as? weight? color? wrap?`.  
+    ```tsx
+    <Typography.Title weight="700">Dashboard</Typography.Title>
+    <Paragraph.Body wrap={false}>Single-line snippet</Paragraph.Body>
+    ```
+  - [divider](src/components/atom/divider/index.tsx): `width? height? padding`.  
+    ```tsx
+    <Divider padding="medium" />
+    ```
+  - [torln-symbol](src/components/atom/torln-symbol/index.tsx): `withLabel? size?`.  
+    ```tsx
+    <TorlnSymbol withLabel size={40} />
+    ```
+- **Feature**
+  - [overlay](src/components/features/overlay/index.tsx): `useOverlay(Component)` → `{Render,show,hide}`.  
+    ```tsx
+    const { Render, show } = useOverlay(Dialog.Alert);
+    return (<><Render title="Saved" /><Button onClick={show}>Open</Button></>);
+    ```
+  - [positioner](src/components/features/positioner/index.tsx): `show? anchorRef? offset? side? align?` render-prop.  
+    ```tsx
+    <Positioner show anchorRef={btnRef} side="top" align="center">
+      <div style={{}}>Tooltip text</div>
+    </Positioner>
+    ```
+- **Layout**
+  - [container](src/components/layout/container/index.tsx): `as? vertical/horizontal padding`, `ref?`.  
+    ```tsx
+    <Container vertical="medium" horizontal="small" as="section">...</Container>
+    ```
+  - [flex](src/components/layout/flex/index.tsx): `direction wrap align justify grow shrink inline gap ref`.  
+    ```tsx
+    <Flex direction="row" align="center" gap={12} justify="between">...</Flex>
+    ```
+  - [row](src/components/layout/row/index.tsx): Row preset.  
+    ```tsx
+    <Row gap={8}><Badge.Small>Label</Badge.Small><Button.Small>Action</Button.Small></Row>
+    ```
+  - [column](src/components/layout/column/index.tsx): Column preset.  
+    ```tsx
+    <Column gap={10}><Label>Name</Label><TextInput /></Column>
+    ```
+  - [center](src/components/layout/center/index.tsx): Center preset.  
+    ```tsx
+    <Center vertical="large">Centered content</Center>
+    ```
+  - [floating](src/components/layout/floating/index.tsx): Simple wrapper.  
+    ```tsx
+    <Floating>Popover content</Floating>
+    ```
+- **Molecule**
+  - [data-table](src/components/molecule/data-table/index.ts): `columns`(label,width?,sortable?,cell), `data`, `actions?{icon,disabled?,onClick}`.  
+    ```tsx
+    <DataTable
+      columns={[{ key:'name', label:'Name', sortable:true }]}
+      data={[{ name:'Ada' }]}
+      actions={[{ icon:Trash2, onClick:(row)=>remove(row) }]}
+    />
+    ```
+  - [dialog](src/components/molecule/dialog/index.ts): Alert `title,description?`; Confirm `title,description?,confirmLabel?,declineLabel?,onConfirm`; Default `title,content,footer,preventClose?,maxWidth?`.  
+    ```tsx
+    <Dialog.Confirm title="Delete?" description="This cannot be undone." onConfirm={doIt} />
+    ```
+  - [menu](src/components/molecule/menu/index.ts): Static `items[{label,icon?,subItems?}]`; Trigger re-export.  
+    ```tsx
+    <Menu.Static items={[{ label:'Edit', icon:Edit }, { label:'Duplicate' }]} />
+    ```
+  - [message](src/components/molecule/message/index.ts): `sender me|opponent`, `variant bubble|compact`, `reply?`, `reactions?`, `timestamp` required.  
+    ```tsx
+    <Message sender="me" timestamp="10:32" reactions={[{emoji:"🔥",count:2,emojiPrettyName:"Fire",unitPrettyName:"Reactions"}]}>
+      Shipping finished!
+    </Message>
+    ```
+  - [message-group](src/components/molecule/message-group/index.ts): `Bubble`/`Compact` wrappers.  
+    ```tsx
+    <MessageGroup.Bubble>
+      <Message sender="opponent" timestamp="10:30">Hello</Message>
+      <Message sender="me" timestamp="10:31">Hi!</Message>
+    </MessageGroup.Bubble>
+    ```
+  - [panel](src/components/molecule/panel/index.ts): `Header`, `Section`, `Footer`.  
+    ```tsx
+    <Panel>
+      <Panel.Header>Plan</Panel.Header>
+      <Panel.Section>Body</Panel.Section>
+      <Panel.Footer><Button.Small>Save</Button.Small></Panel.Footer>
+    </Panel>
+    ```
+  - [breadcrumb](src/components/molecule/breadcrumb/index.ts): `Segment active? icon?` + button attrs.  
+    ```tsx
+    <Breadcrumb>
+      <Breadcrumb.Segment icon={Home}>Home</Breadcrumb.Segment>
+      <Breadcrumb.Segment active>Settings</Breadcrumb.Segment>
+    </Breadcrumb>
+    ```
+  - [control-group](src/components/molecule/control-group/index.ts): `direction row|column`, `name` required.  
+    ```tsx
+    <ControlGroup name="tier">
+      <Control.Radio value="pro">Pro</Control.Radio>
+      <Control.Radio value="team">Team</Control.Radio>
+    </ControlGroup>
+    ```
+  - [tabs](src/components/molecule/tabs/index.ts): Rail tabs `tabs[{label,value,content,icon?,disabled?}]`, `horizontal?` or `vertical`; `onChange?`.  
+    ```tsx
+    <Tabs.Rail
+      tabs={[
+        { label:'Info', value:'info', content:'Details' },
+        { label:'Usage', value:'usage', content:<UsageDoc/>, icon:Book }
+      ]}
+      onChange={(v)=>setTab(v)}
+    />
+    ```
+
+## Theming & Design Tokens
+- [src/providers/theme/context.ts](src/providers/theme/context.ts): Theme context and types (`light`, `dark`, `darkest`).
+- [src/providers/accent/context.ts](src/providers/accent/context.ts): Accent context/types (`monochrome`, `green`, `blue`, `indigo`).
+- [src/styles/theme.css.ts](src/styles/theme.css.ts): Theme-specific CSS variable assignments.
+- [src/styles/accent.css.ts](src/styles/accent.css.ts): Accent variable mappings per palette.
+- [src/styles/token.css.ts](src/styles/token.css.ts): Root token registration via vanilla-extract.
+- [src/styles/effect.css.ts](src/styles/effect.css.ts): Elevation, shadow, and blur tokens.
+- [src/styles/typography.css.ts](src/styles/typography.css.ts): Global typography styles tied to tokens.
+- [src/tokens/primitive.css.ts](src/tokens/primitive.css.ts): Base token namespace for colors, spacing, radii.
+- [src/tokens/color.css.ts](src/tokens/color.css.ts): Full color scales for red/orange/yellow/green/blue/indigo/monochrome.
+- [src/tokens/layout.css.ts](src/tokens/layout.css.ts): Layout tokens for spacing, sizing, breakpoints.
+- [src/tokens/typography.css.ts](src/tokens/typography.css.ts): Type ramp, weights, and line heights.
+- [src/tokens/accent.css.ts](src/tokens/accent.css.ts): Accent palette definitions consumed by providers.
+- [src/tokens/attribute.css.ts](src/tokens/attribute.css.ts): Attribute tokens for spacing and sizing scales.
+
+## Styling
+- [src/styles/utils.css.ts](src/styles/utils.css.ts): Utility classes and composable style helpers.
+- [src/styles/reset.css.ts](src/styles/reset.css.ts): Global reset/normalize imported by the root provider.
+- [src/styles/layer.css.ts](src/styles/layer.css.ts): Z-layer variables for overlays, modals, toasts.
+- [src/utils/style.ts](src/utils/style.ts): Runtime helpers for assembling style props.
+- [src/lib/style.ts](src/lib/style.ts): `visuallyHidden` helper for screen-reader-only content.
+
+## Accessibility
+- [src/components/atom/control/primitive.tsx](src/components/atom/control/primitive.tsx): Shared checkbox/radio/switch base with aria/checked handling.
+- [src/components/atom/dialog/root.tsx](src/components/atom/dialog/root.tsx): Dialog root wiring including overlay container and semantics.
+- [src/components/atom/tabs/context.ts](src/components/atom/tabs/context.ts): Tabs context ensuring roles/ids sync across list and panels.
+- [src/components/features/overlay/index.tsx](src/components/features/overlay/index.tsx): Portal-based overlay root to keep focus order intact.
+- [src/lib/style.ts](src/lib/style.ts): Screen-reader-only utility for hiding content accessibly.
+
+## API Reference
+- [src/index.ts](src/index.ts): Authoritative list of public exports for the package entrypoint.
+- [src/icon.ts](src/icon.ts): Re-export surface for `lucide-react` icon set.
+- [src/types/props.d.ts](src/types/props.d.ts): Shared component prop typings and variants.
+- [src/types/utils.d.ts](src/types/utils.d.ts): Utility types for component composition.
+- [src/types/color.d.ts](src/types/color.d.ts): Color/accent typing utilities.
+- [dist/src/index.d.ts](dist/src/index.d.ts): Generated type declarations for the published package.
+- [dist/icon.d.ts](dist/icon.d.ts): Generated icon export typings.
+
+## Examples
+- [stories/ui](stories/ui): Source for Storybook stories covering atoms, molecules, and layouts.
+- [stories/ui/atom/button.stories.tsx](stories/ui/atom/button.stories.tsx): Button usage, states, and controls.
+- [stories/ui/atom/input.stories.tsx](stories/ui/atom/input.stories.tsx): Input variants with labels, descriptions, and validation.
+- [stories/ui/atom/dropdown.stories.tsx](stories/ui/atom/dropdown.stories.tsx): Dropdown trigger/content compositions.
+- [stories/ui/molecule/dialog.stories.tsx](stories/ui/molecule/dialog.stories.tsx): Dialog composites with overlays and actions.
+- [stories/ui/molecule/data-table.stories.tsx](stories/ui/molecule/data-table.stories.tsx): Data table sorting and density examples.
+- [stories/ui/molecule/message-group.stories.tsx](stories/ui/molecule/message-group.stories.tsx): Chat thread presentation samples.
+- [stories/example/panel.stories.tsx](stories/example/panel.stories.tsx): Panel layout demo with slots.
+
+## Development
+- [package.json](package.json): Scripts (`dev` Storybook, `build` Rollup, `check` TS, `lint` Biome), peer dependencies, and engines.
+- [tsconfig.json](tsconfig.json): TypeScript config (ESM, JSX runtime, path aliases).
+- [rollup.config.ts](rollup.config.ts): Library bundling config with TypeScript paths, vanilla-extract, and dts output.
+- [.storybook/main.ts](.storybook/main.ts): Storybook setup (Vite, vanilla-extract plugin, `@` alias).
+- [.github/workflows/ci.yaml](.github/workflows/ci.yaml): CI pipeline running bun install, typecheck, lint, build, and Storybook build.
+- [biome.json](biome.json): Lint/format rules enforced locally and in CI.
+- [Dockerfile](Dockerfile): Container recipe for running Storybook/build in a reproducible environment.
+- [bun.lock](bun.lock): Locked dependency tree for deterministic installs.
+
+## Architecture (for maintainers)
+- [src/providers](src/providers): Provider layer (theme, accent, Vanta root) establishing global context and styles.
+- [src/components](src/components): Component packages grouped by atom/molecule/layout/feature boundaries.
+- [src/styles](src/styles): Vanilla-extract global styles, layers, tokens wiring, and resets.
+- [src/tokens](src/tokens): Design token sources consumed by styles and providers.
+- [src/utils/context-hook.ts](src/utils/context-hook.ts): Typed React context helper used across providers/components.
+- [src/utils/component.tsx](src/utils/component.tsx): Component factory utilities (forwardRef, polymorphic support).
+- [src/lib/color.ts](src/lib/color.ts): Color utilities feeding styling and token calculations.
+
+## Contributing
+- [LICENSE](LICENSE): MIT + CC licensing terms with Flowness exception.
+- [package.json](package.json): Commit tooling (`commit` via commitizen) and required Bun version.
+- [.github/workflows/ci.yaml](.github/workflows/ci.yaml): Required checks for pull requests/branches.
+- [biome.json](biome.json): Linting conventions contributors must satisfy.
+
+## Optional
+- [src/styles/layer.css.ts](src/styles/layer.css.ts): Layer/z-index tokens for overlays and popovers.
+- [src/components/atom/control/styles/primitive.css.ts](src/components/atom/control/styles/primitive.css.ts): Base control styling for checkbox/radio/switch.
+- [src/components/features/positioner/index.tsx](src/components/features/positioner/index.tsx): Floating positioner utility referenced by menus/dropdowns.
+- [.dockerignore](.dockerignore): Build context exclusions for Docker usage.
+- [.vscode](.vscode): Editor workspace settings (if present) for consistent local development.
