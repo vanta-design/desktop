@@ -1,6 +1,7 @@
 import { Check, type LucideIcon } from 'lucide-react';
 import { useCallback, useEffect } from 'react';
 import { Row } from '@/components/layout/row';
+import { fillWidth } from '@/styles/utils.css';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
 import { Icon } from '../../icon';
@@ -55,7 +56,7 @@ export function _PrimitiveDropdownItem(props: _PrimitiveDropdownItemProps) {
 
   return (
     <Row
-      className={cn(item, isActive && active, className)}
+      className={cn(item, fillWidth, isActive && active, className)}
       gap={gap}
       align='center'
       justify='start'

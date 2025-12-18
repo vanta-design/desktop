@@ -9,3 +9,7 @@ export const visuallyHidden = {
   whiteSpace: 'nowrap',
   border: 0,
 } as const;
+
+export function getBorderStyle(style: string, color: string) {
+  return `${style} solid ${color}`;
+}

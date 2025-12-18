@@ -35,8 +35,12 @@ export const attribute = createGlobalThemeContract(
     opacity: {
       disabled: 'opacity-disabled',
     },
+    border: {
+      emphasized: 'border-emphasized',
+      weak: 'border-weak',
+    },
   },
   (value) => `attribute-${value}`,
 );
 
-export const { spacing, radius } = attribute;
+export const { spacing, radius, opacity, border } = attribute;

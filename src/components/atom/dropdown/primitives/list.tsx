@@ -1,5 +1,5 @@
-import { Container } from '@/components/layout/container';
-import { glass } from '@/styles/effect.css';
+import { Column } from '@/components/layout/column';
+import { glass, shadow } from '@/styles/effect.css';
 import { fillWidth } from '@/styles/utils.css';
 import type { BaseProps, HAS_CHILDREN } from '@/types/props';
 import { cn } from '@/utils/common';
@@ -14,14 +14,12 @@ export function _PrimitiveDropdownList(props: _PrimitiveDropdownListProps) {
   const { isExpanded } = useDropdownContext();
 
   return (
-    <Container
-      className={cn(list, fillWidth, glass.weak, className)}
-      vertical='small'
-      horizontal='small'
+    <Column
+      className={cn(list, fillWidth, glass.weak, shadow.weak, className)}
       role='listbox'
       aria-hidden={!isExpanded}
     >
       {children}
-    </Container>
+    </Column>
   );
 }

@@ -9,7 +9,7 @@ export const radio = style({
   height: 22,
   aspectRatio: '1/1',
   backgroundColor: fill.interaction.raised,
-  border: `1px solid ${line.outline}`,
+  border: `0px solid ${line.outline}`,
   borderRadius: radius.full,
   cursor: 'pointer',
   ':checked': {

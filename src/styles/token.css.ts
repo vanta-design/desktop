@@ -144,6 +144,10 @@ createGlobalTheme(':root', attribute, {
   opacity: {
     disabled: '0.35',
   },
+  border: {
+    emphasized: '1.5px',
+    weak: '1.2px',
+  },
 });
 
 createGlobalTheme(':root', layout, {

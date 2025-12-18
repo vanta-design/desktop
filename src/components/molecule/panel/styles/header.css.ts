@@ -1,4 +1,5 @@
-import { radius } from '@/tokens/attribute.css';
+import { getBorderStyle } from '@/lib/style';
+import { border, radius } from '@/tokens/attribute.css';
 import { fill, line } from '@/tokens/color.css';
 import { style } from '@/utils/style';
 
@@ -14,6 +15,6 @@ export const image = style({
   height: 38,
   aspectRatio: '1 / 1',
   flexShrink: 0,
-  border: `1px solid ${line.outline}`,
+  border: getBorderStyle(border.weak, line.outline),
   borderRadius: radius[12],
 });

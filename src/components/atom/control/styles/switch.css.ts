@@ -1,20 +1,17 @@
 import { accent } from '@/tokens/accent.css';
 import { attribute, radius, spacing } from '@/tokens/attribute.css';
-import { fill, line, text } from '@/tokens/color.css';
-import { primitive } from '@/tokens/primitive.css';
+import { fill, text } from '@/tokens/color.css';
 import { style } from '@/utils/style';
 
 export const box = style({
   width: 36,
   padding: spacing[4],
   backgroundColor: fill.interaction.raised,
-  border: `1px solid ${line.outline}`,
   borderRadius: radius.full,
 });
 
 export const activeStyle = style({
   backgroundColor: accent.fill.accent,
-  borderColor: primitive.transparent,
 });
 
 export const thumb = style({
