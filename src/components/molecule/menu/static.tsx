@@ -24,6 +24,7 @@ export function _StaticMenu(props: _StaticMenuProps) {
           <_Menu.Item
             key={i.toString()}
             semantic={item.isDestructive ? 'negative' : 'neutral'}
+            icon={item.icon}
             onClick={item.onClick}
           >
             {item.label}

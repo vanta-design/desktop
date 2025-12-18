@@ -2,12 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {
   BookmarkCheck,
   Box,
+  Cog,
   FileText,
   HardDrive,
+  LogOut,
   Menu as MenuIcon,
   MessageCircle,
   MessageSquare,
   Mic,
+  UserRoundPlus,
 } from 'lucide-react';
 import { Badge } from '@/components/atom/badge';
 import { IconButton } from '@/components/atom/button';
@@ -34,9 +37,9 @@ export const Showcase: StoryObj = {
             trailingArea={
               <Menu.Static
                 items={[
-                  { label: 'Invite' },
-                  { label: 'Settings' },
-                  { label: 'Leave', isDestructive: true },
+                  { label: 'Invite', icon: UserRoundPlus },
+                  { label: 'Settings', icon: Cog },
+                  { label: 'Leave', isDestructive: true, icon: LogOut },
                 ]}
               >
                 <Menu.Trigger>
