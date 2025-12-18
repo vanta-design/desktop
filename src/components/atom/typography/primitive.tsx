@@ -16,7 +16,7 @@ export function _PrimitiveTypography(props: _PrimitiveProps) {
     as = 'span',
     weight = 'regular',
     color,
-    wrap = false,
+    wrap = true,
     children,
     className,
     style,

@@ -2,6 +2,10 @@ import { letterSpacing, lineHeight, size } from '@/tokens/typography.css';
 import { style } from '@/utils/style';
 import type { ParagraphSize, TypographySize } from '../shared';
 
+export const paragraph = style({
+  width: '100%',
+});
+
 const sizes: Array<ParagraphSize> = ['body', 'caption', 'footnote', 'fine'];
 const lineHeightKeyMap: { [key in ParagraphSize]: keyof typeof lineHeight } = {
   body: 'bodyParagraph',
@@ -12,12 +16,15 @@ const lineHeightKeyMap: { [key in ParagraphSize]: keyof typeof lineHeight } = {
 
 export default sizes.reduce(
   (acc, current) => {
-    acc[current] = style({
-      fontSize: size[current],
-      lineHeight: lineHeight[lineHeightKeyMap[current]],
-      letterSpacing: letterSpacing[current],
-      textAlign: 'left',
-    });
+    acc[current] = style([
+      paragraph,
+      {
+        fontSize: size[current],
+        lineHeight: lineHeight[lineHeightKeyMap[current]],
+        letterSpacing: letterSpacing[current],
+        textAlign: 'left',
+      },
+    ]);
     return acc;
   },
   {} as { [key in TypographySize]: string },

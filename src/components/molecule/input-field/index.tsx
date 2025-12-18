@@ -1,5 +1,5 @@
 import { Label, type LabelProps } from '@/components/atom/label';
-import { Paragraph } from '@/components/atom/typography';
+import { Typo } from '@/components/atom/typography';
 import { Column } from '@/components/layout/column';
 import { fillWidth } from '@/styles/utils.css';
 import { spacing } from '@/tokens/attribute.css';
@@ -22,9 +22,7 @@ export function InputField(props: InputFieldProps) {
           {label}
         </Label>
         {children}
-        <Paragraph.Caption color={text.tertiary}>
-          {description}
-        </Paragraph.Caption>
+        <Typo.Caption color={text.tertiary}>{description}</Typo.Caption>
       </Column>
     </InputFieldContext>
   );

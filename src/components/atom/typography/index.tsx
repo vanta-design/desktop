@@ -1,4 +1,4 @@
-import { withDefaultClassNames } from '@/utils/component';
+import { withDefaultClassNames, withDefaultProps } from '@/utils/component';
 import { _PrimitiveTypography } from './primitive';
 import paragraph from './styles/paragraph.css';
 import typography from './styles/typography.css';
@@ -14,11 +14,13 @@ const Typography = {
   Fine: withDefaultClassNames(_PrimitiveTypography, typography.fine),
 };
 
+const BaseParagraph = withDefaultProps(_PrimitiveTypography, { as: 'p' });
+
 const Paragraph = {
-  Body: withDefaultClassNames(_PrimitiveTypography, paragraph.body),
-  Caption: withDefaultClassNames(_PrimitiveTypography, paragraph.caption),
-  Footnote: withDefaultClassNames(_PrimitiveTypography, paragraph.footnote),
-  Fine: withDefaultClassNames(_PrimitiveTypography, paragraph.fine),
+  Body: withDefaultClassNames(BaseParagraph, paragraph.body),
+  Caption: withDefaultClassNames(BaseParagraph, paragraph.caption),
+  Footnote: withDefaultClassNames(BaseParagraph, paragraph.footnote),
+  Fine: withDefaultClassNames(BaseParagraph, paragraph.fine),
 };
 
 export { Typography, Typography as Typo, Paragraph };
