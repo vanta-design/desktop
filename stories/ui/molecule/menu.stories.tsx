@@ -12,7 +12,12 @@ export default meta;
 export const Showcase: StoryObj = {
   render: () => (
     <Container>
-      <Menu.Static items={[{ label: 'Item 1' }, { label: 'Item 2' }]}>
+      <Menu.Static
+        items={[
+          { label: 'Item 1', onClick: () => alert('Item 1 clicked') },
+          { label: 'Item 2', onClick: () => alert('Item 2 clicked') },
+        ]}
+      >
         <Menu.Trigger>
           <Button.Large>Open Menu</Button.Large>
         </Menu.Trigger>

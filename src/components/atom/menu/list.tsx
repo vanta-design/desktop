@@ -9,11 +9,11 @@ interface _MenuListProps extends PropsWithChildren {}
 
 export function _MenuList(props: _MenuListProps) {
   const { children } = props;
-  const { show, triggerRef } = useMenuContext();
+  const { show, listRef, triggerRef } = useMenuContext();
 
   return (
     <Positioner show={show} anchorRef={triggerRef} offset={spacing[8]}>
-      <Column as='ul' className={list}>
+      <Column as='ul' ref={listRef} className={list}>
         {children}
       </Column>
     </Positioner>

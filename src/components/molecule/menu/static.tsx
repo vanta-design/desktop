@@ -5,6 +5,8 @@ import { _Menu } from '@/components/atom/menu';
 type Item = {
   icon?: LucideIcon;
   label: string;
+  isDestructive?: boolean;
+  onClick?: () => unknown;
   subItems?: Array<Item>;
 };
 
@@ -19,7 +21,13 @@ export function _StaticMenu(props: _StaticMenuProps) {
     <_Menu.Root>
       <_Menu.List>
         {items.map((item, i) => (
-          <_Menu.Item key={i.toString()}>{item.label}</_Menu.Item>
+          <_Menu.Item
+            key={i.toString()}
+            semantic={item.isDestructive ? 'negative' : 'neutral'}
+            onClick={item.onClick}
+          >
+            {item.label}
+          </_Menu.Item>
         ))}
       </_Menu.List>
       {children}

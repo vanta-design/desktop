@@ -8,6 +8,7 @@ import { createContextHook } from '@/utils/context-hook';
 
 type MenuContextType = {
   show: boolean;
+  listRef: RefObject<HTMLElement | null>;
   triggerRef: RefObject<HTMLElement | null>;
   setShow: Dispatch<SetStateAction<boolean>>;
 };

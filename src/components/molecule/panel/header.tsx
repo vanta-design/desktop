@@ -1,5 +1,4 @@
-import { Menu } from 'lucide-react';
-import { IconButton } from '@/components/atom/button';
+import type { ReactNode } from 'react';
 import { Typo } from '@/components/atom/typography';
 import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
@@ -16,10 +15,11 @@ interface _PanelHeaderProps {
   imageSrc?: string;
   name: string;
   description?: string;
+  trailingArea: ReactNode;
 }
 
 export function _PanelHeader(props: _PanelHeaderProps) {
-  const { imageSrc, name, description } = props;
+  const { imageSrc, name, description, trailingArea } = props;
 
   return (
     <Floating className={cn(header, glass.strong)}>
@@ -36,7 +36,7 @@ export function _PanelHeader(props: _PanelHeaderProps) {
               </Column>
             </Row>
           </Container>
-          <IconButton.Small variant='bare' icon={Menu} />
+          {trailingArea}
         </Row>
       </Container>
     </Floating>

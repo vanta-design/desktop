@@ -4,13 +4,16 @@ import {
   Box,
   FileText,
   HardDrive,
+  Menu as MenuIcon,
   MessageCircle,
   MessageSquare,
   Mic,
 } from 'lucide-react';
 import { Badge } from '@/components/atom/badge';
+import { IconButton } from '@/components/atom/button';
 import { Profile } from '@/components/atom/profile';
 import { Row } from '@/components/layout/row';
+import { Menu } from '@/components/molecule/menu';
 import { Panel } from '@/components/molecule/panel';
 
 const meta: Meta = {
@@ -28,6 +31,19 @@ export const Showcase: StoryObj = {
             imageSrc='/vanta.png'
             name='Vanta Design'
             description='8K members ⋅ Free plan'
+            trailingArea={
+              <Menu.Static
+                items={[
+                  { label: 'Invite' },
+                  { label: 'Settings' },
+                  { label: 'Leave', isDestructive: true },
+                ]}
+              >
+                <Menu.Trigger>
+                  <IconButton.Small variant='bare' icon={MenuIcon} />
+                </Menu.Trigger>
+              </Menu.Static>
+            }
           />
           <Panel.Section title='Works'>
             <Panel.Section.Item leadingIcon={Box}>Projects</Panel.Section.Item>
