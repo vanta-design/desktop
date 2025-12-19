@@ -36,7 +36,7 @@
 - Breadcrumb: `Segment active? icon?` plus button attrs.
 - ControlGroup: radio/checkbox group; `direction row|column`, `name` required.
 - DataTable: `columns[{key,label,width?,sortable?,cell}]`, `data[]`, `actions[{icon,disabled?,onClick}]`.
-- Dialog: `Alert(title, description?)`, `Confirm(..., confirmLabel?, declineLabel?, onConfirm)`, `Default(title, content, footer, preventClose?, maxWidth?)`.
+- Dialog: Compound (`useOverlay(Dialog)` → `<Dialog.Content/Header/Body/Footer/>`) + presets `AlertDialog`, `ConfirmDialog`, `DefaultDialog`.
 - InputField: `label`, `optional? optionalLabel?`, `description?`; place input children inside.
 - Menu: `Static items[{label,icon?,subItems?}]`; re-exports `Trigger`.
 - Message: chat bubble/compact `variant`, `sender me|opponent`, `timestamp` required, `reply?`, `reactions?`.

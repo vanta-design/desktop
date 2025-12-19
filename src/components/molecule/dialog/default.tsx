@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
-import { _Dialog } from '@/components/atom/dialog';
 import type { OverlayComponentProps } from '@/components/features/overlay/types';
-import { Container } from '@/components/layout/container';
+import { DialogBase as Dialog } from './compound';
 
-interface _DefaultDialogProps {
+export interface DefaultDialogProps {
   title: string;
+  description?: string;
   content: ReactNode;
   footer: ReactNode;
   preventClose?: boolean;
@@ -12,20 +12,29 @@ interface _DefaultDialogProps {
 }
 
 export function _DefaultDialog(
-  props: _DefaultDialogProps & OverlayComponentProps,
+  props: DefaultDialogProps & OverlayComponentProps,
 ) {
-  const { title, content, footer, preventClose, maxWidth, isOpen, close } =
-    props;
+  const {
+    title,
+    description,
+    content,
+    footer,
+    preventClose,
+    maxWidth,
+    isOpen,
+    close,
+  } = props;
 
   return (
-    <_Dialog.Root preventClose={preventClose} close={close}>
-      <_Dialog.Container isOpen={isOpen} maxWidth={maxWidth || 600}>
-        <Container vertical='small' horizontal='small'>
-          <_Dialog.Header title={title} close={close} />
-          <_Dialog.Body>{content}</_Dialog.Body>
-        </Container>
-        <_Dialog.Footer outline>{footer}</_Dialog.Footer>
-      </_Dialog.Container>
-    </_Dialog.Root>
+    <Dialog
+      preventClose={preventClose}
+      maxWidth={maxWidth || 600}
+      isOpen={isOpen}
+      close={close}
+    >
+      <Dialog.Header title={title} description={description} closeButton />
+      <Dialog.Body>{content}</Dialog.Body>
+      <Dialog.Footer outline>{footer}</Dialog.Footer>
+    </Dialog>
   );
 }

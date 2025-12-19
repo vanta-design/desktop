@@ -5,7 +5,12 @@ import { useOverlay } from '@/components/features/overlay';
 import { Column } from '@/components/layout/column';
 import { Container } from '@/components/layout/container';
 import { Row } from '@/components/layout/row';
-import { Dialog } from '@/components/molecule/dialog';
+import {
+  AlertDialog,
+  ConfirmDialog,
+  DefaultDialog,
+  Dialog,
+} from '@/components/molecule/dialog';
 import { InputField } from '@/components/molecule/input-field';
 
 const meta: Meta = {
@@ -16,14 +21,16 @@ export default meta;
 
 export const Default: StoryObj = {
   render: () => {
-    const DefaultDialog = useOverlay(Dialog.Default);
+    const DefaultDialogOverlay = useOverlay(DefaultDialog);
 
     return (
       <Container>
         <Row>
-          <Button.Large onClick={DefaultDialog.show}>Open Dialog</Button.Large>
+          <Button.Large onClick={DefaultDialogOverlay.show}>
+            Open Dialog
+          </Button.Large>
         </Row>
-        <DefaultDialog.Render
+        <DefaultDialogOverlay.Render
           title='Add new task'
           content={
             <Column gap={16}>
@@ -36,7 +43,9 @@ export const Default: StoryObj = {
             </Column>
           }
           footer={
-            <Button.Medium onClick={DefaultDialog.hide}>Add</Button.Medium>
+            <Button.Medium onClick={DefaultDialogOverlay.hide}>
+              Add
+            </Button.Medium>
           }
         />
       </Container>
@@ -44,18 +53,50 @@ export const Default: StoryObj = {
   },
 };
 
-export const Alert: StoryObj = {
+export const Compound: StoryObj = {
   render: () => {
-    const AlertDialog = useOverlay(Dialog.Alert);
+    const CustomDialog = useOverlay(Dialog);
 
     return (
       <Container>
         <Row>
-          <Button.Large onClick={AlertDialog.show}>
+          <Button.Large onClick={CustomDialog.show}>
+            Open Compound Dialog
+          </Button.Large>
+        </Row>
+        <CustomDialog.Render maxWidth={560}>
+          <Dialog.Header title='Compound dialog' />
+          <Dialog.Body>
+            <Column gap={16}>
+              <InputField label='Title'>
+                <TextInput placeholder='Summary of task' />
+              </InputField>
+              <InputField label='Description'>
+                <TextInput placeholder='Describe the task' />
+              </InputField>
+            </Column>
+          </Dialog.Body>
+          <Dialog.Footer outline>
+            <Button.Medium onClick={CustomDialog.hide}>Close</Button.Medium>
+          </Dialog.Footer>
+        </CustomDialog.Render>
+      </Container>
+    );
+  },
+};
+
+export const Alert: StoryObj = {
+  render: () => {
+    const AlertDialogOverlay = useOverlay(AlertDialog);
+
+    return (
+      <Container>
+        <Row>
+          <Button.Large onClick={AlertDialogOverlay.show}>
             Open Alert Dialog
           </Button.Large>
         </Row>
-        <AlertDialog.Render
+        <AlertDialogOverlay.Render
           title='Action complete'
           description='Task was completed successfully.'
         />
@@ -66,25 +107,25 @@ export const Alert: StoryObj = {
 
 export const Confirm: StoryObj = {
   render: () => {
-    const ConfirmDialog = useOverlay(Dialog.Confirm);
-    const DeleteConfirmDialog = useOverlay(Dialog.Confirm);
+    const ConfirmDialogOverlay = useOverlay(ConfirmDialog);
+    const DeleteConfirmDialogOverlay = useOverlay(ConfirmDialog);
 
     return (
       <Container>
         <Row gap={16}>
-          <Button.Large onClick={ConfirmDialog.show}>
+          <Button.Large onClick={ConfirmDialogOverlay.show}>
             Open Confirm Dialog
           </Button.Large>
-          <Button.Large onClick={DeleteConfirmDialog.show}>
+          <Button.Large onClick={DeleteConfirmDialogOverlay.show}>
             Open Delete Confirm Dialog
           </Button.Large>
         </Row>
-        <ConfirmDialog.Render
+        <ConfirmDialogOverlay.Render
           title='Are you sure?'
           description='This action cannot be undone.'
           onConfirm={() => console.log('Confirmed')}
         />
-        <DeleteConfirmDialog.Render
+        <DeleteConfirmDialogOverlay.Render
           title='Are you sure you want to delete this item?'
           description='This action cannot be undone. It requires a few seconds to complete.'
           confirmLabel='Delete'

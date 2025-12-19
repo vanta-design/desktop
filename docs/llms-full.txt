@@ -18,7 +18,7 @@ Built with React 19, vanilla-extract theming, and shipped as an ESM package for 
 
 ## Components
 - [src/components](src/components): Source organized by atoms, molecules, layouts, and feature utilities.
-- Note: filenames/parts starting with `_` are internal building blocks; consumer code should import the public names re-exported from `src/index.ts` (e.g., use `Dialog.Default`, not `_Dialog.Root`).
+- Note: filenames/parts starting with `_` are internal building blocks; consumer code should import the public names re-exported from `src/index.ts` (e.g., use `DefaultDialog`, not `_Dialog.Root`).
 - **Atom**
   - [button](src/components/atom/button/index.tsx): `variant primary|secondary|bare`, `size`, `loading`, icons.  
     ```tsx
@@ -118,7 +118,7 @@ Built with React 19, vanilla-extract theming, and shipped as an ESM package for 
 - **Feature**
   - [overlay](src/components/features/overlay/index.tsx): `useOverlay(Component)` → `{Render,show,hide}`.  
     ```tsx
-    const { Render, show } = useOverlay(Dialog.Alert);
+    const { Render, show } = useOverlay(AlertDialog);
     return (<><Render title="Saved" /><Button onClick={show}>Open</Button></>);
     ```
   - [positioner](src/components/features/positioner/index.tsx): `show? anchorRef? offset? side? align?` render-prop.  
@@ -161,9 +161,9 @@ Built with React 19, vanilla-extract theming, and shipped as an ESM package for 
       actions={[{ icon:Trash2, onClick:(row)=>remove(row) }]}
     />
     ```
-  - [dialog](src/components/molecule/dialog/index.ts): Alert `title,description?`; Confirm `title,description?,confirmLabel?,declineLabel?,onConfirm`; Default `title,content,footer,preventClose?,maxWidth?`.  
+  - [dialog](src/components/molecule/dialog/index.ts): `Dialog`(compound) + `AlertDialog`, `ConfirmDialog`, `DefaultDialog`.  
     ```tsx
-    <Dialog.Confirm title="Delete?" description="This cannot be undone." onConfirm={doIt} />
+    <ConfirmDialog title="Delete?" description="This cannot be undone." onConfirm={doIt} />
     ```
   - [menu](src/components/molecule/menu/index.ts): Static `items[{label,icon?,subItems?}]`; Trigger re-export.  
     ```tsx

@@ -1,16 +1,8 @@
 import type { PropsWithChildren } from 'react';
-import { Container } from '@/components/layout/container';
+import { body } from './styles/body.css';
 
-interface _DialogBodyProps extends PropsWithChildren {
-  compact?: boolean;
-}
+export function _DialogBody(props: PropsWithChildren) {
+  const { children } = props;
 
-export function _DialogBody(props: _DialogBodyProps) {
-  const { compact = false, children } = props;
-
-  return (
-    <Container vertical={compact ? 'none' : 'large'} horizontal='large'>
-      {children}
-    </Container>
-  );
+  return <main className={body}>{children}</main>;
 }

@@ -1,11 +1,6 @@
 import { spacing } from '@/tokens/attribute.css';
 import { style } from '@/utils/style';
 
-export const header = style({
+export const body = style({
   padding: spacing[32],
-  paddingBottom: 0,
-});
-
-export const closeButton = style({
-  cursor: 'pointer',
 });

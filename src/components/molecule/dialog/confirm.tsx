@@ -1,12 +1,9 @@
 import { useCallback, useState } from 'react';
 import { Button } from '@/components/atom/button';
-import { _Dialog } from '@/components/atom/dialog';
-import { Paragraph } from '@/components/atom/typography';
 import type { OverlayComponentProps } from '@/components/features/overlay/types';
-import { Container } from '@/components/layout/container';
-import { text } from '@/tokens/color.css';
+import { DialogBase as Dialog } from './compound';
 
-interface _ConfirmDialogProps {
+export interface ConfirmDialogProps {
   title: string;
   description?: string;
   confirmLabel?: string;
@@ -15,7 +12,7 @@ interface _ConfirmDialogProps {
 }
 
 export function _ConfirmDialog(
-  props: _ConfirmDialogProps & OverlayComponentProps,
+  props: ConfirmDialogProps & OverlayComponentProps,
 ) {
   const {
     title,
@@ -36,29 +33,26 @@ export function _ConfirmDialog(
   }, [onConfirm, close]);
 
   return (
-    <_Dialog.Root preventClose={isProcessing} close={close}>
-      <_Dialog.Container isOpen={isOpen} maxWidth={500}>
-        <Container vertical='small' horizontal='small'>
-          <_Dialog.Header title={title} close={close} hideCloseButton />
-          <_Dialog.Body compact>
-            <Paragraph.Body wrap color={text.tertiary}>
-              {description}
-            </Paragraph.Body>
-          </_Dialog.Body>
-        </Container>
-        <_Dialog.Footer>
-          <Button.Medium
-            variant='secondary'
-            disabled={isProcessing}
-            onClick={close}
-          >
-            {declineLabel}
-          </Button.Medium>
-          <Button.Medium loading={isProcessing} onClick={onClickOk}>
-            {confirmLabel}
-          </Button.Medium>
-        </_Dialog.Footer>
-      </_Dialog.Container>
-    </_Dialog.Root>
+    <Dialog
+      role='alertdialog'
+      preventClose={isProcessing}
+      maxWidth={500}
+      isOpen={isOpen}
+      close={close}
+    >
+      <Dialog.Header title={title} description={description} />
+      <Dialog.Footer>
+        <Button.Medium
+          variant='secondary'
+          disabled={isProcessing}
+          onClick={close}
+        >
+          {declineLabel}
+        </Button.Medium>
+        <Button.Medium loading={isProcessing} onClick={onClickOk}>
+          {confirmLabel}
+        </Button.Medium>
+      </Dialog.Footer>
+    </Dialog>
   );
 }
